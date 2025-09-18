@@ -97,6 +97,10 @@
 				color: var(--text-primary);
 			}
 
+			.nav-toggle.active {
+				color: var(--primary);
+			}
+
 			.nav-menu {
 				display: flex;
 				list-style: none;
@@ -570,6 +574,11 @@
 					display: none;
 				}
 				
+				.nav-menu.is-open {
+					display: flex;
+					flex-direction: column;
+				}
+				
 				.nav-toggle {
 					display: block;
 				}
@@ -612,8 +621,8 @@
 		<header class="header" id="header">
 			<nav class="nav">
 				<a href="#" class="logo">RAD AI</a>
-				<button class="nav-toggle">☰</button>
-				<ul class="nav-menu">
+				<button class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation">☰</button>
+				<ul class="nav-menu" id="primary-navigation">
 					<li><a href="#services">Services</a></li>
 					<li><a href="#features">Why Choose Us</a></li>
 					<li><a href="#contact">Contact</a></li>
@@ -764,6 +773,26 @@
 					}
 				});
 			});
+
+			// Mobile navigation
+			const navToggle = document.querySelector('.nav-toggle');
+			const navMenu = document.querySelector('.nav-menu');
+
+			if (navToggle && navMenu) {
+				navToggle.addEventListener('click', () => {
+					const isOpen = navMenu.classList.toggle('is-open');
+					navToggle.classList.toggle('active', isOpen);
+					navToggle.setAttribute('aria-expanded', String(isOpen));
+				});
+
+				navMenu.querySelectorAll('a').forEach(link => {
+					link.addEventListener('click', () => {
+						navMenu.classList.remove('is-open');
+						navToggle.classList.remove('active');
+						navToggle.setAttribute('aria-expanded', 'false');
+					});
+				});
+			}
 
 			// Scroll animations
 			const observerOptions = {
