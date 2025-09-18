@@ -16,25 +16,25 @@
 			}
 
 			:root {
-				--primary: #0056d6; /* darker blue */
-  				--primary-dark: #0041a8; /* adjust hover state too */
-				--secondary: #5856D6;
-				--accent: #FF3B30;
+				--primary: #0EA5E9;
+				--primary-dark: #0284C7;
+				--secondary: #1E40AF;
+				--accent: #F97316;
 				--success: #34C759;
-				--text-primary: #1D1D1F;
-				--text-secondary: #86868B;
+				--text-primary: #0F172A;
+				--text-secondary: #475569;
 				--bg-primary: #FFFFFF;
-				--bg-secondary: #F5F5F7;
-				--bg-tertiary: #FAFAFA;
-				--border: #E5E5EA;
-				--shadow-light: rgba(0, 0, 0, 0.04);
-				--shadow-medium: rgba(0, 0, 0, 0.1);
-				--shadow-heavy: rgba(0, 0, 0, 0.15);
-				--gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-				--gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-				--radius-small: 8px;
-				--radius-medium: 16px;
-				--radius-large: 24px;
+				--bg-secondary: #F1F5F9;
+				--bg-tertiary: #F8FAFC;
+				--border: #E2E8F0;
+				--shadow-light: rgba(15, 23, 42, 0.06);
+				--shadow-medium: rgba(15, 23, 42, 0.12);
+				--shadow-heavy: rgba(15, 23, 42, 0.18);
+				--gradient-primary: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%);
+				--gradient-secondary: linear-gradient(135deg, #38BDF8 0%, #6366F1 100%);
+				--radius-small: 10px;
+				--radius-medium: 18px;
+				--radius-large: 28px;
 			}
 
 			body {
@@ -76,17 +76,30 @@
 			}
 
 			.logo {
-				font-size: 1.5rem;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.6rem;
+				font-size: 1.3rem;
 				font-weight: 700;
 				color: var(--text-primary);
 				text-decoration: none;
-				transition: all 0.3s ease;
+				transition: color 0.3s ease;
 				letter-spacing: -0.02em;
 			}
 
 			.logo:hover {
 				color: var(--primary);
-				transform: translateY(-1px);
+			}
+
+			.logo-mark {
+				display: inline-block;
+				height: 38px;
+				width: 38px;
+			}
+
+			.logo-text {
+				display: inline-block;
+				color: inherit;
 			}
 
 			.nav-toggle {
@@ -122,7 +135,7 @@
 			.nav-menu .cta-button:hover {
 				background: var(--primary-dark);
 				transform: translateY(-1px);
-				box-shadow: 0 6px 18px rgba(0, 86, 214, 0.25);
+				box-shadow: 0 6px 18px rgba(2, 132, 199, 0.25);
 			}
 
 			.nav-menu a {
@@ -157,12 +170,12 @@
 			.cta-button {
 				background: var(--primary);
 				color: white;
-				padding: 0.75rem 1.5rem;
-				border-radius: 50px;
+				padding: 0.65rem 1.4rem;
+				border-radius: 999px;
 				text-decoration: none;
 				font-weight: 600;
-				font-size: 0.9rem;
-				transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+				font-size: 0.95rem;
+				transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 				border: none;
 				cursor: pointer;
 				letter-spacing: -0.01em;
@@ -170,8 +183,8 @@
 
 			.cta-button:hover {
 				background: var(--primary-dark);
-				transform: translateY(-2px) scale(1.02);
-				box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
+				transform: translateY(-1px);
+				box-shadow: 0 10px 30px rgba(2, 132, 199, 0.25);
 			}
 
 			/* Hero Section */
@@ -180,74 +193,239 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				text-align: center;
-				background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+				background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-primary) 80%);
 				position: relative;
 				overflow: hidden;
-				padding: 6rem 2rem 4rem;
+				padding: 7rem 2rem 4rem;
 			}
 
 			.hero::before {
 				content: '';
 				position: absolute;
 				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: radial-gradient(circle at 25% 25%, rgba(0, 122, 255, 0.1) 0%, transparent 50%),
-							radial-gradient(circle at 75% 75%, rgba(88, 86, 214, 0.1) 0%, transparent 50%);
-				opacity: 0.6;
+				left: 50%;
+				width: 1200px;
+				height: 1200px;
+				transform: translate(-50%, -35%);
+				background: radial-gradient(circle at top, rgba(14, 165, 233, 0.12), transparent 60%);
+				opacity: 1;
+				pointer-events: none;
 			}
 
-			.hero-content {
-				max-width: 900px;
-				margin: 0 auto;
+			.hero-inner {
 				position: relative;
-				z-index: 2;
-				animation: fadeInUp 1s ease-out;
+				z-index: 1;
+				max-width: 1200px;
+				width: 100%;
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 3rem;
+				align-items: center;
 			}
 
-			.hero h1 {
-				font-size: clamp(2.5rem, 6vw, 4.5rem);
-				font-weight: 700;
-				margin-bottom: 1.5rem;
-				color: var(--text-primary);
-				line-height: 1.1;
-				letter-spacing: -0.02em;
+			.hero-text {
+				text-align: left;
+				max-width: 540px;
+				margin: 0 auto;
 			}
 
-			.hero .subtitle {
-				font-size: clamp(1.1rem, 3vw, 1.4rem);
+			.hero-badge {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.35rem;
+				padding: 0.45rem 0.85rem;
+				border-radius: 999px;
+				border: 1px solid var(--border);
+				background: rgba(255, 255, 255, 0.8);
+				box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+				font-size: 0.75rem;
+				font-weight: 500;
 				color: var(--text-secondary);
-				margin-bottom: 3rem;
-				font-weight: 400;
-				max-width: 700px;
-				margin-left: auto;
-				margin-right: auto;
-				line-height: 1.6;
+			}
+
+			.hero-text h1 {
+				margin-top: 1.75rem;
+				font-size: clamp(2.2rem, 5vw, 3.6rem);
+				font-weight: 800;
+				line-height: 1.1;
+				color: var(--text-primary);
+				letter-spacing: -0.03em;
+			}
+
+			.hero-text h1 span {
+				background: var(--gradient-primary);
+				-webkit-background-clip: text;
+				color: transparent;
+			}
+
+			.hero-subtitle {
+				margin-top: 1.5rem;
+				font-size: 1.1rem;
+				color: var(--text-secondary);
+				line-height: 1.75;
+			}
+
+			.hero-actions {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1rem;
+				margin-top: 2rem;
 			}
 
 			.hero-button {
-				background: var(--primary);
-				color: white;
-				padding: 1.25rem 2.5rem;
-				border-radius: 50px;
-				text-decoration: none;
-				font-weight: 600;
-				font-size: 1.1rem;
-				transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 				display: inline-flex;
 				align-items: center;
-				gap: 0.5rem;
+				justify-content: center;
+				padding: 0.9rem 2rem;
+				border-radius: 999px;
+				font-weight: 600;
+				font-size: 1rem;
+				text-decoration: none;
+				transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
 				border: none;
 				cursor: pointer;
-				box-shadow: 0 4px 20px rgba(0, 122, 255, 0.25);
+				box-shadow: 0 16px 40px rgba(14, 165, 233, 0.18);
 			}
 
-			.hero-button:hover {
+			.hero-button.primary {
+				background: var(--primary);
+				color: #fff;
+			}
+
+			.hero-button.secondary {
+				background: #fff;
+				color: var(--text-primary);
+				border: 1px solid var(--border);
+				box-shadow: none;
+			}
+
+			.hero-button.primary:hover {
 				background: var(--primary-dark);
-				transform: translateY(-3px) scale(1.02);
-				box-shadow: 0 12px 40px rgba(0, 122, 255, 0.4);
+				transform: translateY(-2px);
+				box-shadow: 0 20px 45px rgba(2, 132, 199, 0.25);
+			}
+
+			.hero-button.secondary:hover {
+				color: var(--primary-dark);
+				border-color: rgba(2, 132, 199, 0.35);
+				transform: translateY(-1px);
+				box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+			}
+
+			.hero-note {
+				margin-top: 1.5rem;
+				font-size: 0.85rem;
+				color: rgba(71, 85, 105, 0.9);
+			}
+
+			.hero-visual {
+				display: flex;
+				justify-content: center;
+			}
+
+			.hero-card {
+				width: 100%;
+				max-width: 360px;
+				background: #fff;
+				border-radius: 24px;
+				border: 1px solid var(--border);
+				box-shadow: 0 25px 60px rgba(15, 23, 42, 0.1);
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+				padding: 1.5rem;
+			}
+
+			.hero-card-header {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			.hero-card-indicator {
+				width: 48px;
+				height: 12px;
+				border-radius: 999px;
+				background: linear-gradient(90deg, #FACC15, #F97316, #EF4444);
+				opacity: 0.7;
+			}
+
+			.hero-card-actions {
+				display: inline-flex;
+				gap: 0.5rem;
+			}
+
+			.pill {
+				padding: 0.35rem 0.85rem;
+				border-radius: 999px;
+				font-size: 0.75rem;
+				font-weight: 600;
+				border: none;
+				cursor: pointer;
+				transition: background 0.2s ease, color 0.2s ease;
+			}
+
+			.pill-light {
+				background: #F8FAFC;
+				color: var(--text-secondary);
+			}
+
+			.pill-light:hover {
+				background: #E2E8F0;
+			}
+
+			.pill-accent {
+				background: var(--primary);
+				color: #fff;
+			}
+
+			.pill-accent:hover {
+				background: var(--primary-dark);
+			}
+
+			.hero-card-body {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+			}
+
+			.hero-card-bot {
+				font-size: 2.2rem;
+			}
+
+			.hero-card-content {
+				display: flex;
+				flex-direction: column;
+				gap: 0.4rem;
+			}
+
+			.hero-card-title {
+				font-weight: 600;
+				color: var(--text-primary);
+			}
+
+			.hero-card-copy {
+				font-size: 0.9rem;
+				color: var(--text-secondary);
+				line-height: 1.5;
+			}
+
+			.hero-card-footer {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 0.75rem;
+			}
+
+			.hero-card-link {
+				font-size: 0.85rem;
+				font-weight: 600;
+				color: var(--primary);
+				text-decoration: none;
+			}
+
+			.hero-card-link:hover {
+				color: var(--primary-dark);
 			}
 
 			.scroll-indicator {
@@ -650,6 +828,27 @@
 					display: block;
 				}
 				
+				.hero {
+					padding: 6.5rem 1.25rem 3rem;
+				}
+				
+				.hero-inner {
+					grid-template-columns: 1fr;
+					gap: 2.5rem;
+				}
+				
+				.hero-text {
+					margin: 0;
+				}
+				
+				.hero-actions {
+					justify-content: flex-start;
+				}
+				
+				.hero-card {
+					max-width: 100%;
+				}
+				
 				.section {
 					padding: 4rem 1rem;
 				}
@@ -679,6 +878,14 @@
 				.features-grid {
 					grid-template-columns: 1fr;
 				}
+				
+				.hero-actions {
+					flex-direction: column;
+				}
+				
+				.hero-button {
+					width: 100%;
+				}
 			}
 		</style>
 	</head>
@@ -687,23 +894,55 @@
 		<!-- Header -->
 		<header class="header" id="header">
 			<nav class="nav">
-				<a href="#" class="logo">RAD AI</a>
+				<a href="/" class="logo" aria-label="RAD AI home">
+					<img src="assets/rad-r-logo.svg" alt="RAD AI logo" class="logo-mark" />
+					<span class="logo-text">RAD AI</span>
+				</a>
 				<button class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation">☰</button>
 				<ul class="nav-menu" id="primary-navigation">
-					<li><a href="#services">Services</a></li>
-					<li><a href="#features">Why Choose Us</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li><a href="#contact" class="cta-button">Get Started</a></li>
+					<li><a href="/">Home</a></li>
+					<li><a href="/demo">Live Demo</a></li>
+					<li><a href="#contact">Join Waitlist</a></li>
+					<li><a href="#contact" class="cta-button">Get Early Access</a></li>
 				</ul>
 			</nav>
 		</header>
 
 		<!-- Hero Section -->
-		<section class="hero">
-			<div class="hero-content">
-				<h1>RAD AI</h1>
-				<p class="subtitle">Rational Automation Design for Businesses That Want to Save Time, Cut Costs, and Scale Smarter with AI.</p>
-				<a href="#contact" class="hero-button">Get Started</a>
+		<section class="hero" id="top">
+			<div class="hero-inner">
+				<div class="hero-text">
+					<div class="hero-badge">Providence → Silicon Valley • yconic Hackathon</div>
+					<h1>Automation Agents that <span>Save Time &amp; Drive Revenue</span></h1>
+					<p class="hero-subtitle">Try our hackathon build: an AI routing agent that sends each request to the best model for the job — faster answers, lower cost, happier customers.</p>
+					<div class="hero-actions">
+						<a href="/demo" class="hero-button primary">Try the Live Demo</a>
+						<a href="#contact" class="hero-button secondary">Join the Waitlist</a>
+					</div>
+					<p class="hero-note">We collect anonymized interaction data for validation. No spam — leave anytime.</p>
+				</div>
+				<div class="hero-visual">
+					<div class="hero-card">
+						<div class="hero-card-header">
+							<div class="hero-card-indicator"></div>
+							<div class="hero-card-actions">
+								<button type="button" class="pill pill-light">Sign in</button>
+								<button type="button" class="pill pill-accent">Sign up</button>
+							</div>
+						</div>
+						<div class="hero-card-body">
+							<div class="hero-card-bot" aria-hidden="true">🤖</div>
+							<div class="hero-card-content">
+								<p class="hero-card-title">Live Demo Preview</p>
+								<p class="hero-card-copy">Our routing agent chooses the best LLM for every request in seconds.</p>
+							</div>
+						</div>
+							<div class="hero-card-footer">
+								<a href="/demo" class="hero-card-link">Try the Live Demo</a>
+								<a href="/demo" class="hero-card-link">Open full demo ↗</a>
+						</div>
+					</div>
+				</div>
 			</div>
 			<a href="#about" class="scroll-indicator">Learn More</a>
 		</section>
