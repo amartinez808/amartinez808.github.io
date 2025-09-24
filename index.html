@@ -243,6 +243,22 @@
 				color: var(--text-secondary);
 			}
 
+			.hero-badges {
+				display: flex;
+				flex-direction: column;
+				gap: 0.75rem;
+				align-items: flex-start;
+			}
+
+			.product-hunt-badge {
+				display: inline-flex;
+				align-items: center;
+			}
+
+			.product-hunt-badge img {
+				display: block;
+			}
+
 			.hero-text h1 {
 				margin-top: 1.75rem;
 				font-size: clamp(2.2rem, 5vw, 3.6rem);
@@ -841,6 +857,10 @@
 					margin: 0;
 				}
 				
+				.hero-badges {
+					align-items: center;
+				}
+				
 				.hero-actions {
 					justify-content: flex-start;
 				}
@@ -912,7 +932,12 @@
 		<section class="hero" id="top">
 			<div class="hero-inner">
 				<div class="hero-text">
-					<div class="hero-badge">Providence → Silicon Valley • yconic Hackathon</div>
+					<div class="hero-badges">
+						<div class="hero-badge">Providence → Silicon Valley • yconic Hackathon</div>
+						<a class="product-hunt-badge" href="https://www.producthunt.com/products/rad-ai-llm-council-router?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-rad&#0045;ai&#0045;llm&#0045;council&#0045;router" target="_blank" rel="noopener noreferrer">
+							<img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1019426&theme=light&t=1758675794012" alt="RAD&#0032;AI&#0032;—&#0032;LLM&#0032;Council&#0032;Router - Auto&#0045;route&#0032;to&#0032;the&#0032;best&#0032;LLM&#0032;for&#0032;speed&#0044;&#0032;depth&#0032;&#0038;&#0032;cost&#0046; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" />
+						</a>
+					</div>
 					<h1>Automation Agents that <span>Save Time &amp; Drive Revenue</span></h1>
 					<p class="hero-subtitle">Try our hackathon build: an AI routing agent that sends each request to the best model for the job — faster answers, lower cost, happier customers.</p>
 					<div class="hero-actions">
