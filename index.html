@@ -1,13 +1,31 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 	<head>
 		<title>RAD AI | AI Automation Solutions for Businesses</title>
 		<meta name="description" content="Save time, cut costs, and scale smarter with AI automation solutions from RAD AI. We build chatbots, task automations, and custom AI tools for businesses." />
+		<meta name="robots" content="index,follow" />
+		<meta name="language" content="en" />
+		<meta name="author" content="RAD AI" />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="canonical" href="https://itsradai.com/" />
+		<link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg" />
+		<meta name="theme-color" content="#0b0d12" />
+		<meta name="keywords" content="AI automation, rational automation design, LLM routing, AI chatbots, compliance AI, RAD AI" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="RAD AI — Rational Automation Design" />
+		<meta property="og:description" content="Route every request to the right large language model, log decisions for compliance, and automate revenue-driving workflows with RAD AI." />
+		<meta property="og:url" content="https://itsradai.com/" />
+		<meta property="og:site_name" content="RAD AI" />
+		<meta property="og:image" content="https://itsradai.com/images/RADai4.jpeg" />
+		<meta property="og:image:alt" content="RAD AI dashboard showing automation performance" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="RAD AI — Rational Automation Design" />
+		<meta name="twitter:description" content="Route every request to the right large language model, log decisions for compliance, and automate revenue-driving workflows with RAD AI." />
+		<meta name="twitter:image" content="https://itsradai.com/images/RADai4.jpeg" />
 		<style>
 			* {
 				margin: 0;
@@ -634,6 +652,73 @@
 				line-height: 1.7;
 			}
 
+			/* FAQ */
+			.faq-list {
+				max-width: 960px;
+				margin: 0 auto;
+				display: grid;
+				gap: 1.25rem;
+			}
+
+			.faq-item {
+				border: 1px solid color-mix(in oklab, var(--text-primary), transparent 82%);
+				background: color-mix(in oklab, var(--bg-primary), #ffffff 6%);
+				border-radius: var(--radius-medium);
+				padding: 1.1rem 1.4rem;
+				box-shadow: 0 12px 24px var(--shadow-light);
+			}
+
+			.faq-item summary {
+				cursor: pointer;
+				font-weight: 600;
+				font-size: 1.05rem;
+				color: var(--text-primary);
+				list-style: none;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 0.75rem;
+			}
+
+			.faq-item summary::-webkit-details-marker {
+				display: none;
+			}
+
+			.faq-item summary::after {
+				content: '+';
+				font-weight: 600;
+				color: var(--accent);
+				transition: transform 0.2s ease, color 0.2s ease;
+			}
+
+			.faq-item summary:hover::after {
+				color: var(--primary);
+			}
+
+			.faq-item[open] summary::after {
+				transform: rotate(45deg);
+			}
+
+			.faq-item p {
+				margin: 0.75rem 0 0;
+				color: var(--text-secondary);
+				line-height: 1.6;
+			}
+
+			@media (prefers-color-scheme: dark) {
+				.faq-item {
+					background: color-mix(in oklab, #11161f, #ffffff 4%);
+					border-color: color-mix(in oklab, #ffffff, transparent 75%);
+					box-shadow: 0 20px 40px rgba(0,0,0,.35);
+				}
+				.faq-item summary {
+					color: color-mix(in oklab, #ffffff, transparent 12%);
+				}
+				.faq-item p {
+					color: color-mix(in oklab, #ffffff, transparent 32%);
+				}
+			}
+
 			/* Contact Form */
 			.contact-section {
 				background: var(--bg-tertiary);
@@ -908,6 +993,66 @@
 				}
 			}
 		</style>
+		<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@graph": [
+		    {
+		      "@type": "Organization",
+		      "@id": "https://itsradai.com/#organization",
+		      "name": "RAD AI",
+		      "url": "https://itsradai.com/",
+		      "logo": "https://itsradai.com/assets/img/logo.svg",
+		      "contactPoint": [
+		        {
+		          "@type": "ContactPoint",
+		          "contactType": "sales",
+		          "email": "contact@radai.com"
+		        }
+		      ]
+		    },
+		    {
+		      "@type": "WebSite",
+		      "@id": "https://itsradai.com/#website",
+		      "url": "https://itsradai.com/",
+		      "name": "RAD AI",
+		      "description": "Rational Automation Design delivers LLM routing, compliance-ready logging, and automation services for revenue teams.",
+		      "inLanguage": "en-US"
+		    },
+		    {
+		      "@type": "FAQPage",
+		      "@id": "https://itsradai.com/#faq",
+		      "mainEntity": [
+		        {
+		          "@type": "Question",
+		          "name": "How does RAD AI select the right large language model for each request?",
+		          "acceptedAnswer": {
+		            "@type": "Answer",
+		            "text": "Every prompt is scored across latency, cost, safety, and answer quality. RAD AI then routes it to the best-performing model in your approved stack and provides human overrides whenever policy requires."
+		          }
+		        },
+		        {
+		          "@type": "Question",
+		          "name": "Can RAD AI provide compliance-ready audit logs?",
+		          "acceptedAnswer": {
+		            "@type": "Answer",
+		            "text": "Yes. We capture transcripts, routing decisions, model metadata, and operator actions so you can export tamper-resistant logs for SOC 2, HIPAA, or financial audits."
+		          }
+		        },
+		        {
+		          "@type": "Question",
+		          "name": "What teams get the most value from RAD AI?",
+		          "acceptedAnswer": {
+		            "@type": "Answer",
+		            "text": "Revenue, customer experience, and operations teams rely on RAD AI to triage inbound questions, surface next-best actions, and automate back-office tasks without sacrificing compliance."
+		          }
+		        }
+		      ]
+		    }
+		  ]
+		}
+		</script>
+
 	</head>
 	<body>
 
@@ -985,7 +1130,7 @@
 			<div class="services-grid">
 				<div class="service-card animate-on-scroll">
 					<div class="service-image">
-						<img src="images/automation.jpg" alt="Modern automation workflow illustration" />
+						<img src="images/google-deepmind-2ufXB-oAyG0-unsplash.jpg" alt="Rows of luminous AI capsules symbolizing streamlined automation" />
 					</div>
 					<div class="service-content">
 						<h3>Automate Repetitive Tasks</h3>
@@ -995,7 +1140,7 @@
 
 				<div class="service-card animate-on-scroll">
 					<div class="service-image">
-						<img src="images/ai-revised2.gif" alt="AI-Powered Chatbots" />
+						<img src="images/google-deepmind-jJMqaZU4EnU-unsplash.jpg" alt="Abstract glass capsule displaying a large language model prompt" />
 					</div>
 					<div class="service-content">
 						<h3>AI-Powered Chatbots</h3>
@@ -1005,7 +1150,7 @@
 
 				<div class="service-card animate-on-scroll">
 					<div class="service-image">
-						<img src="images/analytics.png" alt="Custom AI Solutions" />
+						<img src="images/growtika-nGoCBxiaRO0-unsplash.jpg" alt="Colorful neural sculpture hovering above a podium" />
 					</div>
 					<div class="service-content">
 						<h3>Custom AI Solutions</h3>
@@ -1042,6 +1187,28 @@
 					<h3>Custom Solutions</h3>
 					<p>Every business is unique — we design automations tailored to your workflow. Get solutions that actually fit how you work.</p>
 				</div>
+			</div>
+		</section>
+
+		<!-- FAQ Section -->
+		<section id="faq" class="section section-alt">
+			<div class="section-header animate-on-scroll">
+				<h2 class="section-title">Frequently Asked Questions</h2>
+				<p class="section-subtitle">Quick answers that help AI engines and your team understand RAD AI faster.</p>
+			</div>
+			<div class="faq-list">
+				<details class="faq-item" open>
+					<summary>How does RAD AI select the right large language model for each request?</summary>
+					<p>Every prompt is scored across latency, cost, safety, and answer quality. RAD AI then routes it to the best-performing model in your approved stack, and provides human overrides whenever policy requires.</p>
+				</details>
+				<details class="faq-item">
+					<summary>Can RAD AI provide compliance-ready audit logs?</summary>
+					<p>Yes. We capture transcripts, routing decisions, model metadata, and operator actions so you can export tamper-resistant logs for SOC 2, HIPAA, or financial audits.</p>
+				</details>
+				<details class="faq-item">
+					<summary>What teams get the most value from RAD AI?</summary>
+					<p>Revenue, customer experience, and operations teams rely on RAD AI to triage inbound questions, surface next-best actions, and automate back-office tasks without sacrificing compliance.</p>
+				</details>
 			</div>
 		</section>
 
@@ -1153,4 +1320,3 @@
 
 	</body>
 </html>
-

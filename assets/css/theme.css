@@ -1,0 +1,125 @@
+/* ===== CSS Design Tokens (Light/Dark) ===== */
+:root{
+  --bg: #0b0d12;              /* used as page background via gradient */
+  --bg-2: #0e1117;
+  --surface: color-mix(in oklab, #ffffff 6%, transparent);
+  --text: #e6e9ef;
+  --muted: color-mix(in oklab, var(--text), transparent 50%);
+  --accent-1: #7c3aed;        /* purple */
+  --accent-2: #06b6d4;        /* cyan  */
+  --ring: color-mix(in oklab, var(--accent-2), white 30%);
+
+  --radius-xl: 22px;
+  --radius-2xl: 28px;
+  --shadow-xl: 0 22px 60px rgba(0,0,0,.35);
+  --border: 1px solid color-mix(in oklab, #ffffff, transparent 88%);
+
+  --container: clamp(1024px, 86vw, 1280px);
+  --space-1: clamp(.75rem, .9vw, 1rem);
+  --space-2: clamp(1rem, 1.4vw, 1.25rem);
+  --space-3: clamp(1.25rem, 2vw, 1.75rem);
+  --space-4: clamp(1.75rem, 3vw, 2.5rem);
+  --space-5: clamp(2.5rem, 5vw, 4rem);
+  --space-6: clamp(3.5rem, 7vw, 6rem);
+}
+
+/* Light mode (if your base site is light) */
+@media (prefers-color-scheme: light){
+  :root{
+    --bg: #f6f8fb;
+    --bg-2: #ffffff;
+    --text: #0b1220;
+    --muted: #5b6473;
+    --surface: color-mix(in oklab, #000 3%, white 97%);
+    --border: 1px solid color-mix(in oklab, #000, transparent 92%);
+    --shadow-xl: 0 24px 60px rgba(15,23,42,.10);
+  }
+}
+
+/* ===== Global Background & Typography ===== */
+html, body { height: 100%; }
+body{
+  background:
+    radial-gradient(1200px 600px at 10% -10%, color-mix(in oklab, var(--accent-2), transparent 80%), transparent),
+    radial-gradient(900px 600px at 110% 10%, color-mix(in oklab, var(--accent-1), transparent 84%), transparent),
+    linear-gradient(180deg, var(--bg), var(--bg-2));
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+  -webkit-font-smoothing: antialiased;  text-rendering: optimizeLegibility;
+}
+
+/* Constrain page content */
+.container{ max-width: var(--container); margin-inline: auto; padding-inline: clamp(12px,2vw,20px); }
+
+/* ===== Sticky, Translucent Nav ===== */
+.site-nav{
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: saturate(1.2) blur(12px);
+  background: color-mix(in oklab, var(--bg-2), transparent 65%);
+  border-bottom: var(--border);
+}
+.site-nav .inner{
+  display:flex; align-items:center; justify-content:space-between;
+  height: 64px; gap: 12px; max-width: var(--container); margin:0 auto; padding-inline: clamp(12px,2vw,20px);
+}
+.brand{ display:flex; align-items:center; gap:.6rem; font-weight:700; letter-spacing:.2px; }
+.nav-links{ display:flex; gap: clamp(12px,1.6vw,20px); align-items:center; }
+.nav-links a{ color: var(--text); opacity:.88; text-decoration:none; padding:.4rem .6rem; border-radius: 10px; }
+.nav-links a:hover{ opacity:1; background: color-mix(in oklab, var(--surface), transparent 30%); }
+
+/* ===== Sections & Panels ===== */
+.section{ padding-block: var(--space-6); }
+.panel{
+  background: var(--surface);
+  border: var(--border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-xl);
+  overflow: clip;
+}
+.panel .content{ padding: var(--space-5); }
+
+/* ===== Media Frames (for your new images) ===== */
+.media-frame{
+  border-radius: var(--radius-2xl);
+  overflow: clip;
+  border: var(--border);
+  box-shadow: var(--shadow-xl);
+  background: color-mix(in oklab, var(--surface), transparent 30%);
+  transform: translateZ(0);  /* promote to its own layer */
+}
+.media-frame img{ width:100%; height:100%; object-fit:cover; display:block; }
+.media-float{ animation: floatY 9s ease-in-out infinite; }
+@keyframes floatY{ 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-10px) } }
+
+/* ===== Feature Rows (image + copy) ===== */
+.feature-row{
+  display:grid; gap: var(--space-5);
+  grid-template-columns: 1fr; align-items:center;
+}
+@media (min-width: 980px){
+  .feature-row{ grid-template-columns: 1.2fr .9fr; }
+  .feature-row.reverse{ grid-template-columns: .9fr 1.2fr; }
+}
+.kicker{ text-transform: uppercase; letter-spacing:.12em; font-size:.8rem; opacity:.7; }
+.h1{ font-size: clamp(2rem,4.6vw,3.2rem); margin: 0 0 .6rem; line-height:1.05; }
+.lead{ font-size: clamp(1rem,1.8vw,1.2rem); opacity:.9; }
+
+/* ===== Buttons ===== */
+.btn{ display:inline-flex; align-items:center; gap:.5rem; padding:.75rem 1rem; border-radius: 999px; text-decoration:none; border: var(--border); }
+.btn-primary{
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  color:#fff; border: none; box-shadow: 0 8px 30px color-mix(in oklab, var(--accent-2), transparent 75%);
+}
+.btn:hover{ transform: translateY(-1px); transition: transform .18s ease; }
+
+/* ===== Subtle Divider ===== */
+.hr{ height:1px; background: color-mix(in oklab, var(--text), transparent 88%); margin-block: var(--space-5); border-radius: 999px; }
+
+/* ===== Scroll Reveal (utility class) ===== */
+.reveal{ opacity:0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible{ opacity:1; transform: translateY(0); }
+
+/* ===== Respect Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+}
