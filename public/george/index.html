@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>George Mato — Luxury Condominium Consultant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c8a24a; } *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;color:#1a1a1a;background:#f7f7f7}
+    header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);display:flex;justify-content:space-between;align-items:center;padding:18px 56px;border-bottom:1px solid #e6e6e6}
+    header nav a{margin-left:28px;text-decoration:none;color:#333;font-size:13px;text-transform:uppercase;letter-spacing:.12em}
+    header .cta{background:var(--gold);color:#fff;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:600}
+    .logo{font-family:'Playfair Display',serif;letter-spacing:.08em;font-size:20px}
+    .hero{position:relative;height:92vh;display:flex;align-items:center;justify-content:center;color:#fff;text-align:left}
+    .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,16,32,.65),rgba(10,16,32,.65));z-index:-1}
+    .hero .inner{width:min(1200px,92%);margin:0 auto;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+    .eyebrow{text-transform:uppercase;letter-spacing:.3em;font-size:12px;color:#f6d899;margin-bottom:14px}
+    h1{font-family:'Playfair Display',serif;font-size:56px;line-height:1.08;margin:0 0 14px}
+    .lead{font-size:18px;color:#e6e6e6;max-width:640px}
+    .buttons a{display:inline-block;margin-right:12px;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:600}
+    .buttons .primary{background:var(--gold);color:#fff}.buttons .ghost{border:1px solid rgba(255,255,255,.4);color:#fff}
+    section{padding:100px 56px;background:#fff}.shell{width:min(1200px,92%);margin:0 auto}
+    h2{font-family:'Playfair Display',serif;font-size:32px;margin:0 0 14px}.muted{color:#666}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{background:#fafafa;border:1px solid #eee;border-radius:16px;padding:24px;box-shadow:0 8px 20px rgba(0,0,0,.04)}
+    .strip{background:#fff;border-top:1px solid #eee;border-bottom:1px solid #eee}
+    .strip .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center;color:#777;text-transform:uppercase;letter-spacing:.15em;font-size:12px}
+    footer{background:#0b1224;color:#b7c0d8;text-align:center;padding:48px 24px;font-size:14px}
+    @media (max-width:900px){.hero .inner{grid-template-columns:1fr}.grid3{grid-template-columns:1fr}header{padding:14px 20px}section{padding:72px 20px}h1{font-size:42px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">GEORGE MATO</div>
+    <nav>
+      <a href="#about">About</a><a href="#services">Services</a><a href="#testimonials">Testimonials</a><a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="cta">Work With George</a>
+  </header>
+  <main>
+    <section class="hero">
+      <img src="https://images.unsplash.com/photo-1496588152823-e34b802fa3b2?q=80&w=2400&auto=format&fit=crop" alt="NYC skyline at dusk">
+      <div class="inner"><div>
+        <div class="eyebrow">Luxury Condominium Consultant</div>
+        <h1>Simplifying the luxury condo buying process</h1>
+        <p class="lead">George Mato — 30 years of leadership in high-end condominium sales, including Director of Sales at Ritz-Carlton Residences. Discreet, data-driven advisory for discerning buyers.</p>
+        <div class="buttons" style="margin-top:18px;">
+          <a href="#contact" class="primary">Work With George</a>
+          <a href="#about" class="ghost">Learn More</a>
+        </div>
+      </div></div>
+    </section>
+    <section class="strip"><div class="shell logos">
+      <div>Ritz-Carlton Residences</div><div>London Bay Development</div><div>Miromar Lakes</div><div>South Florida Luxury</div>
+    </div></section>
+    <section id="about"><div class="shell">
+      <h2>About George</h2>
+      <p class="muted">Three decades advising private clients on flagship residences. George combines negotiation expertise with white-glove service, guiding acquisitions with discretion from first tour to close.</p>
+    </div></section>
+    <section id="services"><div class="shell">
+      <h2>Services</h2>
+      <div class="grid3" style="margin-top:18px;">
+        <div class="card"><h3>Buyer Representation</h3><p class="muted">Search, shortlist, and secure premier residences with data-driven comps and discreet negotiations.</p></div>
+        <div class="card"><h3>Luxury Condo Consulting</h3><p class="muted">Evaluate amenities, associations, rental policies, and appreciation drivers specific to luxury towers.</p></div>
+        <div class="card"><h3>Private-Client Advisory</h3><p class="muted">Concierge introductions to trusted lenders, attorneys, designers, and property managers.</p></div>
+      </div>
+    </div></section>
+    <section id="testimonials"><div class="shell">
+      <h2>What Clients Say</h2>
+      <div class="grid3" style="margin-top:18px;">
+        <div class="card">“George’s market insight and calm leadership made our purchase effortless.”</div>
+        <div class="card">“The level of discretion and professionalism was exceptional.”</div>
+        <div class="card">“We landed the residence we wanted on our terms. Highly recommended.”</div>
+      </div>
+    </div></section>
+    <section id="contact"><div class="shell" style="text-align:center;">
+      <h2>Ready to work with George?</h2>
+      <p class="muted">Share a few details and we’ll arrange a private consultation.</p>
+      <a href="mailto:george@example.com?subject=Consultation%20Request" class="cta" style="display:inline-block;margin-top:14px;">Request Consultation</a>
+    </div></section>
+  </main>
+  <footer>© <script>document.write(new Date().getFullYear())</script> George Mato — Designed by RAD AI</footer>
+</body>
+</html>
