@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>George Mato — Luxury Condominium Consultant</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="George Mato — luxury condominium consultant with 30+ years experience, $15B+ development sales, trusted advisor in SW Florida.">
+<style>
+:root{--gold:#c8a24a}*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;color:#1a1a1a;background:#f7f7f7}
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);display:flex;justify-content:space-between;align-items:center;padding:18px 56px;border-bottom:1px solid #e6e6e6}
+.logo{font-family:'Playfair Display',serif;letter-spacing:.08em;font-size:20px}
+.cta{background:var(--gold);color:#fff;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:600}
+.hero{position:relative;height:92vh;display:flex;align-items:center;color:#fff}
+.slides{position:absolute;inset:0;overflow:hidden;z-index:-1}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease-in-out}
+.slide.show{opacity:1}
+.overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,16,32,.62),rgba(10,16,32,.68));z-index:0}
+.inner{position:relative;z-index:2;width:min(1200px,92%);margin:0 auto;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.eyebrow{text-transform:uppercase;letter-spacing:.3em;font-size:12px;color:#f6d899;margin-bottom:14px}
+h1{font-family:'Playfair Display',serif;font-size:56px;line-height:1.08;margin:0 0 14px}
+.lead{font-size:18px;color:#e6e6e6;max-width:640px}
+.buttons a{display:inline-block;margin-right:12px;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:600}
+.buttons .primary{background:var(--gold);color:#fff}.buttons .ghost{border:1px solid rgba(255,255,255,.4);color:#fff}
+section{padding:96px 56px;background:#fff}.shell{width:min(1200px,92%);margin:0 auto}
+h2{font-family:'Playfair Display',serif;font-size:32px;margin:0 0 14px}.muted{color:#666}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fafafa;border:1px solid #eee;border-radius:16px;padding:24px;box-shadow:0 8px 20px rgba(0,0,0,.04)}
+footer{background:#0b1224;color:#b7c0d8;text-align:center;padding:40px 24px;font-size:14px}
+@media(max-width:900px){.inner{grid-template-columns:1fr}h1{font-size:42px}section{padding:72px 20px}.grid3{grid-template-columns:1fr}}
+</style>
+</head><body>
+<header>
+  <div class="logo">GEORGE MATO</div>
+  <a href="#contact" class="cta">Work With George</a>
+</header>
+
+<main>
+  <!-- HERO with 2-image carousel -->
+  <section class="hero">
+    <div class="slides">
+      <div class="slide show" style="background-image:url('./hero-1.jpg')"></div>
+      <div class="slide" style="background-image:url('./hero-2.jpg')"></div>
+    </div>
+    <div class="overlay"></div>
+    <div class="inner">
+      <div>
+        <div class="eyebrow">Luxury Condominium Consultant</div>
+        <h1>Simplifying the luxury condo buying process</h1>
+        <p class="lead">30 years in high-end condominium sales. Former Director of Sales — The Ritz-Carlton Residences, Estero Bay.</p>
+        <div class="buttons" style="margin-top:18px;">
+          <a href="#contact" class="primary">Work With George</a>
+          <a href="#about" class="ghost">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT (placeholder; long bio can be added later) -->
+  <section id="about"><div class="shell">
+    <h2>About George</h2>
+    <p class="muted">Discreet, data-driven advisory for discerning buyers across Florida’s premier developments. (We can replace this with George’s full bio text.)</p>
+  </div></section>
+
+  <!-- SERVICES -->
+  <section id="services"><div class="shell">
+    <h2>Services</h2>
+    <div class="grid3" style="margin-top:18px;">
+      <div class="card"><h3>Buyer Representation</h3><p class="muted">Search, shortlist, and secure premier residences with data-driven comps and discreet negotiations.</p></div>
+      <div class="card"><h3>Luxury Condo Consulting</h3><p class="muted">Evaluate amenities, associations, and appreciation drivers specific to luxury towers.</p></div>
+      <div class="card"><h3>Private-Client Advisory</h3><p class="muted">Concierge introductions to lenders, attorneys, designers, and property managers.</p></div>
+    </div>
+  </div></section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="text-align:center;"><div class="shell">
+    <h2>Ready to work with George?</h2>
+    <p class="muted">Private consultation for luxury buyers in Southwest Florida.</p>
+    <a class="cta" href="mailto:workwith@itsradai.com" style="display:inline-block;margin-top:14px;">Request Consultation</a>
+  </div></section>
+</main>
+
+<footer>© <script>document.write(new Date().getFullYear())</script> George Mato — Designed by RAD AI</footer>
+
+<script>
+  // simple fade carousel (5s)
+  const slides = document.querySelectorAll('.slide'); let i = 0;
+  setInterval(() => { slides[i].classList.remove('show'); i = (i + 1) % slides.length; slides[i].classList.add('show'); }, 5000);
+</script>
+</body></html>
