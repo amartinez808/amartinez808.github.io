@@ -11,8 +11,8 @@ header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,25
 .cta{background:var(--gold);color:#fff;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:600}
 .hero{position:relative;height:92vh;display:flex;align-items:center;color:#fff}
 .slides{position:absolute;inset:0;overflow:hidden;z-index:-1}
-.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease-in-out}
-.slide.show{opacity:1}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0;transform:scale(1.06);filter:saturate(110%);transition:opacity 1.3s ease-in-out,transform 14s ease;will-change:opacity,transform}
+.slide.show{opacity:1;transform:scale(1)}
 .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,16,32,.62),rgba(10,16,32,.68));z-index:0}
 .inner{position:relative;z-index:2;width:min(1200px,92%);margin:0 auto;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
 .eyebrow{text-transform:uppercase;letter-spacing:.3em;font-size:12px;color:#f6d899;margin-bottom:14px}
@@ -34,11 +34,13 @@ footer{background:#0b1224;color:#b7c0d8;text-align:center;padding:40px 24px;font
 </header>
 
 <main>
-  <!-- HERO with 2-image carousel -->
+  <!-- HERO with skyline carousel -->
   <section class="hero">
     <div class="slides">
       <div class="slide show" style="background-image:url('./hero-1.jpg')"></div>
       <div class="slide" style="background-image:url('./hero-2.jpg')"></div>
+      <div class="slide" style="background-image:url('./hero-3.jpg')"></div>
+      <div class="slide" style="background-image:url('./hero-4.jpg')"></div>
     </div>
     <div class="overlay"></div>
     <div class="inner">
@@ -81,8 +83,19 @@ footer{background:#0b1224;color:#b7c0d8;text-align:center;padding:40px 24px;font
 <footer>© <script>document.write(new Date().getFullYear())</script> George Mato — Designed by RAD AI</footer>
 
 <script>
-  // simple fade carousel (5s)
-  const slides = document.querySelectorAll('.slide'); let i = 0;
-  setInterval(() => { slides[i].classList.remove('show'); i = (i + 1) % slides.length; slides[i].classList.add('show'); }, 5000);
+  // skyline carousel with graceful fades
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let activeIndex = 0;
+
+  if (slides.length > 1 && !prefersReducedMotion.matches) {
+    const cycleSlides = () => {
+      slides[activeIndex].classList.remove('show');
+      activeIndex = (activeIndex + 1) % slides.length;
+      slides[activeIndex].classList.add('show');
+    };
+
+    setInterval(cycleSlides, 5500);
+  }
 </script>
 </body></html>
