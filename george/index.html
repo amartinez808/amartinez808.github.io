@@ -1,31 +1,62 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>George Mato — Luxury Condominium Consultant</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<meta name="description" content="George Mato — luxury condominium consultant with 30+ years experience, $15B+ development sales, trusted advisor in SW Florida.">
+<meta name="description" content="George Mato — 30+ years in luxury condo sales, $15B+ development revenue, trusted advisor in Southwest Florida.">
+<meta property="og:title" content="George Mato — Luxury Condominium Consultant">
+<meta property="og:description" content="George Mato — 30+ years in luxury condo sales, $15B+ development revenue, trusted advisor in Southwest Florida.">
+<meta property="og:image" content="/george/hero-1.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#c8a24a}*{box-sizing:border-box}
+:root{--gold:#c8a24a;--navy:#0b0f1d;--navy-dark:#070c18;--text-light:rgba(255,255,255,.85)}*{box-sizing:border-box}
 body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;color:#1a1a1a;background:#f7f7f7}
-header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);display:flex;justify-content:space-between;align-items:center;padding:18px 56px;border-bottom:1px solid #e6e6e6}
-.logo{font-family:'Playfair Display',serif;letter-spacing:.08em;font-size:20px}
-.cta{background:var(--gold);color:#fff;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:600}
-.hero{position:relative;height:92vh;display:flex;align-items:center;color:#fff;background:#0b0f1d}
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);display:flex;justify-content:space-between;align-items:center;padding:18px 56px;border-bottom:1px solid rgba(255,255,255,.35)}
+.logo{font-family:'Playfair Display',serif;letter-spacing:.08em;font-size:20px;color:#0f172a}
+.cta{background:var(--gold);color:#fff;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:600;transition:transform .2s ease,box-shadow .2s ease}
+.cta:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(200,162,74,.28)}
+main{padding-top:120px}
+.hero{position:relative;height:92vh;min-height:640px;display:flex;align-items:center;color:#fff;background:var(--navy)}
 .slides{position:absolute;inset:0;overflow:hidden;z-index:0}
-.slide{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0;transform:scale(1.06);filter:saturate(110%);transition:opacity 1.3s ease-in-out,transform 14s ease;will-change:opacity,transform}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0;transform:scale(1.05);filter:saturate(115%);transition:opacity 1.2s ease,transform 12s ease;will-change:opacity,transform}
 .slide.show{opacity:1;transform:scale(1)}
-.overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,16,32,.58),rgba(10,16,32,.78));z-index:1}
-.inner{position:relative;z-index:2;width:min(1200px,92%);margin:0 auto;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
-.eyebrow{text-transform:uppercase;letter-spacing:.3em;font-size:12px;color:#f6d899;margin-bottom:14px}
-h1{font-family:'Playfair Display',serif;font-size:56px;line-height:1.08;margin:0 0 14px}
-.lead{font-size:18px;color:#e6e6e6;max-width:640px}
-.buttons a{display:inline-block;margin-right:12px;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:600}
-.buttons .primary{background:var(--gold);color:#fff}.buttons .ghost{border:1px solid rgba(255,255,255,.4);color:#fff}
-section{padding:96px 56px;background:#fff}.shell{width:min(1200px,92%);margin:0 auto}
-h2{font-family:'Playfair Display',serif;font-size:32px;margin:0 0 14px}.muted{color:#666}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{background:#fafafa;border:1px solid #eee;border-radius:16px;padding:24px;box-shadow:0 8px 20px rgba(0,0,0,.04)}
-footer{background:#0b1224;color:#b7c0d8;text-align:center;padding:40px 24px;font-size:14px}
-@media(max-width:900px){.inner{grid-template-columns:1fr}h1{font-size:42px}section{padding:72px 20px}.grid3{grid-template-columns:1fr}}
+.overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(7,12,24,.85),rgba(7,12,24,.55));z-index:1}
+.inner{position:relative;z-index:2;width:min(1200px,92%);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;align-items:center}
+.hero-text .eyebrow{text-transform:uppercase;letter-spacing:.32em;font-size:12px;color:var(--gold);margin-bottom:18px}
+.hero-text h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,5.4vw,4rem);line-height:1.08;margin:0 0 18px;color:#fff}
+.hero-text .lead{font-size:1.1rem;line-height:1.7;color:var(--text-light);margin-bottom:28px;max-width:620px}
+.button-row{display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,color .2s ease;cursor:pointer}
+.btn-primary{background:var(--gold);color:#fff;box-shadow:0 18px 42px rgba(200,162,74,.32)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 22px 52px rgba(200,162,74,.4)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.5);color:#fff}
+.btn-ghost:hover{border-color:#fff;color:#fff;transform:translateY(-1px)}
+.section{padding:112px 56px;background:#fff}
+.section-header{margin:0 auto 48px;max-width:760px;text-align:left}
+.section-title{font-family:'Playfair Display',serif;font-size:2.4rem;margin:0 0 12px;color:#0f172a}
+.section-subtitle{color:#475569;font-size:1rem;margin:0}
+.about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:start}
+.about-content p{color:#445063;font-size:1.05rem;line-height:1.8;margin:0 0 18px}
+.about-content p strong{color:#0f172a;font-family:'Playfair Display',serif;font-weight:600}
+.about-stats{display:grid;gap:20px}
+.stat-card{background:rgba(11,15,29,.92);color:#fff;padding:28px;border-radius:20px;box-shadow:0 24px 44px rgba(11,15,29,.22);text-align:left;border:1px solid rgba(255,255,255,.06)}
+.stat-card h3{margin:0 0 6px;font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--gold)}
+.stat-card span{display:block;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.quote-section{padding:72px 56px;background:#f2f5fb;text-align:center}
+.quote-section blockquote{margin:0 auto;max-width:820px;font-family:'Playfair Display',serif;font-style:italic;font-size:1.8rem;line-height:1.6;color:#1e293b;position:relative;padding:32px 0}
+.quote-section blockquote::before{content:"";width:60px;height:3px;background:var(--gold);display:block;margin:0 auto 24px;border-radius:999px}
+.quote-section blockquote p{margin:0 0 12px}
+.services{background:#fff}
+.services .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+.service-card{background:#fbfbfd;border-radius:20px;padding:32px;box-shadow:0 20px 42px rgba(15,23,42,.08);border:1px solid rgba(148,163,184,.18);transition:transform .25s ease,box-shadow .25s ease;display:flex;flex-direction:column;height:100%}
+.service-card h3{margin:0 0 12px;font-size:1.28rem;color:#0f172a;font-family:'Playfair Display',serif}
+.service-card p{color:#556171;line-height:1.7;font-size:1rem;margin:0}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 28px 58px rgba(15,23,42,.15)}
+.contact{background:var(--navy);color:#fff;text-align:center;padding:110px 56px}
+.contact h2{font-family:'Playfair Display',serif;font-size:2.3rem;margin:0 0 16px}
+.contact p{margin:0 0 28px;font-size:1.05rem;color:var(--text-light)}
+.contact .btn-primary{box-shadow:0 26px 55px rgba(200,162,74,.32)}
+footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font-size:14px}
+@media(max-width:1024px){header{padding:16px 32px}.section,.quote-section,.contact{padding:96px 32px}.about-grid{grid-template-columns:1fr}.about-stats{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}}
+@media(max-width:600px){header{padding:14px 20px}.hero{min-height:520px}.button-row{flex-direction:column;align-items:flex-start}.btn{width:100%}.section,.quote-section,.contact{padding:80px 20px}.quote-section blockquote{font-size:1.5rem}}
 </style>
 </head><body>
 <header>
@@ -34,62 +65,90 @@ footer{background:#0b1224;color:#b7c0d8;text-align:center;padding:40px 24px;font
 </header>
 
 <main>
-  <!-- HERO with skyline carousel -->
-  <section class="hero">
+  <section class="hero" id="top">
     <div class="slides">
       <div class="slide show" style="background-image:url('./hero-1.jpg')"></div>
       <div class="slide" style="background-image:url('./hero-2.jpg')"></div>
       <div class="slide" style="background-image:url('./hero-3.jpg')"></div>
-      <div class="slide" style="background-image:url('./hero-4.jpg')"></div>
     </div>
     <div class="overlay"></div>
     <div class="inner">
-      <div>
+      <div class="hero-text">
         <div class="eyebrow">Luxury Condominium Consultant</div>
         <h1>Simplifying the luxury condo buying process</h1>
         <p class="lead">30 years in high-end condominium sales. Former Director of Sales — The Ritz-Carlton Residences, Estero Bay.</p>
-        <div class="buttons" style="margin-top:18px;">
-          <a href="#contact" class="primary">Work With George</a>
-          <a href="#about" class="ghost">Learn More</a>
+        <div class="button-row">
+          <a class="btn btn-primary" href="#contact">Work With George</a>
+          <a class="btn btn-ghost" href="#about">Learn More</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT (placeholder; long bio can be added later) -->
-  <section id="about"><div class="shell">
-    <h2>About George</h2>
-    <p class="muted"><strong>Meet George Mato</strong></p>
-    <p class="muted">George Mato’s perseverance, vision, and ability to anticipate what luxury real estate buyers want—often before they realize it themselves—has fueled his extraordinary success. Guided by the belief that “great service comes from the heart,” George approaches every relationship with discretion, personal attention, and an unwavering commitment to helping clients achieve their goals.</p>
-    <p class="muted">Specializing year-round in Southwest Florida’s luxury condominium market, George blends deep market knowledge with an analytical, results-driven approach that maximizes return on investment. His reputation as a trusted advisor is built on experience, insight, decisive action, and an uncompromising standard of excellence.</p>
-    <p class="muted">Over his career, George has played a pivotal role in shaping Florida’s most prestigious communities—Fisher Island, multiple Ritz-Carlton Residences, and the Related Group’s iconic Icon Brickell Miami. He has generated more than $15 billion in development sales revenue, led teams to record-breaking sell-outs, and helped create vibrant, world-class communities.</p>
-    <p class="muted">A pioneer of Miami’s luxury condo boom in the 1990s, George helped define one of the most dynamic eras in South Florida real estate. Most recently, as Director of Sales for The Ritz-Carlton Residences, Estero Bay, he led a passionate team that achieved $700M in sales in just two years.</p>
-    <p class="muted">What truly sets George apart is his ability to build lasting relationships. He believes every client is more than a transaction—they are a partner and a friend. His guiding principle remains: “People don’t care how much you know until they know how much you care.”</p>
-    <p class="muted">For those seeking the pinnacle of luxury living in Southwest Florida, George Mato is the trusted expert who transforms aspirations into reality.</p>
-  </div></section>
-
-  <!-- SERVICES -->
-  <section id="services"><div class="shell">
-    <h2>Services</h2>
-    <div class="grid3" style="margin-top:18px;">
-      <div class="card"><h3>Buyer Representation</h3><p class="muted">Search, shortlist, and secure premier residences with data-driven comps and discreet negotiations.</p></div>
-      <div class="card"><h3>Luxury Condo Consulting</h3><p class="muted">Evaluate amenities, associations, and appreciation drivers specific to luxury towers.</p></div>
-      <div class="card"><h3>Private-Client Advisory</h3><p class="muted">Concierge introductions to lenders, attorneys, designers, and property managers.</p></div>
+  <section id="about" class="section">
+    <div class="section-header">
+      <h2 class="section-title">About George</h2>
+      <p class="section-subtitle">Trusted advisor to discerning buyers seeking the pinnacle of waterfront living.</p>
     </div>
-  </div></section>
+    <div class="about-grid">
+      <div class="about-content">
+        <p class="muted"><strong>Meet George Mato</strong></p>
+        <p>George Mato’s perseverance, vision, and ability to anticipate what luxury real estate buyers want—often before they realize it themselves—has fueled his extraordinary success. Guided by the belief that “great service comes from the heart,” George approaches every relationship with discretion, personal attention, and an unwavering commitment to helping clients achieve their goals.</p>
+        <p>Specializing year-round in Southwest Florida’s luxury condominium market, George blends deep market knowledge with an analytical, results-driven approach that maximizes return on investment. His reputation as a trusted advisor is built on experience, insight, decisive action, and an uncompromising standard of excellence.</p>
+        <p>Over his career, George has played a pivotal role in shaping Florida’s most prestigious communities—Fisher Island, multiple Ritz-Carlton Residences, and the Related Group’s iconic Icon Brickell Miami. He has generated more than $15 billion in development sales revenue, led teams to record-breaking sell-outs, and helped create vibrant, world-class communities.</p>
+        <p>A pioneer of Miami’s luxury condo boom in the 1990s, George helped define one of the most dynamic eras in South Florida real estate. Most recently, as Director of Sales for The Ritz-Carlton Residences, Estero Bay, he led a passionate team that achieved $700M in sales in just two years.</p>
+        <p>What truly sets George apart is his ability to build lasting relationships. He believes every client is more than a transaction—they are a partner and a friend. His guiding principle remains: “People don’t care how much you know until they know how much you care.”</p>
+        <p>For those seeking the pinnacle of luxury living in Southwest Florida, George Mato is the trusted expert who transforms aspirations into reality.</p>
+        <div class="button-row" style="margin-top:32px;">
+          <a class="btn btn-primary" href="#contact">Request Consultation</a>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card"><h3>30+ Years</h3><span>Luxury Condo Sales</span></div>
+        <div class="stat-card"><h3>$15B+</h3><span>Development Sales Revenue</span></div>
+        <div class="stat-card"><h3>$700M</h3><span>In Two Years — Ritz-Carlton Estero Bay</span></div>
+      </div>
+    </div>
+  </section>
 
-  <!-- CONTACT -->
-  <section id="contact" style="text-align:center;"><div class="shell">
+  <section class="quote-section">
+    <blockquote>
+      <p>“Great service comes from the heart.”</p>
+      <p>“People don’t care how much you know until they know how much you care.”</p>
+    </blockquote>
+  </section>
+
+  <section id="services" class="section services">
+    <div class="section-header">
+      <h2 class="section-title">Services</h2>
+      <p class="section-subtitle">Comprehensive advisory for every stage of the luxury condominium journey.</p>
+    </div>
+    <div class="grid3">
+      <div class="service-card">
+        <h3>Buyer Representation</h3>
+        <p>Search, shortlist, and secure premier residences with data-driven comps, private tours, and discreet negotiations tailored to your requirements.</p>
+      </div>
+      <div class="service-card">
+        <h3>Luxury Condo Consulting</h3>
+        <p>Evaluate amenities, associations, appreciation drivers, and architectural pedigree to ensure every investment aligns with your long-term vision.</p>
+      </div>
+      <div class="service-card">
+        <h3>Private-Client Advisory</h3>
+        <p>Concierge introductions to trusted lenders, attorneys, designers, and property managers to orchestrate a seamless ownership experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
     <h2>Ready to work with George?</h2>
-    <p class="muted">Private consultation for luxury buyers in Southwest Florida.</p>
-    <a class="cta" href="mailto:workwith@itsradai.com" style="display:inline-block;margin-top:14px;">Request Consultation</a>
-  </div></section>
+    <p>Private consultation for luxury buyers in Southwest Florida.</p>
+    <a class="btn btn-primary" href="mailto:workwith@itsradai.com">Request Consultation</a>
+  </section>
 </main>
 
 <footer>© <script>document.write(new Date().getFullYear())</script> George Mato — Designed by RAD AI</footer>
 
 <script>
-  // skyline carousel with graceful fades
   document.addEventListener('DOMContentLoaded', () => {
     const slides = Array.from(document.querySelectorAll('.slide'));
     if (slides.length <= 1) {
@@ -119,7 +178,7 @@ footer{background:#0b1224;color:#b7c0d8;text-align:center;padding:40px 24px;font
       if (slideTimer || prefersReducedMotion.matches) {
         return;
       }
-      slideTimer = window.setInterval(cycleSlides, 5500);
+      slideTimer = window.setInterval(cycleSlides, 5000);
     };
 
     const stopCarousel = () => {
