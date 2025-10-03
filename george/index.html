@@ -74,17 +74,17 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
   <section class="hero" id="top">
     <div class="vslides" aria-hidden="true">
       <div class="vslide show">
-        <video class="vmedia" preload="metadata" muted playsinline poster="./hero-1.jpg">
+        <video class="vmedia" preload="auto" muted playsinline poster="./hero-1.jpg">
           <source src="./hero-1.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="vslide">
-        <video class="vmedia" preload="metadata" muted playsinline poster="./hero-2.jpg">
+        <video class="vmedia" preload="auto" muted playsinline poster="./hero-2.jpg">
           <source src="./hero-2.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="vslide">
-        <video class="vmedia" preload="metadata" muted playsinline poster="./hero-3.jpg">
+        <video class="vmedia" preload="auto" muted playsinline poster="./hero-3.jpg">
           <source src="./hero-3.mp4" type="video/mp4" />
         </video>
       </div>
@@ -184,12 +184,19 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
       if (!video) {
         return Promise.reject();
       }
+      const source = video.currentSrc || video.querySelector('source')?.getAttribute('src') || 'unknown';
+      console.info('[hero-video] attempting autoplay', source);
       video.muted = true;
+      video.volume = 0;
       video.playsInline = true;
       video.setAttribute('muted', '');
       video.setAttribute('playsinline', '');
       video.currentTime = 0;
-      return video.play();
+      const playPromise = video.play();
+      return playPromise.then(() => {
+        console.info('[hero-video] autoplay success', source);
+        return true;
+      });
     }
 
     function showVideoSlide(index) {
@@ -206,13 +213,16 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
       }
       video.controls = false;
       video.loop = false;
-      video.preload = 'metadata';
+      video.preload = 'auto';
+      video.load();
       video.onended = advanceVideo;
       video.onerror = () => handleVideoFailure(video);
     }
 
     function handleVideoFailure(video) {
       const failureIndex = video ? videoSlides.findIndex(slide => slide.contains(video)) : -1;
+      const source = video?.currentSrc || video?.querySelector('source')?.getAttribute('src') || 'unknown';
+      console.error('[hero-video] playback failure', source, { failureIndex });
       if (failureIndex === -1) {
         fallbackToImages();
         return;
@@ -231,6 +241,7 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
       }
 
       if (!videoSlides.length) {
+        console.warn('[hero-video] no playable videos remaining; switching to images');
         fallbackToImages();
         return;
       }
@@ -318,6 +329,7 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
           fallbackToImages();
           return;
         }
+        console.warn('[hero-video] autoplay blocked by browser, waiting for user interaction');
         videoContainer.classList.add('awaiting-interaction');
         heroSection?.classList.add('awaiting-autoplay');
         const resume = () => {
@@ -328,6 +340,7 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
             heroSection?.classList.remove('awaiting-autoplay');
             prepareSecondaryVideos();
           }).catch(() => {
+            console.error('[hero-video] autoplay still blocked after interaction');
             fallbackToImages();
           });
         };
@@ -426,6 +439,7 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
       }
       if (fallbackContainer) {
         fallbackContainer.style.display = 'block';
+        console.info('[hero-video] using fallback carousel');
         startImageCarousel();
       }
     }
