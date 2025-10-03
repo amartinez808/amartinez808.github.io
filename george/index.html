@@ -10,12 +10,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --deep-blue: #13294B;
-      --accent: #F6AA1C;
-      --background: #ffffff;
-      --panel: #f6f6f6;
-      --text: #222222;
-      --muted: #5c6572;
+      --accent: #d6a635;
+      --accent-dark: #b88e26;
+      --background: #f8f9fb;
+      --surface: #ffffff;
+      --surface-alt: #f1f2f5;
+      --text: #1f1f23;
+      --muted: #6b707c;
+      --border: rgba(31, 31, 35, 0.12);
       --max-width: 1180px;
     }
 
@@ -28,7 +30,7 @@
       font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
       color: var(--text);
       background: var(--background);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     a {
@@ -40,9 +42,11 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: var(--deep-blue);
-      color: #fff;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: var(--surface);
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(16, 18, 22, 0.04);
+      backdrop-filter: blur(14px);
     }
 
     .nav-inner {
@@ -57,22 +61,22 @@
 
     .brand {
       font-weight: 600;
-      letter-spacing: 0.26em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
 
     nav {
       display: flex;
-      gap: clamp(18px, 3vw, 36px);
-      font-size: 0.95rem;
-      letter-spacing: 0.06em;
+      gap: clamp(18px, 3vw, 32px);
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
     nav a {
-      color: #fff;
-      font-weight: 600;
+      color: var(--text);
+      font-weight: 500;
     }
 
     nav a:hover {
@@ -86,7 +90,7 @@
       padding: 12px 22px;
       border-radius: 999px;
       background: var(--accent);
-      color: #fff;
+      color: var(--text);
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -96,7 +100,7 @@
 
     .cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 16px 30px rgba(246, 170, 28, 0.26);
+      box-shadow: 0 16px 30px rgba(214, 166, 53, 0.28);
     }
 
     .hero {
@@ -107,7 +111,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      background: var(--deep-blue);
+      background: var(--surface-alt);
       color: #fff;
     }
 
@@ -136,7 +140,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(120deg, rgba(19, 41, 75, 0.82), rgba(19, 41, 75, 0.35));
+      background: linear-gradient(120deg, rgba(17, 19, 23, 0.7), rgba(17, 19, 23, 0.28));
     }
 
     .hero.hero-awaiting-autoplay::before {
@@ -197,7 +201,8 @@
       align-items: center;
       padding: 12px 24px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.08);
       color: #fff;
       font-weight: 600;
       text-transform: uppercase;
@@ -210,10 +215,11 @@
       margin: -48px auto 0;
       position: relative;
       z-index: 3;
-      background: #fff;
+      background: var(--surface);
       padding: 28px;
-      border-radius: 16px;
-      box-shadow: 0 18px 40px rgba(19, 41, 75, 0.12);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 22px 50px rgba(24, 26, 32, 0.06);
       display: grid;
       gap: 16px;
     }
@@ -235,10 +241,10 @@
     .search-controls input,
     .search-controls select {
       padding: 14px;
-      border-radius: 6px;
-      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      border: 1px solid var(--border);
       font-size: 0.98rem;
-      background: var(--panel);
+      background: var(--surface-alt);
       color: var(--text);
     }
 
@@ -251,18 +257,18 @@
     .search-primary input[type="text"] {
       flex: 1;
       padding: 16px;
-      border-radius: 6px;
-      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      border: 1px solid var(--border);
       font-size: 1.02rem;
-      background: var(--panel);
+      background: var(--surface-alt);
     }
 
     .search-primary button {
       padding: 14px 28px;
-      border-radius: 6px;
+      border-radius: 999px;
       border: none;
       background: var(--accent);
-      color: #fff;
+      color: var(--text);
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -272,7 +278,7 @@
 
     .search-primary button:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 28px rgba(246, 170, 28, 0.26);
+      box-shadow: 0 16px 30px rgba(214, 166, 53, 0.28);
     }
 
     .section {
@@ -281,7 +287,7 @@
     }
 
     .section.alt {
-      background: var(--panel);
+      background: var(--surface-alt);
     }
 
     .section-inner {
@@ -306,7 +312,7 @@
     .section-header h2 {
       margin: 0;
       font-size: clamp(2rem, 3.8vw, 2.8rem);
-      color: var(--deep-blue);
+      color: var(--text);
       font-weight: 600;
     }
 
@@ -323,10 +329,10 @@
     }
 
     .listing-card {
-      background: #fff;
-      border-radius: 16px;
+      background: var(--surface);
+      border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 16px 36px rgba(19, 41, 75, 0.12);
+      box-shadow: 0 24px 44px rgba(24, 26, 32, 0.08);
       display: grid;
       grid-template-rows: 200px auto;
     }
@@ -350,7 +356,7 @@
       left: 12px;
       padding: 8px 14px;
       border-radius: 999px;
-      background: rgba(19, 41, 75, 0.85);
+      background: rgba(23, 25, 30, 0.82);
       color: #fff;
       font-size: 0.8rem;
       letter-spacing: 0.08em;
@@ -366,7 +372,7 @@
     .listing-card h3 {
       margin: 0;
       font-size: 1.2rem;
-      color: var(--deep-blue);
+      color: var(--text);
     }
 
     .listing-card p {
@@ -384,13 +390,13 @@
     }
 
     .feature-card {
-      background: var(--panel);
-      border-radius: 12px;
+      background: var(--surface);
+      border-radius: 18px;
       padding: 32px;
-      box-shadow: 0 14px 32px rgba(19, 41, 75, 0.08);
+      box-shadow: 0 18px 36px rgba(24, 26, 32, 0.06);
       display: grid;
       gap: 12px;
-      color: var(--deep-blue);
+      color: var(--text);
     }
 
     .feature-card h3 {
@@ -406,18 +412,19 @@
     }
 
     .valuation {
-      background: var(--panel);
-      color: var(--deep-blue);
-      border-radius: 16px;
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 20px;
       padding: clamp(32px, 6vw, 48px);
       display: grid;
       gap: 24px;
-      box-shadow: 0 18px 36px rgba(19, 41, 75, 0.14);
+      box-shadow: 0 24px 48px rgba(24, 26, 32, 0.08);
     }
 
     .valuation h2 {
       margin: 0;
       font-size: clamp(2rem, 3.4vw, 2.8rem);
+      font-weight: 600;
     }
 
     .valuation p {
@@ -433,18 +440,18 @@
     .valuation input,
     .valuation select {
       padding: 16px;
-      border-radius: 6px;
-      border: 1px solid #e0e0e0;
-      background: #fff;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface-alt);
       font-size: 1rem;
     }
 
     .valuation button {
       padding: 16px 28px;
-      border-radius: 6px;
+      border-radius: 999px;
       border: none;
       background: var(--accent);
-      color: #fff;
+      color: var(--text);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -454,7 +461,7 @@
 
     .valuation button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 18px 36px rgba(246, 170, 28, 0.28);
+      box-shadow: 0 22px 44px rgba(214, 166, 53, 0.28);
     }
 
     .market-insight {
@@ -464,10 +471,10 @@
     }
 
     .insight-card {
-      background: #fff;
-      border-radius: 14px;
-      padding: 28px;
-      box-shadow: 0 16px 32px rgba(19, 41, 75, 0.1);
+      background: var(--surface);
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 20px 40px rgba(24, 26, 32, 0.08);
       display: grid;
       gap: 12px;
     }
@@ -478,12 +485,13 @@
     }
 
     footer {
-      background: var(--deep-blue);
-      color: rgba(255, 255, 255, 0.85);
+      background: var(--surface);
+      color: var(--muted);
       padding: 48px 28px;
       text-align: center;
       display: grid;
       gap: 12px;
+      border-top: 1px solid var(--border);
     }
 
     footer nav {
@@ -492,8 +500,20 @@
       gap: 20px;
     }
 
+    footer nav a {
+      color: var(--text);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    footer nav a:hover {
+      color: var(--accent);
+    }
+
     footer small {
-      color: rgba(255, 255, 255, 0.6);
+      color: var(--muted);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       font-size: 0.72rem;
