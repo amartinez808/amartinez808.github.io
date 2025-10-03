@@ -7,16 +7,15 @@
   <meta name="description" content="Discover luxury real estate listings, market insights, and concierge service along Southwest Florida's Gulf Coast.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy: #0d1728;
-      --navy-soft: #132742;
-      --gold: #caa154;
-      --cream: #f1f3f8;
-      --white: #ffffff;
-      --text: #1c2534;
-      --muted: #5b6780;
+      --deep-blue: #13294B;
+      --accent: #F6AA1C;
+      --background: #ffffff;
+      --panel: #f6f6f6;
+      --text: #222222;
+      --muted: #5c6572;
       --max-width: 1180px;
     }
 
@@ -26,9 +25,9 @@
 
     body {
       margin: 0;
-      font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
       color: var(--text);
-      background: var(--cream);
+      background: var(--background);
       line-height: 1.6;
     }
 
@@ -41,10 +40,9 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(13, 23, 40, 0.92);
-      backdrop-filter: blur(8px);
-      color: var(--white);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--deep-blue);
+      color: #fff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .nav-inner {
@@ -58,10 +56,10 @@
     }
 
     .brand {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.28em;
+      font-weight: 600;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
+      font-size: 1rem;
     }
 
     nav {
@@ -73,12 +71,12 @@
     }
 
     nav a {
-      color: rgba(255, 255, 255, 0.82);
+      color: #fff;
       font-weight: 600;
     }
 
     nav a:hover {
-      color: var(--gold);
+      color: var(--accent);
     }
 
     .cta {
@@ -87,8 +85,8 @@
       gap: 10px;
       padding: 12px 22px;
       border-radius: 999px;
-      background: var(--gold);
-      color: var(--navy);
+      background: var(--accent);
+      color: #fff;
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -98,7 +96,7 @@
 
     .cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 16px 30px rgba(202, 161, 84, 0.3);
+      box-shadow: 0 16px 30px rgba(246, 170, 28, 0.26);
     }
 
     .hero {
@@ -109,8 +107,8 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      background: var(--navy);
-      color: var(--white);
+      background: var(--deep-blue);
+      color: #fff;
     }
 
     .hero-media {
@@ -138,7 +136,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(120deg, rgba(9, 15, 27, 0.82), rgba(19, 39, 66, 0.35));
+      background: linear-gradient(120deg, rgba(19, 41, 75, 0.82), rgba(19, 41, 75, 0.35));
     }
 
     .hero.hero-awaiting-autoplay::before {
@@ -149,7 +147,7 @@
       padding: 10px 18px;
       border-radius: 999px;
       background: rgba(13, 23, 40, 0.75);
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.9);
       letter-spacing: 0.18em;
       font-size: 0.72rem;
       text-transform: uppercase;
@@ -169,21 +167,22 @@
       font-size: 0.85rem;
       letter-spacing: 0.38em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--accent);
     }
 
     .hero h1 {
       margin: 0;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(2.4rem, 4.8vw, 3.6rem);
+      font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+      font-size: clamp(2.4rem, 4.8vw, 3.5rem);
       line-height: 1.1;
+      font-weight: 600;
     }
 
     .hero p {
       margin: 0 auto;
       max-width: 640px;
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 1.05rem;
     }
 
     .hero-actions {
@@ -198,8 +197,8 @@
       align-items: center;
       padding: 12px 24px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      color: #fff;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -211,10 +210,10 @@
       margin: -48px auto 0;
       position: relative;
       z-index: 3;
-      background: var(--white);
-      padding: 24px;
-      border-radius: 18px;
-      box-shadow: 0 30px 60px rgba(13, 23, 40, 0.16);
+      background: #fff;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 18px 40px rgba(19, 41, 75, 0.12);
       display: grid;
       gap: 16px;
     }
@@ -236,10 +235,11 @@
     .search-controls input,
     .search-controls select {
       padding: 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(13, 23, 40, 0.12);
+      border-radius: 6px;
+      border: 1px solid #e8e8e8;
       font-size: 0.98rem;
-      background: var(--cream);
+      background: var(--panel);
+      color: var(--text);
     }
 
     .search-primary {
@@ -251,18 +251,18 @@
     .search-primary input[type="text"] {
       flex: 1;
       padding: 16px;
-      border-radius: 12px;
-      border: 1px solid rgba(13, 23, 40, 0.12);
-      font-size: 1.05rem;
-      background: var(--cream);
+      border-radius: 6px;
+      border: 1px solid #e8e8e8;
+      font-size: 1.02rem;
+      background: var(--panel);
     }
 
     .search-primary button {
       padding: 14px 28px;
-      border-radius: 12px;
+      border-radius: 6px;
       border: none;
-      background: var(--gold);
-      color: var(--navy);
+      background: var(--accent);
+      color: #fff;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -272,11 +272,16 @@
 
     .search-primary button:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 30px rgba(202, 161, 84, 0.26);
+      box-shadow: 0 16px 28px rgba(246, 170, 28, 0.26);
     }
 
     .section {
       padding: 96px 0;
+      background: var(--background);
+    }
+
+    .section.alt {
+      background: var(--panel);
     }
 
     .section-inner {
@@ -292,7 +297,7 @@
     }
 
     .section-header .eyebrow {
-      color: var(--gold);
+      color: var(--accent);
       letter-spacing: 0.38em;
       text-transform: uppercase;
       font-size: 0.75rem;
@@ -300,9 +305,9 @@
 
     .section-header h2 {
       margin: 0;
-      font-family: 'Playfair Display', Georgia, serif;
       font-size: clamp(2rem, 3.8vw, 2.8rem);
-      color: var(--navy);
+      color: var(--deep-blue);
+      font-weight: 600;
     }
 
     .features-grid {
@@ -318,10 +323,10 @@
     }
 
     .listing-card {
-      background: var(--white);
-      border-radius: 20px;
+      background: #fff;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 24px 48px rgba(13, 23, 40, 0.08);
+      box-shadow: 0 16px 36px rgba(19, 41, 75, 0.12);
       display: grid;
       grid-template-rows: 200px auto;
     }
@@ -345,8 +350,8 @@
       left: 12px;
       padding: 8px 14px;
       border-radius: 999px;
-      background: rgba(13, 23, 40, 0.72);
-      color: var(--white);
+      background: rgba(19, 41, 75, 0.85);
+      color: #fff;
       font-size: 0.8rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -361,7 +366,7 @@
     .listing-card h3 {
       margin: 0;
       font-size: 1.2rem;
-      color: var(--navy);
+      color: var(--deep-blue);
     }
 
     .listing-card p {
@@ -375,22 +380,23 @@
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--gold);
+      color: var(--accent);
     }
 
     .feature-card {
-      background: var(--white);
-      border-radius: 18px;
-      padding: 28px;
-      box-shadow: 0 28px 50px rgba(13, 23, 40, 0.08);
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 14px 32px rgba(19, 41, 75, 0.08);
       display: grid;
       gap: 12px;
+      color: var(--deep-blue);
     }
 
     .feature-card h3 {
       margin: 0;
-      font-size: 1.2rem;
-      color: var(--navy);
+      font-size: 1.15rem;
+      color: var(--accent);
     }
 
     .feature-card p {
@@ -400,24 +406,23 @@
     }
 
     .valuation {
-      background: var(--navy);
-      color: var(--white);
-      border-radius: 26px;
+      background: var(--panel);
+      color: var(--deep-blue);
+      border-radius: 16px;
       padding: clamp(32px, 6vw, 48px);
       display: grid;
       gap: 24px;
-      box-shadow: 0 40px 60px rgba(13, 23, 40, 0.28);
+      box-shadow: 0 18px 36px rgba(19, 41, 75, 0.14);
     }
 
     .valuation h2 {
       margin: 0;
-      font-family: 'Playfair Display', Georgia, serif;
       font-size: clamp(2rem, 3.4vw, 2.8rem);
     }
 
     .valuation p {
       margin: 0;
-      color: rgba(255, 255, 255, 0.78);
+      color: var(--muted);
     }
 
     .valuation form {
@@ -428,17 +433,18 @@
     .valuation input,
     .valuation select {
       padding: 16px;
-      border-radius: 14px;
-      border: none;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
+      background: #fff;
       font-size: 1rem;
     }
 
     .valuation button {
       padding: 16px 28px;
-      border-radius: 14px;
+      border-radius: 6px;
       border: none;
-      background: var(--gold);
-      color: var(--navy);
+      background: var(--accent);
+      color: #fff;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -448,7 +454,7 @@
 
     .valuation button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 20px 40px rgba(202, 161, 84, 0.35);
+      box-shadow: 0 18px 36px rgba(246, 170, 28, 0.28);
     }
 
     .market-insight {
@@ -458,22 +464,22 @@
     }
 
     .insight-card {
-      background: var(--white);
-      border-radius: 20px;
+      background: #fff;
+      border-radius: 14px;
       padding: 28px;
-      box-shadow: 0 24px 45px rgba(13, 23, 40, 0.08);
+      box-shadow: 0 16px 32px rgba(19, 41, 75, 0.1);
       display: grid;
       gap: 12px;
     }
 
     .insight-card strong {
       font-size: 2rem;
-      color: var(--gold);
+      color: var(--accent);
     }
 
     footer {
-      background: var(--navy-soft);
-      color: rgba(255, 255, 255, 0.72);
+      background: var(--deep-blue);
+      color: rgba(255, 255, 255, 0.85);
       padding: 48px 28px;
       text-align: center;
       display: grid;
@@ -487,7 +493,7 @@
     }
 
     footer small {
-      color: rgba(255, 255, 255, 0.48);
+      color: rgba(255, 255, 255, 0.6);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       font-size: 0.72rem;
@@ -602,7 +608,7 @@
     </div>
   </section>
 
-  <section class="section" id="services">
+  <section class="section alt" id="services">
     <div class="section-inner">
       <div class="section-header">
         <span class="eyebrow">Our Difference</span>
@@ -680,7 +686,7 @@
     </div>
   </section>
 
-  <section class="section" id="communities">
+  <section class="section alt" id="communities">
     <div class="section-inner market-insight">
       <article class="insight-card">
         <strong>$2.4M</strong>
