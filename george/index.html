@@ -113,13 +113,25 @@
       color: var(--white);
     }
 
-    .hero video {
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-video {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       filter: saturate(105%);
+      opacity: 0;
+      transition: opacity 0.9s ease;
+    }
+
+    .hero-video.is-active {
+      opacity: 1;
     }
 
     .hero::after {
@@ -127,6 +139,21 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(120deg, rgba(9, 15, 27, 0.82), rgba(19, 39, 66, 0.35));
+    }
+
+    .hero.hero-awaiting-autoplay::before {
+      content: 'Tap to enable video';
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(13, 23, 40, 0.75);
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: 0.18em;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.35);
     }
 
     .hero-content {
@@ -525,9 +552,14 @@
   </header>
 
   <section class="hero" id="top">
-    <video autoplay muted playsinline loop poster="./hero-2.jpg">
-      <source src="./hero-2.mp4" type="video/mp4">
-    </video>
+    <div class="hero-media" aria-hidden="true">
+      <video class="hero-video is-active" preload="auto" muted playsinline poster="./hero-2.jpg">
+        <source src="./hero-2.mp4" type="video/mp4">
+      </video>
+      <video class="hero-video" preload="auto" muted playsinline poster="./hero-3.jpg">
+        <source src="./hero-3.mp4" type="video/mp4">
+      </video>
+    </div>
     <div class="hero-content">
       <span class="eyebrow">Southwest Florida Luxury</span>
       <h1>Waterfront residences curated for discerning buyers</h1>
@@ -699,5 +731,122 @@
     <div>Coastal Luxe Real Estate Group · Naples · Marco Island · Bonita Bay</div>
     <small>© <script>document.write(new Date().getFullYear())</script> Coastal Luxe Real Estate Group. All rights reserved.</small>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const videos = Array.from(document.querySelectorAll('.hero-video'));
+      if (!videos.length) {
+        return;
+      }
+
+      const heroSection = document.querySelector('.hero');
+      const SWITCH_INTERVAL = 3000;
+      let activeIndex = 0;
+      let switchTimer = null;
+      let awaitingInteraction = false;
+
+      const clearTimer = () => {
+        if (switchTimer) {
+          window.clearTimeout(switchTimer);
+          switchTimer = null;
+        }
+      };
+
+      const prepareVideo = (video) => {
+        if (!video) {
+          return;
+        }
+        video.muted = true;
+        video.volume = 0;
+        video.playsInline = true;
+        video.setAttribute('muted', '');
+        video.setAttribute('playsinline', '');
+        video.preload = 'auto';
+        video.loop = false;
+        video.load();
+      };
+
+      const setActiveVideo = (target) => {
+        videos.forEach(video => {
+          if (video === target) {
+            video.classList.add('is-active');
+          } else {
+            video.classList.remove('is-active');
+            video.pause();
+            try {
+              video.currentTime = 0;
+            } catch (_) {
+              /* ignore seek errors */
+            }
+          }
+        });
+      };
+
+      const scheduleNext = () => {
+        clearTimer();
+        switchTimer = window.setTimeout(() => {
+          advance();
+        }, SWITCH_INTERVAL);
+      };
+
+      const onAutoplayBlocked = () => {
+        if (awaitingInteraction) {
+          return;
+        }
+        awaitingInteraction = true;
+        heroSection?.classList.add('hero-awaiting-autoplay');
+        const resume = () => {
+          document.removeEventListener('pointerdown', resume, true);
+          document.removeEventListener('keydown', resume, true);
+          heroSection?.classList.remove('hero-awaiting-autoplay');
+          awaitingInteraction = false;
+          startPlayback();
+        };
+        document.addEventListener('pointerdown', resume, { once: true, capture: true });
+        document.addEventListener('keydown', resume, { once: true, capture: true });
+      };
+
+      const playVideo = (video) => {
+        if (!video) {
+          return Promise.reject();
+        }
+        setActiveVideo(video);
+        try {
+          video.currentTime = 0;
+        } catch (_) {
+          /* ignore seek errors */
+        }
+        const playPromise = video.play();
+        return playPromise.then(() => {
+          scheduleNext();
+          return true;
+        });
+      };
+
+      const advance = () => {
+        activeIndex = (activeIndex + 1) % videos.length;
+        const nextVideo = videos[activeIndex];
+        playVideo(nextVideo).catch(onAutoplayBlocked);
+      };
+
+      const startPlayback = () => {
+        clearTimer();
+        videos.forEach(prepareVideo);
+        const initialVideo = videos[activeIndex];
+        playVideo(initialVideo).catch(onAutoplayBlocked);
+      };
+
+      startPlayback();
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          clearTimer();
+          videos.forEach(video => video.pause());
+        } else if (!awaitingInteraction) {
+          startPlayback();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
