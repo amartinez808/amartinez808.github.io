@@ -1,483 +1,703 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>George Mato — Luxury Condominium Consultant</title>
-<meta name="description" content="George Mato — 30+ years in luxury condo sales, $15B+ development revenue, trusted advisor in Southwest Florida.">
-<meta property="og:title" content="George Mato — Luxury Condominium Consultant">
-<meta property="og:description" content="George Mato — 30+ years in luxury condo sales, $15B+ development revenue, trusted advisor in Southwest Florida.">
-<meta property="og:image" content="/george/hero-1.jpg">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--gold:#c8a24a;--navy:#0b0f1d;--navy-dark:#070c18;--text-light:rgba(255,255,255,.85)}*{box-sizing:border-box}
-body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;color:#1a1a1a;background:#f7f7f7}
-header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);display:flex;justify-content:space-between;align-items:center;padding:18px 56px;border-bottom:1px solid rgba(255,255,255,.35)}
-.logo{font-family:'Playfair Display',serif;letter-spacing:.08em;font-size:20px;color:#0f172a}
-.cta{background:var(--gold);color:#fff;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:600;transition:transform .2s ease,box-shadow .2s ease}
-.cta:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(200,162,74,.28)}
-main{padding-top:120px}
-.hero{position:relative;height:92vh;min-height:640px;display:flex;align-items:center;color:#fff;background:var(--navy)}
-.hero.awaiting-autoplay::after{content:'Tap to enable the skyline video';position:absolute;bottom:24px;right:24px;padding:10px 18px;border-radius:999px;background:rgba(11,15,29,.78);color:var(--text-light);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(255,255,255,.35);pointer-events:none;z-index:3}
-.vslides{position:absolute;inset:0;overflow:hidden;z-index:-1}
-.vslide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease-in-out}
-.vslide.show{opacity:1}
-.vmedia{width:100%;height:100%;object-fit:cover;display:block}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coastal Luxe Real Estate Group</title>
+  <meta name="description" content="Discover luxury real estate listings, market insights, and concierge service along Southwest Florida's Gulf Coast.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0d1728;
+      --navy-soft: #132742;
+      --gold: #caa154;
+      --cream: #f1f3f8;
+      --white: #ffffff;
+      --text: #1c2534;
+      --muted: #5b6780;
+      --max-width: 1180px;
+    }
 
-.slides{position:absolute;inset:0;overflow:hidden;z-index:-1;display:none}
-.slide{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0;transform:scale(1.05);filter:saturate(115%);transition:opacity 1.2s ease,transform 12s ease;will-change:opacity,transform}
-.slide.show{opacity:1;transform:scale(1)}
-.overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(7,12,24,.85),rgba(7,12,24,.55));z-index:1}
-.inner{position:relative;z-index:2;width:min(1200px,92%);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;align-items:center}
-.hero-text .eyebrow{text-transform:uppercase;letter-spacing:.32em;font-size:12px;color:var(--gold);margin-bottom:18px}
-.hero-text h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,5.4vw,4rem);line-height:1.08;margin:0 0 18px;color:#fff}
-.hero-text .lead{font-size:1.1rem;line-height:1.7;color:var(--text-light);margin-bottom:28px;max-width:620px}
-.button-row{display:flex;gap:16px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,color .2s ease;cursor:pointer}
-.btn-primary{background:var(--gold);color:#fff;box-shadow:0 18px 42px rgba(200,162,74,.32)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 22px 52px rgba(200,162,74,.4)}
-.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.5);color:#fff}
-.btn-ghost:hover{border-color:#fff;color:#fff;transform:translateY(-1px)}
-.section{padding:112px 56px;background:#fff}
-.section-header{margin:0 auto 48px;max-width:760px;text-align:left}
-.section-title{font-family:'Playfair Display',serif;font-size:2.4rem;margin:0 0 12px;color:#0f172a}
-.section-subtitle{color:#475569;font-size:1rem;margin:0}
-.about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:start}
-.about-content p{color:#445063;font-size:1.05rem;line-height:1.8;margin:0 0 18px}
-.about-content p strong{color:#0f172a;font-family:'Playfair Display',serif;font-weight:600}
-.about-stats{display:grid;gap:20px}
-.stat-card{background:rgba(11,15,29,.92);color:#fff;padding:28px;border-radius:20px;box-shadow:0 24px 44px rgba(11,15,29,.22);text-align:left;border:1px solid rgba(255,255,255,.06)}
-.stat-card h3{margin:0 0 6px;font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--gold)}
-.stat-card span{display:block;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.75)}
-.quote-section{padding:72px 56px;background:#f2f5fb;text-align:center}
-.quote-section blockquote{margin:0 auto;max-width:820px;font-family:'Playfair Display',serif;font-style:italic;font-size:1.8rem;line-height:1.6;color:#1e293b;position:relative;padding:32px 0}
-.quote-section blockquote::before{content:"";width:60px;height:3px;background:var(--gold);display:block;margin:0 auto 24px;border-radius:999px}
-.quote-section blockquote p{margin:0 0 12px}
-.services{background:#fff}
-.services .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
-.service-card{background:#fbfbfd;border-radius:20px;padding:32px;box-shadow:0 20px 42px rgba(15,23,42,.08);border:1px solid rgba(148,163,184,.18);transition:transform .25s ease,box-shadow .25s ease;display:flex;flex-direction:column;height:100%}
-.service-card h3{margin:0 0 12px;font-size:1.28rem;color:#0f172a;font-family:'Playfair Display',serif}
-.service-card p{color:#556171;line-height:1.7;font-size:1rem;margin:0}
-.service-card:hover{transform:translateY(-6px);box-shadow:0 28px 58px rgba(15,23,42,.15)}
-.contact{background:var(--navy);color:#fff;text-align:center;padding:110px 56px}
-.contact h2{font-family:'Playfair Display',serif;font-size:2.3rem;margin:0 0 16px}
-.contact p{margin:0 0 28px;font-size:1.05rem;color:var(--text-light)}
-.contact .btn-primary{box-shadow:0 26px 55px rgba(200,162,74,.32)}
-footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font-size:14px}
-@media(max-width:1024px){header{padding:16px 32px}.section,.quote-section,.contact{padding:96px 32px}.about-grid{grid-template-columns:1fr}.about-stats{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}}
-@media(max-width:600px){header{padding:14px 20px}.hero{min-height:520px}.button-row{flex-direction:column;align-items:flex-start}.btn{width:100%}.section,.quote-section,.contact{padding:80px 20px}.quote-section blockquote{font-size:1.5rem}}
-</style>
-</head><body>
-<header>
-  <div class="logo">GEORGE MATO</div>
-  <a href="#contact" class="cta">Work With George</a>
-</header>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
-<main>
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(13, 23, 40, 0.92);
+      backdrop-filter: blur(8px);
+      color: var(--white);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-inner {
+      margin: 0 auto;
+      max-width: var(--max-width);
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .brand {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: clamp(18px, 3vw, 36px);
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      color: rgba(255, 255, 255, 0.82);
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(202, 161, 84, 0.3);
+    }
+
+    .hero {
+      position: relative;
+      height: 72vh;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(105%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(9, 15, 27, 0.82), rgba(19, 39, 66, 0.35));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(var(--max-width), 92%);
+      display: grid;
+      gap: 28px;
+      text-align: center;
+    }
+
+    .hero .eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.4rem, 4.8vw, 3.6rem);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 640px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 1.1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: var(--white);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.85rem;
+    }
+
+    .search-bar {
+      width: min(var(--max-width), 92%);
+      margin: -48px auto 0;
+      position: relative;
+      z-index: 3;
+      background: var(--white);
+      padding: 24px;
+      border-radius: 18px;
+      box-shadow: 0 30px 60px rgba(13, 23, 40, 0.16);
+      display: grid;
+      gap: 16px;
+    }
+
+    .search-bar label {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .search-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .search-controls input,
+    .search-controls select {
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(13, 23, 40, 0.12);
+      font-size: 0.98rem;
+      background: var(--cream);
+    }
+
+    .search-primary {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .search-primary input[type="text"] {
+      flex: 1;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(13, 23, 40, 0.12);
+      font-size: 1.05rem;
+      background: var(--cream);
+    }
+
+    .search-primary button {
+      padding: 14px 28px;
+      border-radius: 12px;
+      border: none;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .search-primary button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 30px rgba(202, 161, 84, 0.26);
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-inner {
+      width: min(var(--max-width), 92%);
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    .section-header .eyebrow {
+      color: var(--gold);
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 3.8vw, 2.8rem);
+      color: var(--navy);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+    }
+
+    .listing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .listing-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 24px 48px rgba(13, 23, 40, 0.08);
+      display: grid;
+      grid-template-rows: 200px auto;
+    }
+
+    .listing-card figure {
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .listing-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .listing-card figcaption {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(13, 23, 40, 0.72);
+      color: var(--white);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .listing-card .card-body {
+      padding: 24px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .listing-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: var(--navy);
+    }
+
+    .listing-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .listing-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+    }
+
+    .feature-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 28px 50px rgba(13, 23, 40, 0.08);
+      display: grid;
+      gap: 12px;
+    }
+
+    .feature-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: var(--navy);
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .valuation {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 26px;
+      padding: clamp(32px, 6vw, 48px);
+      display: grid;
+      gap: 24px;
+      box-shadow: 0 40px 60px rgba(13, 23, 40, 0.28);
+    }
+
+    .valuation h2 {
+      margin: 0;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 3.4vw, 2.8rem);
+    }
+
+    .valuation p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .valuation form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .valuation input,
+    .valuation select {
+      padding: 16px;
+      border-radius: 14px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .valuation button {
+      padding: 16px 28px;
+      border-radius: 14px;
+      border: none;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .valuation button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(202, 161, 84, 0.35);
+    }
+
+    .market-insight {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .insight-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 24px 45px rgba(13, 23, 40, 0.08);
+      display: grid;
+      gap: 12px;
+    }
+
+    .insight-card strong {
+      font-size: 2rem;
+      color: var(--gold);
+    }
+
+    footer {
+      background: var(--navy-soft);
+      color: rgba(255, 255, 255, 0.72);
+      padding: 48px 28px;
+      text-align: center;
+      display: grid;
+      gap: 12px;
+    }
+
+    footer nav {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    footer small {
+      color: rgba(255, 255, 255, 0.48);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+    }
+
+    @media (max-width: 860px) {
+      .nav-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        min-height: 480px;
+      }
+
+      .search-bar {
+        margin-top: -36px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero {
+        min-height: 420px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 8vw, 2.8rem);
+      }
+
+      .search-primary {
+        flex-direction: column;
+      }
+
+      .search-primary button {
+        width: 100%;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="brand">Coastal Luxe</div>
+      <nav>
+        <a href="#listings">Listings</a>
+        <a href="#communities">Communities</a>
+        <a href="#services">Services</a>
+        <a href="#valuation">Valuation</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="cta" href="mailto:hello@coastalluxe.com">Schedule A Consult</a>
+    </div>
+  </header>
+
   <section class="hero" id="top">
-    <div class="vslides" aria-hidden="true">
-      <div class="vslide show">
-        <video class="vmedia" preload="auto" muted playsinline poster="./hero-1.jpg">
-          <source src="./hero-1.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div class="vslide">
-        <video class="vmedia" preload="auto" muted playsinline poster="./hero-2.jpg">
-          <source src="./hero-2.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div class="vslide">
-        <video class="vmedia" preload="auto" muted playsinline poster="./hero-3.jpg">
-          <source src="./hero-3.mp4" type="video/mp4" />
-        </video>
-      </div>
-    </div>
-    <div class="slides" aria-hidden="true">
-      <div class="slide show" style="background-image:url('./hero-1.jpg')"></div>
-      <div class="slide" style="background-image:url('./hero-2.jpg')"></div>
-      <div class="slide" style="background-image:url('./hero-3.jpg')"></div>
-    </div>
-    <div class="overlay"></div>
-    <div class="inner">
-      <div class="hero-text">
-        <div class="eyebrow">Luxury Condominium Consultant</div>
-        <h1>Simplifying the luxury condo buying process</h1>
-        <p class="lead">30 years in high-end condominium sales. Former Director of Sales — The Ritz-Carlton Residences, Estero Bay.</p>
-        <div class="button-row">
-          <a class="btn btn-primary" href="#contact">Work With George</a>
-          <a class="btn btn-ghost" href="#about">Learn More</a>
-        </div>
+    <video autoplay muted playsinline loop poster="./hero-2.jpg">
+      <source src="./hero-2.mp4" type="video/mp4">
+    </video>
+    <div class="hero-content">
+      <span class="eyebrow">Southwest Florida Luxury</span>
+      <h1>Waterfront residences curated for discerning buyers</h1>
+      <p>Browse the Gulf Coast's most coveted estates, tailored insights, and concierge-level representation from Naples to Marco Island.</p>
+      <div class="hero-actions">
+        <a class="cta" href="#listings">Explore Listings</a>
+        <a class="btn-secondary" href="#valuation">Request Valuation</a>
       </div>
     </div>
   </section>
 
-  <section id="about" class="section">
-    <div class="section-header">
-      <h2 class="section-title">About George</h2>
-      <p class="section-subtitle">Trusted advisor to discerning buyers seeking the pinnacle of waterfront living.</p>
+  <section class="search-bar" aria-label="Property search">
+    <div class="search-primary">
+      <input type="text" placeholder="Search by address, city, or community" aria-label="Search by address, city, or community">
+      <button type="button">Start Search</button>
     </div>
-    <div class="about-grid">
-      <div class="about-content">
-        <p class="muted"><strong>Meet George Mato</strong></p>
-        <p>George Mato’s perseverance, vision, and ability to anticipate what luxury real estate buyers want—often before they realize it themselves—has fueled his extraordinary success. Guided by the belief that “great service comes from the heart,” George approaches every relationship with discretion, personal attention, and an unwavering commitment to helping clients achieve their goals.</p>
-        <p>Specializing year-round in Southwest Florida’s luxury condominium market, George blends deep market knowledge with an analytical, results-driven approach that maximizes return on investment. His reputation as a trusted advisor is built on experience, insight, decisive action, and an uncompromising standard of excellence.</p>
-        <p>Over his career, George has played a pivotal role in shaping Florida’s most prestigious communities—Fisher Island, multiple Ritz-Carlton Residences, and the Related Group’s iconic Icon Brickell Miami. He has generated more than $15 billion in development sales revenue, led teams to record-breaking sell-outs, and helped create vibrant, world-class communities.</p>
-        <p>A pioneer of Miami’s luxury condo boom in the 1990s, George helped define one of the most dynamic eras in South Florida real estate. Most recently, as Director of Sales for The Ritz-Carlton Residences, Estero Bay, he led a passionate team that achieved $700M in sales in just two years.</p>
-        <p>What truly sets George apart is his ability to build lasting relationships. He believes every client is more than a transaction—they are a partner and a friend. His guiding principle remains: “People don’t care how much you know until they know how much you care.”</p>
-        <p>For those seeking the pinnacle of luxury living in Southwest Florida, George Mato is the trusted expert who transforms aspirations into reality.</p>
-        <div class="button-row" style="margin-top:32px;">
-          <a class="btn btn-primary" href="#contact">Request Consultation</a>
-        </div>
-      </div>
-      <div class="about-stats">
-        <div class="stat-card"><h3>30+ Years</h3><span>Luxury Condo Sales</span></div>
-        <div class="stat-card"><h3>$15B+</h3><span>Development Sales Revenue</span></div>
-        <div class="stat-card"><h3>$700M</h3><span>In Two Years — Ritz-Carlton Estero Bay</span></div>
-      </div>
+    <label for="price-range">Filter your results</label>
+    <div class="search-controls">
+      <select id="price-range">
+        <option value="">Price Range</option>
+        <option value="1">$1M — $2M</option>
+        <option value="2">$2M — $5M</option>
+        <option value="3">$5M+</option>
+      </select>
+      <select id="beds">
+        <option value="">Beds</option>
+        <option value="2">2+</option>
+        <option value="3">3+</option>
+        <option value="4">4+</option>
+      </select>
+      <select id="property-type">
+        <option value="">Property Type</option>
+        <option value="condo">Condominium</option>
+        <option value="single">Single Family</option>
+        <option value="penthouse">Penthouse</option>
+      </select>
     </div>
   </section>
 
-  <section class="quote-section">
-    <blockquote>
-      <p>“Great service comes from the heart.”</p>
-      <p>“People don’t care how much you know until they know how much you care.”</p>
-    </blockquote>
-  </section>
-
-  <section id="services" class="section services">
-    <div class="section-header">
-      <h2 class="section-title">Services</h2>
-      <p class="section-subtitle">Comprehensive advisory for every stage of the luxury condominium journey.</p>
-    </div>
-    <div class="grid3">
-      <div class="service-card">
-        <h3>Buyer Representation</h3>
-        <p>Search, shortlist, and secure premier residences with data-driven comps, private tours, and discreet negotiations tailored to your requirements.</p>
+  <section class="section" id="services">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="eyebrow">Our Difference</span>
+        <h2>Concierge service from search to closing</h2>
+        <p>Experience white-glove representation tailored to oceanfront and golf course living along Florida's Paradise Coast.</p>
       </div>
-      <div class="service-card">
-        <h3>Luxury Condo Consulting</h3>
-        <p>Evaluate amenities, associations, appreciation drivers, and architectural pedigree to ensure every investment aligns with your long-term vision.</p>
-      </div>
-      <div class="service-card">
-        <h3>Private-Client Advisory</h3>
-        <p>Concierge introductions to trusted lenders, attorneys, designers, and property managers to orchestrate a seamless ownership experience.</p>
+      <div class="features-grid">
+        <article class="feature-card">
+          <h3>Curated Market Intelligence</h3>
+          <p>Weekly insights covering Gulf access listings, boutique towers, and exclusive pre-construction opportunities.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Private Showing Coordination</h3>
+          <p>Seamless itineraries, gated entry access, and on-demand virtual tours for global buyers.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Negotiation & Advisory</h3>
+          <p>Seasoned negotiators focused on maximizing value while safeguarding confidentiality.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h2>Ready to work with George?</h2>
-    <p>Private consultation for luxury buyers in Southwest Florida.</p>
-    <a class="btn btn-primary" href="mailto:workwith@itsradai.com">Request Consultation</a>
+  <section class="section" id="listings">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="eyebrow">Featured Listings</span>
+        <h2>Hand-selected residences available now</h2>
+        <p>Preview a sampling of current offerings. Replace the preview imagery with photography from your portfolio.</p>
+      </div>
+      <div class="listing-grid">
+        <article class="listing-card">
+          <figure>
+            <img src="./images/listing-1.jpg" alt="Waterfront condo living room">
+            <figcaption>Vista Pointe Tower</figcaption>
+          </figure>
+          <div class="card-body">
+            <div class="listing-meta">
+              <span>$3.9M</span>
+              <span>3 BD · 3.5 BA · 3,200 SF</span>
+            </div>
+            <h3>Bayfront sky residence in Naples</h3>
+            <p>Floor-to-ceiling glass, private elevator lobby, and panoramic sunset vistas over Vanderbilt Bay.</p>
+          </div>
+        </article>
+        <article class="listing-card">
+          <figure>
+            <img src="./images/listing-2.jpg" alt="Luxury home exterior with pool">
+            <figcaption>Pelican Marsh</figcaption>
+          </figure>
+          <div class="card-body">
+            <div class="listing-meta">
+              <span>$5.4M</span>
+              <span>4 BD · 4.5 BA · 4,800 SF</span>
+            </div>
+            <h3>Modern coastal estate on the fairway</h3>
+            <p>Resort-style lanai, summer kitchen, and club membership options at Naples' premier golf community.</p>
+          </div>
+        </article>
+        <article class="listing-card">
+          <figure>
+            <img src="./images/listing-3.jpg" alt="High-rise balcony overlooking the Gulf">
+            <figcaption>Marco Island</figcaption>
+          </figure>
+          <div class="card-body">
+            <div class="listing-meta">
+              <span>$2.6M</span>
+              <span>3 BD · 3 BA · 2,450 SF</span>
+            </div>
+            <h3>Turnkey beachfront retreat</h3>
+            <p>Expansive wraparound balcony, designer interiors, and private cabana service.</p>
+          </div>
+        </article>
+      </div>
+    </div>
   </section>
-</main>
 
-<footer>© <script>document.write(new Date().getFullYear())</script> George Mato — Designed by RAD AI</footer>
+  <section class="section" id="communities">
+    <div class="section-inner market-insight">
+      <article class="insight-card">
+        <strong>$2.4M</strong>
+        <h3>Median Condo Sold Price</h3>
+        <p>Tracking premium towers across Naples, Estero, and Bonita Bay during the past 90 days.</p>
+      </article>
+      <article class="insight-card">
+        <strong>18</strong>
+        <h3>Off-Market Opportunities</h3>
+        <p>Exclusive access to listings not available on the MLS, updated weekly.</p>
+      </article>
+      <article class="insight-card">
+        <strong>14 Days</strong>
+        <h3>Average Days To Contract</h3>
+        <p>Our listings leverage media-first marketing and buyer matchmaking to move quickly.</p>
+      </article>
+    </div>
+  </section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const heroSection = document.querySelector('.hero');
-    const videoContainer = document.querySelector('.vslides');
-    const fallbackContainer = document.querySelector('.slides');
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const FALLBACK_REASONS = {
-      AUTOPLAY_BLOCKED: 'autoplay-blocked',
-      PLAYBACK_ERROR: 'playback-error',
-      REDUCE_MOTION: 'reduce-motion',
-      NO_SOURCES: 'no-sources',
-      UNKNOWN: 'unknown'
-    };
-    let videoSlides = Array.from(document.querySelectorAll('.vslide'));
-    let activeVideoIndex = 0;
+  <section class="section" id="valuation">
+    <div class="section-inner">
+      <div class="valuation">
+        <h2>Request a complimentary home valuation</h2>
+        <p>Receive a bespoke pricing analysis, staging recommendations, and marketing roadmap crafted for your residence.</p>
+        <form>
+          <input type="text" placeholder="Property Address" required>
+          <div class="search-controls" style="margin:0;">
+            <input type="text" placeholder="City" required>
+            <input type="text" placeholder="Email" required>
+          </div>
+          <select required>
+            <option value="">Property Type</option>
+            <option value="condo">Luxury Condo</option>
+            <option value="single">Single Family Estate</option>
+            <option value="land">Waterfront Lot</option>
+          </select>
+          <button type="submit">Send My Valuation</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-    function tryPlay(video) {
-      if (!video) {
-        return Promise.reject();
-      }
-      const source = video.currentSrc || video.querySelector('source')?.getAttribute('src') || 'unknown';
-      console.info('[hero-video] attempting autoplay', source);
-      video.muted = true;
-      video.volume = 0;
-      video.playsInline = true;
-      video.setAttribute('muted', '');
-      video.setAttribute('playsinline', '');
-      video.currentTime = 0;
-      const playPromise = video.play();
-      return playPromise.then(() => {
-        console.info('[hero-video] autoplay success', source);
-        return true;
-      }).catch((error) => {
-        console.error('[hero-video] autoplay failed', source, error);
-        throw error;
-      });
-    }
-
-    function showVideoSlide(index) {
-      videoSlides.forEach(slide => slide.classList.remove('show'));
-      const target = videoSlides[index];
-      if (target) {
-        target.classList.add('show');
-      }
-    }
-
-    function wireVideo(video) {
-      if (!video) {
-        return;
-      }
-      video.controls = false;
-      video.loop = false;
-      video.preload = 'auto';
-      video.load();
-      video.onended = advanceVideo;
-      video.onerror = () => handleVideoFailure(video);
-    }
-
-    function handleVideoFailure(video) {
-      const failureIndex = video ? videoSlides.findIndex(slide => slide.contains(video)) : -1;
-      const source = video?.currentSrc || video?.querySelector('source')?.getAttribute('src') || 'unknown';
-      console.error('[hero-video] playback failure', source, { failureIndex });
-      if (failureIndex === -1) {
-        fallbackToImages(FALLBACK_REASONS.UNKNOWN);
-        return;
-      }
-
-      const removed = videoSlides.splice(failureIndex, 1)[0];
-      if (removed && removed.parentElement) {
-        removed.parentElement.removeChild(removed);
-      }
-
-      if (failureIndex < activeVideoIndex) {
-        activeVideoIndex -= 1;
-      }
-      if (activeVideoIndex < 0) {
-        activeVideoIndex = 0;
-      }
-
-      if (!videoSlides.length) {
-        console.warn('[hero-video] no playable videos remaining; switching to images');
-        fallbackToImages(FALLBACK_REASONS.NO_SOURCES);
-        return;
-      }
-
-      if (activeVideoIndex >= videoSlides.length) {
-        activeVideoIndex = 0;
-      }
-
-      showVideoSlide(activeVideoIndex);
-      const current = videoSlides[activeVideoIndex]?.querySelector('video');
-      wireVideo(current);
-      tryPlay(current).catch(() => {
-        fallbackToImages(FALLBACK_REASONS.PLAYBACK_ERROR);
-      });
-    }
-
-    function advanceVideo() {
-      if (!videoSlides.length) {
-        fallbackToImages(FALLBACK_REASONS.NO_SOURCES);
-        return;
-      }
-
-      const currentVideo = videoSlides[activeVideoIndex]?.querySelector('video');
-      if (currentVideo) {
-        currentVideo.pause();
-        currentVideo.currentTime = 0;
-      }
-
-      activeVideoIndex = (activeVideoIndex + 1) % videoSlides.length;
-      showVideoSlide(activeVideoIndex);
-
-      const nextVideo = videoSlides[activeVideoIndex]?.querySelector('video');
-      wireVideo(nextVideo);
-      tryPlay(nextVideo).catch(() => {
-        handleVideoFailure(nextVideo || null);
-      });
-    }
-
-    let visibilityListenerAttached = false;
-
-    function attachVisibilityListener() {
-      if (visibilityListenerAttached) {
-        return;
-      }
-      visibilityListenerAttached = true;
-      document.addEventListener('visibilitychange', () => {
-        const current = videoSlides[activeVideoIndex]?.querySelector('video');
-        if (!current) {
-          return;
-        }
-        if (document.hidden) {
-          current.pause();
-        } else {
-          tryPlay(current).catch(() => {
-            // ignore autoplay resume errors
-          });
-        }
-      });
-    }
-
-    function prepareSecondaryVideos() {
-      videoSlides.forEach((slide, index) => {
-        const video = slide.querySelector('video');
-        if (!video || index === activeVideoIndex) {
-          return;
-        }
-        wireVideo(video);
-        video.load();
-      });
-      attachVisibilityListener();
-    }
-
-    function startVideoCarousel() {
-      if (!videoSlides.length) {
-        fallbackToImages(FALLBACK_REASONS.NO_SOURCES);
-        return;
-      }
-
-      if (prefersReducedMotion.matches) {
-        console.info('[hero-video] prefers-reduced-motion detected; skipping video playback');
-        fallbackToImages(FALLBACK_REASONS.REDUCE_MOTION);
-        return;
-      }
-
-      showVideoSlide(activeVideoIndex);
-      const firstVideo = videoSlides[activeVideoIndex]?.querySelector('video');
-      wireVideo(firstVideo);
-
-      const handleAutoplayBlocked = () => {
-        if (!videoContainer) {
-          fallbackToImages(FALLBACK_REASONS.UNKNOWN);
-          return;
-        }
-        console.warn('[hero-video] autoplay blocked by browser, waiting for user interaction');
-        videoContainer.classList.add('awaiting-interaction');
-        heroSection?.classList.add('awaiting-autoplay');
-        const resume = () => {
-          document.removeEventListener('pointerdown', resume, true);
-          document.removeEventListener('keydown', resume, true);
-          tryPlay(firstVideo).then(() => {
-            videoContainer.classList.remove('awaiting-interaction');
-            heroSection?.classList.remove('awaiting-autoplay');
-            prepareSecondaryVideos();
-          }).catch(() => {
-            console.error('[hero-video] autoplay still blocked after interaction');
-            fallbackToImages(FALLBACK_REASONS.AUTOPLAY_BLOCKED);
-          });
-        };
-        document.addEventListener('pointerdown', resume, { once: true, capture: true });
-        document.addEventListener('keydown', resume, { once: true, capture: true });
-      };
-
-      tryPlay(firstVideo).then(() => {
-        videoContainer?.classList.remove('awaiting-interaction');
-        heroSection?.classList.remove('awaiting-autoplay');
-        prepareSecondaryVideos();
-      }).catch(handleAutoplayBlocked);
-    }
-
-    function startImageCarousel() {
-      if (!fallbackContainer) {
-        return;
-      }
-
-      const slides = Array.from(fallbackContainer.querySelectorAll('.slide'));
-      if (slides.length <= 1) {
-        return;
-      }
-
-      if (fallbackContainer.dataset.carouselInitialized === 'true') {
-        return;
-      }
-      fallbackContainer.dataset.carouselInitialized = 'true';
-
-      let activeIndex = slides.findIndex(slide => slide.classList.contains('show'));
-      if (activeIndex < 0) {
-        activeIndex = 0;
-        slides[0].classList.add('show');
-      }
-
-      const showSlide = (index) => {
-        slides[activeIndex].classList.remove('show');
-        activeIndex = index;
-        slides[activeIndex].classList.add('show');
-      };
-
-      const cycleSlides = () => {
-        const nextIndex = (activeIndex + 1) % slides.length;
-        showSlide(nextIndex);
-      };
-
-      let slideTimer = null;
-      const start = () => {
-        if (slideTimer || prefersReducedMotion.matches) {
-          return;
-        }
-        slideTimer = window.setInterval(cycleSlides, 5000);
-      };
-
-      const stop = () => {
-        if (!slideTimer) {
-          return;
-        }
-        window.clearInterval(slideTimer);
-        slideTimer = null;
-      };
-
-      if (!prefersReducedMotion.matches) {
-        start();
-      }
-
-      const handlePreferenceChange = (event) => {
-        if (event.matches) {
-          stop();
-          showSlide(0);
-        } else {
-          start();
-        }
-      };
-
-      if (typeof prefersReducedMotion.addEventListener === 'function') {
-        prefersReducedMotion.addEventListener('change', handlePreferenceChange);
-      } else if (typeof prefersReducedMotion.addListener === 'function') {
-        prefersReducedMotion.addListener(handlePreferenceChange);
-      }
-
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-          stop();
-        } else {
-          start();
-        }
-      });
-    }
-
-    function fallbackToImages(reason = FALLBACK_REASONS.UNKNOWN) {
-      if (videoContainer) {
-        videoContainer.classList.remove('awaiting-interaction');
-        heroSection?.classList.remove('awaiting-autoplay');
-        videoContainer.style.display = 'none';
-      }
-      if (heroSection) {
-        heroSection.dataset.fallbackReason = reason;
-      }
-      if (fallbackContainer) {
-        fallbackContainer.style.display = 'block';
-        console.info('[hero-video] using fallback carousel', reason);
-        startImageCarousel();
-      }
-    }
-
-    videoSlides = videoSlides.filter(slide => {
-      const video = slide.querySelector('video');
-      const source = video?.querySelector('source');
-      if (!video || !source || !source.getAttribute('src')) {
-        slide.remove();
-        return false;
-      }
-      return true;
-    });
-
-    if (videoSlides.length) {
-      startVideoCarousel();
-    } else {
-      fallbackToImages(FALLBACK_REASONS.NO_SOURCES);
-    }
-  });
-</script>
-</body></html>
+  <footer id="contact">
+    <nav>
+      <a href="#listings">Listings</a>
+      <a href="#communities">Communities</a>
+      <a href="#services">Services</a>
+      <a href="#valuation">Valuation</a>
+      <a href="mailto:hello@coastalluxe.com">Email</a>
+    </nav>
+    <div>Coastal Luxe Real Estate Group · Naples · Marco Island · Bonita Bay</div>
+    <small>© <script>document.write(new Date().getFullYear())</script> Coastal Luxe Real Estate Group. All rights reserved.</small>
+  </footer>
+</body>
+</html>
