@@ -15,6 +15,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,25
 .cta:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(200,162,74,.28)}
 main{padding-top:120px}
 .hero{position:relative;height:92vh;min-height:640px;display:flex;align-items:center;color:#fff;background:var(--navy)}
+.hero.awaiting-autoplay::after{content:'Tap to enable the skyline video';position:absolute;bottom:24px;right:24px;padding:10px 18px;border-radius:999px;background:rgba(11,15,29,.78);color:var(--text-light);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(255,255,255,.35);pointer-events:none;z-index:3}
 .vslides{position:absolute;inset:0;overflow:hidden;z-index:-1}
 .vslide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease-in-out}
 .vslide.show{opacity:1}
@@ -172,6 +173,7 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    const heroSection = document.querySelector('.hero');
     const videoContainer = document.querySelector('.vslides');
     const fallbackContainer = document.querySelector('.slides');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -267,6 +269,40 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
       });
     }
 
+    let visibilityListenerAttached = false;
+
+    function attachVisibilityListener() {
+      if (visibilityListenerAttached) {
+        return;
+      }
+      visibilityListenerAttached = true;
+      document.addEventListener('visibilitychange', () => {
+        const current = videoSlides[activeVideoIndex]?.querySelector('video');
+        if (!current) {
+          return;
+        }
+        if (document.hidden) {
+          current.pause();
+        } else {
+          tryPlay(current).catch(() => {
+            // ignore autoplay resume errors
+          });
+        }
+      });
+    }
+
+    function prepareSecondaryVideos() {
+      videoSlides.forEach((slide, index) => {
+        const video = slide.querySelector('video');
+        if (!video || index === activeVideoIndex) {
+          return;
+        }
+        wireVideo(video);
+        video.load();
+      });
+      attachVisibilityListener();
+    }
+
     function startVideoCarousel() {
       if (!videoSlides.length || prefersReducedMotion.matches) {
         fallbackToImages();
@@ -277,32 +313,33 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
       const firstVideo = videoSlides[activeVideoIndex]?.querySelector('video');
       wireVideo(firstVideo);
 
-      tryPlay(firstVideo).then(() => {
-        videoSlides.forEach((slide, index) => {
-          const video = slide.querySelector('video');
-          if (!video || index === activeVideoIndex) {
-            return;
-          }
-          wireVideo(video);
-          video.load();
-        });
+      const handleAutoplayBlocked = () => {
+        if (!videoContainer) {
+          fallbackToImages();
+          return;
+        }
+        videoContainer.classList.add('awaiting-interaction');
+        heroSection?.classList.add('awaiting-autoplay');
+        const resume = () => {
+          document.removeEventListener('pointerdown', resume, true);
+          document.removeEventListener('keydown', resume, true);
+          tryPlay(firstVideo).then(() => {
+            videoContainer.classList.remove('awaiting-interaction');
+            heroSection?.classList.remove('awaiting-autoplay');
+            prepareSecondaryVideos();
+          }).catch(() => {
+            fallbackToImages();
+          });
+        };
+        document.addEventListener('pointerdown', resume, { once: true, capture: true });
+        document.addEventListener('keydown', resume, { once: true, capture: true });
+      };
 
-        document.addEventListener('visibilitychange', () => {
-          const current = videoSlides[activeVideoIndex]?.querySelector('video');
-          if (!current) {
-            return;
-          }
-          if (document.hidden) {
-            current.pause();
-          } else {
-            tryPlay(current).catch(() => {
-              // ignore autoplay resume errors
-            });
-          }
-        });
-      }).catch(() => {
-        fallbackToImages();
-      });
+      tryPlay(firstVideo).then(() => {
+        videoContainer?.classList.remove('awaiting-interaction');
+        heroSection?.classList.remove('awaiting-autoplay');
+        prepareSecondaryVideos();
+      }).catch(handleAutoplayBlocked);
     }
 
     function startImageCarousel() {
@@ -383,6 +420,8 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
 
     function fallbackToImages() {
       if (videoContainer) {
+        videoContainer.classList.remove('awaiting-interaction');
+        heroSection?.classList.remove('awaiting-autoplay');
         videoContainer.style.display = 'none';
       }
       if (fallbackContainer) {
