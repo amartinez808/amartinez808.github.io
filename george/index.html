@@ -177,6 +177,13 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
     const videoContainer = document.querySelector('.vslides');
     const fallbackContainer = document.querySelector('.slides');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const FALLBACK_REASONS = {
+      AUTOPLAY_BLOCKED: 'autoplay-blocked',
+      PLAYBACK_ERROR: 'playback-error',
+      REDUCE_MOTION: 'reduce-motion',
+      NO_SOURCES: 'no-sources',
+      UNKNOWN: 'unknown'
+    };
     let videoSlides = Array.from(document.querySelectorAll('.vslide'));
     let activeVideoIndex = 0;
 
@@ -196,6 +203,9 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
       return playPromise.then(() => {
         console.info('[hero-video] autoplay success', source);
         return true;
+      }).catch((error) => {
+        console.error('[hero-video] autoplay failed', source, error);
+        throw error;
       });
     }
 
@@ -224,7 +234,7 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
       const source = video?.currentSrc || video?.querySelector('source')?.getAttribute('src') || 'unknown';
       console.error('[hero-video] playback failure', source, { failureIndex });
       if (failureIndex === -1) {
-        fallbackToImages();
+        fallbackToImages(FALLBACK_REASONS.UNKNOWN);
         return;
       }
 
@@ -242,7 +252,7 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
 
       if (!videoSlides.length) {
         console.warn('[hero-video] no playable videos remaining; switching to images');
-        fallbackToImages();
+        fallbackToImages(FALLBACK_REASONS.NO_SOURCES);
         return;
       }
 
@@ -254,13 +264,13 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
       const current = videoSlides[activeVideoIndex]?.querySelector('video');
       wireVideo(current);
       tryPlay(current).catch(() => {
-        fallbackToImages();
+        fallbackToImages(FALLBACK_REASONS.PLAYBACK_ERROR);
       });
     }
 
     function advanceVideo() {
       if (!videoSlides.length) {
-        fallbackToImages();
+        fallbackToImages(FALLBACK_REASONS.NO_SOURCES);
         return;
       }
 
@@ -315,8 +325,14 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
     }
 
     function startVideoCarousel() {
-      if (!videoSlides.length || prefersReducedMotion.matches) {
-        fallbackToImages();
+      if (!videoSlides.length) {
+        fallbackToImages(FALLBACK_REASONS.NO_SOURCES);
+        return;
+      }
+
+      if (prefersReducedMotion.matches) {
+        console.info('[hero-video] prefers-reduced-motion detected; skipping video playback');
+        fallbackToImages(FALLBACK_REASONS.REDUCE_MOTION);
         return;
       }
 
@@ -326,7 +342,7 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
 
       const handleAutoplayBlocked = () => {
         if (!videoContainer) {
-          fallbackToImages();
+          fallbackToImages(FALLBACK_REASONS.UNKNOWN);
           return;
         }
         console.warn('[hero-video] autoplay blocked by browser, waiting for user interaction');
@@ -341,7 +357,7 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
             prepareSecondaryVideos();
           }).catch(() => {
             console.error('[hero-video] autoplay still blocked after interaction');
-            fallbackToImages();
+            fallbackToImages(FALLBACK_REASONS.AUTOPLAY_BLOCKED);
           });
         };
         document.addEventListener('pointerdown', resume, { once: true, capture: true });
@@ -431,15 +447,18 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
       });
     }
 
-    function fallbackToImages() {
+    function fallbackToImages(reason = FALLBACK_REASONS.UNKNOWN) {
       if (videoContainer) {
         videoContainer.classList.remove('awaiting-interaction');
         heroSection?.classList.remove('awaiting-autoplay');
         videoContainer.style.display = 'none';
       }
+      if (heroSection) {
+        heroSection.dataset.fallbackReason = reason;
+      }
       if (fallbackContainer) {
         fallbackContainer.style.display = 'block';
-        console.info('[hero-video] using fallback carousel');
+        console.info('[hero-video] using fallback carousel', reason);
         startImageCarousel();
       }
     }
@@ -457,7 +476,7 @@ footer{background:#060a13;color:#b7c0d8;text-align:center;padding:40px 24px;font
     if (videoSlides.length) {
       startVideoCarousel();
     } else {
-      fallbackToImages();
+      fallbackToImages(FALLBACK_REASONS.NO_SOURCES);
     }
   });
 </script>
