@@ -127,7 +127,7 @@
       object-fit: cover;
       filter: saturate(105%);
       opacity: 0;
-      transition: opacity 0.9s ease;
+      transition: opacity 3s ease;
     }
 
     .hero-video.is-active {
@@ -553,7 +553,10 @@
 
   <section class="hero" id="top">
     <div class="hero-media" aria-hidden="true">
-      <video class="hero-video is-active" preload="auto" muted playsinline poster="./hero-2.jpg">
+      <video class="hero-video is-active" preload="auto" muted playsinline poster="./hero-1.jpg">
+        <source src="./hero-1.mp4" type="video/mp4">
+      </video>
+      <video class="hero-video" preload="auto" muted playsinline poster="./hero-2.jpg">
         <source src="./hero-2.mp4" type="video/mp4">
       </video>
       <video class="hero-video" preload="auto" muted playsinline poster="./hero-3.jpg">
