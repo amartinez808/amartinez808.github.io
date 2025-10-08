@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>George Mato — Luxury Condominium Consultant</title>
+  <meta name="description" content="George Mato curates extraordinary waterfront residences for private clients across Miami and Southwest Florida.">
+  <meta property="og:title" content="George Mato — Luxury Condominium Consultant">
+  <meta property="og:description" content="30+ years in luxury condo sales, $15B+ development revenue, trusted advisor in Miami and Southwest Florida waterfront living.">
+  <meta property="og:image" content="/george/hero-1.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f2f3f5;
+      --surface: #ffffff;
+      --ink: #10131a;
+      --muted: #5f6672;
+      --accent: #c6a869;
+      --border: rgba(16, 19, 26, 0.08);
+      --radius: 12px;
+      --max-width: 1160px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(16px);
+      background: color-mix(in srgb, var(--surface) 85%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      margin: 0 auto;
+      max-width: var(--max-width);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: clamp(24px, 4vw, 48px);
+    }
+
+    .brand {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    nav {
+      flex: 1;
+      display: flex;
+      gap: clamp(16px, 3vw, 32px);
+      justify-content: center;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    nav a { color: var(--muted); }
+    nav a:hover { color: var(--ink); }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--surface);
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      transition: transform 0.2s ease;
+    }
+
+    .cta:hover { transform: translateY(-1px); }
+
+    main { display: grid; gap: 120px; padding-bottom: 120px; }
+
+    .hero {
+      position: relative;
+      min-height: 85vh;
+      display: grid;
+      align-items: end;
+      justify-items: start;
+      padding: clamp(56px, 9vw, 110px) clamp(24px, 7vw, 120px);
+      overflow: hidden;
+      background: #0c111c;
+      color: var(--surface);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(140deg, rgba(12, 17, 28, 0.82), rgba(12, 17, 28, 0.35));
+      z-index: 1;
+    }
+
+    .hero-media { position: absolute; inset: 0; }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2.4s ease;
+    }
+
+    .hero-video.is-active { opacity: 1; }
+
+    .hero.awaiting-autoplay::before {
+      content: 'Tap to enable film';
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      background: rgba(12, 17, 28, 0.65);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      z-index: 3;
+    }
+
+    .hero-overlay {
+      position: relative;
+      z-index: 2;
+      max-width: 520px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    .hero p { margin: 0; color: rgba(255, 255, 255, 0.85); }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hero-link {
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .hero-link::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 100%;
+      margin-top: 4px;
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .hero-status {
+      min-height: 18px;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .gallery {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      gap: 28px;
+    }
+
+    .gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .gallery-header h2 {
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(2rem, 3.4vw, 2.8rem);
+      letter-spacing: -0.01em;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    .gallery-item figcaption {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: rgba(16, 19, 26, 0.4);
+      color: #fff;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .gallery-item.large { grid-column: span 2; grid-row: span 2; }
+    @media (max-width: 900px) { .gallery-item.large { grid-column: span 1; grid-row: span 1; } }
+
+    .approach {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      gap: 32px;
+    }
+
+    .approach h2 {
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(2rem, 3.2vw, 2.6rem);
+      letter-spacing: -0.01em;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .approach-card {
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      display: grid;
+      gap: 10px;
+    }
+
+    .approach-card h3 { margin: 0; font-family: 'Manrope', sans-serif; font-size: 1.1rem; }
+    .approach-card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+    .contact {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .contact h2 {
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      letter-spacing: -0.01em;
+    }
+
+    .contact p { margin: 0; color: var(--muted); max-width: 520px; }
+
+    footer {
+      padding: 60px 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 720px) {
+      nav { display: none; }
+      .hero { padding: 64px 24px 72px; min-height: 70vh; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 520px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .hero-overlay { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="brand">George Mato | The Luxury Group</div>
+      <nav>
+        <a href="#gallery">Residences</a>
+        <a href="#approach">Approach</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-media" aria-hidden="true">
+        <video class="hero-video is-active" preload="auto" muted playsinline poster="./hero-1.jpg">
+          <source src="./hero-1.mp4" type="video/mp4">
+        </video>
+        <video class="hero-video" preload="auto" muted playsinline poster="./hero-2.jpg">
+          <source src="./hero-2.mp4" type="video/mp4">
+        </video>
+        <video class="hero-video" preload="auto" muted playsinline poster="./hero-3.jpg">
+          <source src="./hero-3.mp4" type="video/mp4">
+        </video>
+        <video class="hero-video" preload="auto" muted playsinline poster="./miamiGolf.jpg">
+          <source src="./miamigolf2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-overlay">
+        <span class="hero-label">Luxury condominium consultant</span>
+        <h1>Waterfront residences, curated personally.</h1>
+        <p>From Brickell penthouses to Ritz-Carlton coastal sanctuaries, George Mato secures the rarest addresses for discerning collectors.</p>
+        <div class="hero-actions">
+          <a class="hero-link" href="mailto:workwith@itsradai.com">Private consultation</a>
+          <a class="hero-link" href="#gallery">View portfolio</a>
+        </div>
+        <span class="hero-status" id="heroStatus"></span>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="gallery-header">
+        <h2>Recent vantage points</h2>
+        <p style="margin:0;color:var(--muted);">Sightlines, sunset exposures, and transformative amenities defining Miami and Gulf-front living.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item large">
+          <img src="./hero-1.jpg" alt="Brickell penthouse terrace">
+          <figcaption>Brickell • Sky residence</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="./fisherIsland.avif" alt="Fisher Island private marina">
+          <figcaption>Fisher Island • Marina enclave</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="./esteroBay.webp" alt="Estero Bay waterfront horizon">
+          <figcaption>Estero Bay • Gulf horizon</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="./naples.jpg" alt="Naples waterfront residence">
+          <figcaption>Naples • Waterfront estate</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="approach" id="approach">
+      <h2>Quiet, data-led representation</h2>
+      <div class="approach-grid">
+        <div class="approach-card">
+          <h3>Curated discovery</h3>
+          <p>Confidential briefings, architectural context, and tailored itineraries that surface only the residences that matter.</p>
+        </div>
+        <div class="approach-card">
+          <h3>Intelligence at negotiation</h3>
+          <p>Proprietary comps, association insight, and pacing strategy engineered to secure advantage without noise.</p>
+        </div>
+        <div class="approach-card">
+          <h3>Concierge orchestration</h3>
+          <p>Introductions to elite legal, financial, and design partners so every detail aligns with lifestyle and legacy.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Let’s design your next move</h2>
+      <p>Reserve a discreet conversation with George Mato to outline objectives, timing, and the residences that fit.</p>
+      <a class="cta" href="mailto:workwith@itsradai.com">Request consultation</a>
+    </section>
+  </main>
+
+  <footer>
+    © <script>document.write(new Date().getFullYear())</script> George Mato · All rights reserved
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const heroSection = document.querySelector('.hero');
+      const videos = Array.from(document.querySelectorAll('.hero-video'));
+      const status = document.getElementById('heroStatus');
+
+      if (!videos.length) {
+        return;
+      }
+
+      videos.forEach((video) => {
+        video.muted = true;
+        video.setAttribute('muted', '');
+        video.playsInline = true;
+        video.setAttribute('playsinline', '');
+        video.autoplay = false;
+        video.preload = 'auto';
+      });
+
+      let activeIndex = 0;
+      let awaitingInteraction = false;
+      let rotationTimer = null;
+
+      const showStatus = (message = '') => {
+        if (status) {
+          status.textContent = message;
+        }
+      };
+
+      const clearRotationTimer = () => {
+        if (rotationTimer) {
+          window.clearTimeout(rotationTimer);
+          rotationTimer = null;
+        }
+      };
+
+      const scheduleNext = () => {
+        clearRotationTimer();
+        rotationTimer = window.setTimeout(() => {
+          advance();
+        }, 5200);
+      };
+
+      const markActive = (nextIndex) => {
+        const currentVideo = videos[activeIndex];
+        const nextVideo = videos[nextIndex];
+        if (!nextVideo) return;
+
+        nextVideo.classList.add('is-active');
+
+        if (currentVideo && currentVideo !== nextVideo) {
+          setTimeout(() => {
+            currentVideo.classList.remove('is-active');
+            try {
+              currentVideo.pause();
+              currentVideo.currentTime = 0;
+            } catch (error) {
+              console.debug('[hero] reset failed', error);
+            }
+          }, 320);
+        }
+
+        activeIndex = nextIndex;
+      };
+
+      const playIndex = (index) => {
+        const target = videos[index];
+        if (!target) {
+          return Promise.reject(new Error('invalid video index'));
+        }
+
+        clearRotationTimer();
+
+        try {
+          target.currentTime = 0;
+        } catch (error) {
+          console.debug('[hero] unable to seek', error);
+        }
+
+        const attempt = target.play();
+        if (attempt && typeof attempt.then === 'function') {
+          return attempt.then(() => {
+            markActive(index);
+            showStatus('');
+            scheduleNext();
+          }).catch((error) => handlePlaybackFailure(error));
+        }
+
+        markActive(index);
+        showStatus('');
+        scheduleNext();
+        return Promise.resolve();
+      };
+
+      const handlePlaybackFailure = (error) => {
+        if (error?.name === 'NotAllowedError') {
+          handleAutoplayBlocked();
+        } else {
+          console.warn('[hero] playback error', error);
+          showStatus('Media temporarily unavailable');
+          setTimeout(() => advance(), 800);
+        }
+        return Promise.reject(error);
+      };
+
+      const advance = () => {
+        const nextIndex = (activeIndex + 1) % videos.length;
+        playIndex(nextIndex).catch(() => {
+          // error handled in playIndex
+        });
+      };
+
+      const handleAutoplayBlocked = () => {
+        if (awaitingInteraction) {
+          return;
+        }
+        awaitingInteraction = true;
+        heroSection?.classList.add('awaiting-autoplay');
+        showStatus('Tap to enable playback');
+        clearRotationTimer();
+
+        const resume = () => {
+          document.removeEventListener('pointerdown', resume, true);
+          document.removeEventListener('keydown', resume, true);
+          awaitingInteraction = false;
+          heroSection?.classList.remove('awaiting-autoplay');
+          showStatus('');
+          playIndex(activeIndex).catch(() => {
+            showStatus('Media temporarily unavailable');
+          });
+        };
+
+        document.addEventListener('pointerdown', resume, { once: true, capture: true });
+        document.addEventListener('keydown', resume, { once: true, capture: true });
+      };
+
+      videos.forEach((video, index) => {
+        video.addEventListener('ended', () => {
+          if (document.hidden) {
+            return;
+          }
+          showStatus('');
+          clearRotationTimer();
+          setTimeout(() => {
+            playIndex((index + 1) % videos.length).catch(() => {});
+          }, 600);
+        });
+
+        video.addEventListener('error', () => {
+          console.warn('[hero] error event', video.currentSrc);
+          showStatus('Media temporarily unavailable');
+          clearRotationTimer();
+          setTimeout(() => {
+            playIndex((index + 1) % videos.length).catch(() => {});
+          }, 600);
+        });
+      });
+
+      playIndex(activeIndex).catch(() => {
+        // autoplay blocked handled in handler
+      });
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          clearRotationTimer();
+        } else if (!awaitingInteraction) {
+          scheduleNext();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
