@@ -1,943 +1,959 @@
 <!DOCTYPE HTML>
 <html lang="en">
-	<head>
-		<title>RAD AI | AI Automation Solutions for Businesses</title>
-		<meta name="description" content="Save time, cut costs, and scale smarter with AI automation solutions from RAD AI. We build chatbots, task automations, and custom AI tools for businesses." />
-		<meta name="robots" content="index,follow" />
-		<meta name="language" content="en" />
-		<meta name="author" content="RAD AI" />
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-		<link rel="canonical" href="https://itsradai.com/" />
-		<link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg" />
-		<meta name="theme-color" content="#0b0d12" />
-		<meta name="keywords" content="AI automation, rational automation design, LLM routing, AI chatbots, compliance AI, RAD AI" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="RAD AI — Rational Automation Design" />
-		<meta property="og:description" content="Route every request to the right large language model, log decisions for compliance, and automate revenue-driving workflows with RAD AI." />
-		<meta property="og:url" content="https://itsradai.com/" />
-		<meta property="og:site_name" content="RAD AI" />
-		<meta property="og:image" content="https://itsradai.com/images/RADai4.jpeg" />
-		<meta property="og:image:alt" content="RAD AI dashboard showing automation performance" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="RAD AI — Rational Automation Design" />
-		<meta name="twitter:description" content="Route every request to the right large language model, log decisions for compliance, and automate revenue-driving workflows with RAD AI." />
-		<meta name="twitter:image" content="https://itsradai.com/images/RADai4.jpeg" />
-		<style>
-			* {
-				margin: 0;
-				padding: 0;
-				box-sizing: border-box;
-			}
 
-			:root {
-				--primary: #0EA5E9;
-				--primary-dark: #0284C7;
-				--secondary: #1E40AF;
-				--accent: #F97316;
-				--success: #34C759;
-				--text-primary: #0F172A;
-				--text-secondary: #475569;
-				--bg-primary: #FFFFFF;
-				--bg-secondary: #F1F5F9;
-				--bg-tertiary: #F8FAFC;
-				--border: #E2E8F0;
-				--shadow-light: rgba(15, 23, 42, 0.06);
-				--shadow-medium: rgba(15, 23, 42, 0.12);
-				--shadow-heavy: rgba(15, 23, 42, 0.18);
-				--gradient-primary: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%);
-				--gradient-secondary: linear-gradient(135deg, #38BDF8 0%, #6366F1 100%);
-				--radius-small: 10px;
-				--radius-medium: 18px;
-				--radius-large: 28px;
-			}
+<head>
+	<title>RAD AI | AI Automation Solutions for Businesses</title>
+	<meta name="description"
+		content="Save time, cut costs, and scale smarter with AI automation solutions from RAD AI. We build chatbots, task automations, and custom AI tools for businesses." />
+	<meta name="robots" content="index,follow" />
+	<meta name="language" content="en" />
+	<meta name="author" content="RAD AI" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="canonical" href="https://itsradai.com/" />
+	<link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg" />
+	<meta name="theme-color" content="#0b0d12" />
+	<meta name="keywords"
+		content="AI automation, rational automation design, LLM routing, AI chatbots, compliance AI, RAD AI" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="RAD AI — Rational Automation Design" />
+	<meta property="og:description"
+		content="Route every request to the right large language model, log decisions for compliance, and automate revenue-driving workflows with RAD AI." />
+	<meta property="og:url" content="https://itsradai.com/" />
+	<meta property="og:site_name" content="RAD AI" />
+	<meta property="og:image" content="https://itsradai.com/images/RADai4.jpeg" />
+	<meta property="og:image:alt" content="RAD AI dashboard showing automation performance" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="RAD AI — Rational Automation Design" />
+	<meta name="twitter:description"
+		content="Route every request to the right large language model, log decisions for compliance, and automate revenue-driving workflows with RAD AI." />
+	<meta name="twitter:image" content="https://itsradai.com/images/RADai4.jpeg" />
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
-			body {
-				font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-				line-height: 1.6;
-				color: var(--text-primary);
-				background: var(--bg-primary);
-				overflow-x: hidden;
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale;
-			}
+		:root {
+			--primary: #0EA5E9;
+			--primary-dark: #0284C7;
+			--secondary: #1E40AF;
+			--accent: #F97316;
+			--success: #34C759;
+			--text-primary: #0F172A;
+			--text-secondary: #475569;
+			--bg-primary: #FFFFFF;
+			--bg-secondary: #F1F5F9;
+			--bg-tertiary: #F8FAFC;
+			--border: #E2E8F0;
+			--shadow-light: rgba(15, 23, 42, 0.06);
+			--shadow-medium: rgba(15, 23, 42, 0.12);
+			--shadow-heavy: rgba(15, 23, 42, 0.18);
+			--gradient-primary: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%);
+			--gradient-secondary: linear-gradient(135deg, #38BDF8 0%, #6366F1 100%);
+			--radius-small: 10px;
+			--radius-medium: 18px;
+			--radius-large: 28px;
+		}
 
-			/* Header */
-			.header {
-				position: fixed;
-				top: 0;
-				left: 0;
-				right: 0;
-				z-index: 1000;
-				background: rgba(255, 255, 255, 0.8);
-				backdrop-filter: blur(20px) saturate(180%);
-				border-bottom: 1px solid var(--border);
-				transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-			}
+		body {
+			font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			line-height: 1.6;
+			color: var(--text-primary);
+			background: var(--bg-primary);
+			overflow-x: hidden;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
 
-			.header.scrolled {
-				background: rgba(255, 255, 255, 0.95);
-				box-shadow: 0 1px 20px var(--shadow-light);
-			}
+		/* Header */
+		.header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 1000;
+			background: rgba(255, 255, 255, 0.8);
+			backdrop-filter: blur(20px) saturate(180%);
+			border-bottom: 1px solid var(--border);
+			transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		}
 
-			.nav {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				padding: 1rem 5%;
-				max-width: 1400px;
-				margin: 0 auto;
-				position: relative;
-			}
+		.header.scrolled {
+			background: rgba(255, 255, 255, 0.95);
+			box-shadow: 0 1px 20px var(--shadow-light);
+		}
 
-			.logo {
-				display: inline-flex;
-				align-items: center;
-				gap: 0.6rem;
-				font-size: 1.3rem;
-				font-weight: 700;
-				color: var(--text-primary);
-				text-decoration: none;
-				transition: color 0.3s ease;
-				letter-spacing: -0.02em;
-			}
+		.nav {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 1rem 5%;
+			max-width: 1400px;
+			margin: 0 auto;
+			position: relative;
+		}
 
-			.logo:hover {
-				color: var(--primary);
-			}
+		.logo {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.6rem;
+			font-size: 1.3rem;
+			font-weight: 700;
+			color: var(--text-primary);
+			text-decoration: none;
+			transition: color 0.3s ease;
+			letter-spacing: -0.02em;
+		}
 
-			.logo-mark {
-				display: inline-block;
-				height: 38px;
-				width: 38px;
-			}
+		.logo:hover {
+			color: var(--primary);
+		}
 
-			.logo-text {
-				display: inline-block;
-				color: inherit;
-			}
+		.logo-mark {
+			display: inline-block;
+			height: 38px;
+			width: 38px;
+		}
 
-			.nav-toggle {
-				display: none;
-				background: none;
-				border: none;
-				font-size: 1.5rem;
-				cursor: pointer;
-				color: var(--text-primary);
-			}
+		.logo-text {
+			display: inline-block;
+			color: inherit;
+		}
 
-			.nav-toggle.active {
-				color: var(--primary);
-			}
+		.nav-toggle {
+			display: none;
+			background: none;
+			border: none;
+			font-size: 1.5rem;
+			cursor: pointer;
+			color: var(--text-primary);
+		}
 
-			.nav-menu {
-				display: flex;
-				list-style: none;
-				gap: 2rem;
-				align-items: center;
-			}
+		.nav-toggle.active {
+			color: var(--primary);
+		}
 
-			.nav-menu .cta-button {
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				padding: 0.6rem 1.4rem;
-				border-radius: var(--radius-small);
-				font-size: 0.9rem;
-				box-shadow: none;
-			}
+		.nav-menu {
+			display: flex;
+			list-style: none;
+			gap: 2rem;
+			align-items: center;
+		}
 
-			.nav-menu .cta-button:hover {
-				background: var(--primary-dark);
-				transform: translateY(-1px);
-				box-shadow: 0 6px 18px rgba(2, 132, 199, 0.25);
-			}
+		.nav-menu .cta-button {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0.6rem 1.4rem;
+			border-radius: var(--radius-small);
+			font-size: 0.9rem;
+			box-shadow: none;
+		}
 
-			.nav-menu a {
-				text-decoration: none;
-				color: var(--text-primary);
-				font-weight: 500;
-				font-size: 0.95rem;
-				transition: all 0.3s ease;
-				position: relative;
-				padding: 0.5rem 0;
-			}
+		.nav-menu .cta-button:hover {
+			background: var(--primary-dark);
+			transform: translateY(-1px);
+			box-shadow: 0 6px 18px rgba(2, 132, 199, 0.25);
+		}
 
-			.nav-menu a:hover {
-				color: var(--primary);
-			}
+		.nav-menu a {
+			text-decoration: none;
+			color: var(--text-primary);
+			font-weight: 500;
+			font-size: 0.95rem;
+			transition: all 0.3s ease;
+			position: relative;
+			padding: 0.5rem 0;
+		}
 
-			.nav-menu a::after {
-				content: '';
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				width: 0;
-				height: 2px;
-				background: var(--primary);
-				transition: width 0.3s ease;
-			}
+		.nav-menu a:hover {
+			color: var(--primary);
+		}
 
-			.nav-menu a:hover::after {
-				width: 100%;
-			}
+		.nav-menu a::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 0;
+			height: 2px;
+			background: var(--primary);
+			transition: width 0.3s ease;
+		}
 
-			.cta-button {
-				background: var(--primary);
-				color: white;
-				padding: 0.65rem 1.4rem;
-				border-radius: 999px;
-				text-decoration: none;
-				font-weight: 600;
-				font-size: 0.95rem;
-				transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-				border: none;
-				cursor: pointer;
-				letter-spacing: -0.01em;
-			}
+		.nav-menu a:hover::after {
+			width: 100%;
+		}
 
-			.cta-button:hover {
-				background: var(--primary-dark);
-				transform: translateY(-1px);
-				box-shadow: 0 10px 30px rgba(2, 132, 199, 0.25);
-			}
+		.cta-button {
+			background: var(--primary);
+			color: white;
+			padding: 0.65rem 1.4rem;
+			border-radius: 999px;
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 0.95rem;
+			transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+			border: none;
+			cursor: pointer;
+			letter-spacing: -0.01em;
+		}
 
-			/* Hero Section */
-			.hero {
-				min-height: 100vh;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-primary) 80%);
-				position: relative;
-				overflow: hidden;
-				padding: 7rem 2rem 4rem;
-			}
+		.cta-button:hover {
+			background: var(--primary-dark);
+			transform: translateY(-1px);
+			box-shadow: 0 10px 30px rgba(2, 132, 199, 0.25);
+		}
 
-			.hero::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 50%;
-				width: 1200px;
-				height: 1200px;
-				transform: translate(-50%, -35%);
-				background: radial-gradient(circle at top, rgba(14, 165, 233, 0.12), transparent 60%);
-				opacity: 1;
-				pointer-events: none;
-			}
+		/* Hero Section */
+		.hero {
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-primary) 80%);
+			position: relative;
+			overflow: hidden;
+			padding: 7rem 2rem 4rem;
+		}
 
-			.hero-inner {
-				position: relative;
-				z-index: 1;
-				max-width: 1200px;
-				width: 100%;
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-				gap: 3rem;
-				align-items: center;
-			}
+		.hero::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: 1200px;
+			height: 1200px;
+			transform: translate(-50%, -35%);
+			background: radial-gradient(circle at top, rgba(14, 165, 233, 0.12), transparent 60%);
+			opacity: 1;
+			pointer-events: none;
+		}
 
-			.hero-text {
-				text-align: left;
-				max-width: 540px;
-				margin: 0 auto;
-			}
+		.hero-inner {
+			position: relative;
+			z-index: 1;
+			max-width: 1200px;
+			width: 100%;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 3rem;
+			align-items: center;
+		}
 
-			.hero-badge {
-				display: inline-flex;
-				align-items: center;
-				gap: 0.35rem;
-				padding: 0.45rem 0.85rem;
-				border-radius: 999px;
-				border: 1px solid var(--border);
-				background: rgba(255, 255, 255, 0.8);
-				box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-				font-size: 0.75rem;
-				font-weight: 500;
-				color: var(--text-secondary);
-			}
+		.hero-text {
+			text-align: left;
+			max-width: 540px;
+			margin: 0 auto;
+		}
 
-			.hero-badges {
-				display: flex;
-				flex-direction: column;
-				gap: 0.75rem;
-				align-items: flex-start;
-			}
+		.hero-badge {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.35rem;
+			padding: 0.45rem 0.85rem;
+			border-radius: 999px;
+			border: 1px solid var(--border);
+			background: rgba(255, 255, 255, 0.8);
+			box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+			font-size: 0.75rem;
+			font-weight: 500;
+			color: var(--text-secondary);
+		}
 
-			.product-hunt-badge {
-				display: inline-flex;
-				align-items: center;
-			}
+		.hero-badges {
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+			align-items: flex-start;
+		}
 
-			.product-hunt-badge img {
-				display: block;
-			}
+		.product-hunt-badge {
+			display: inline-flex;
+			align-items: center;
+		}
 
-			.hero-text h1 {
-				margin-top: 1.75rem;
-				font-size: clamp(2.2rem, 5vw, 3.6rem);
-				font-weight: 800;
-				line-height: 1.1;
-				color: var(--text-primary);
-				letter-spacing: -0.03em;
-			}
+		.product-hunt-badge img {
+			display: block;
+		}
 
-			.hero-text h1 span {
-				background: var(--gradient-primary);
-				-webkit-background-clip: text;
-				color: transparent;
-			}
+		.hero-text h1 {
+			margin-top: 1.75rem;
+			font-size: clamp(2.2rem, 5vw, 3.6rem);
+			font-weight: 800;
+			line-height: 1.1;
+			color: var(--text-primary);
+			letter-spacing: -0.03em;
+		}
 
-			.hero-subtitle {
-				margin-top: 1.5rem;
-				font-size: 1.1rem;
-				color: var(--text-secondary);
-				line-height: 1.75;
-			}
+		.hero-text h1 span {
+			background: var(--gradient-primary);
+			-webkit-background-clip: text;
+			color: transparent;
+		}
 
-			.hero-actions {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 1rem;
-				margin-top: 2rem;
-			}
+		.hero-subtitle {
+			margin-top: 1.5rem;
+			font-size: 1.1rem;
+			color: var(--text-secondary);
+			line-height: 1.75;
+		}
 
-			.hero-button {
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				padding: 0.9rem 2rem;
-				border-radius: 999px;
-				font-weight: 600;
-				font-size: 1rem;
-				text-decoration: none;
-				transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
-				border: none;
-				cursor: pointer;
-				box-shadow: 0 16px 40px rgba(14, 165, 233, 0.18);
-			}
+		.hero-actions {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+			margin-top: 2rem;
+		}
 
-			.hero-button.primary {
-				background: var(--primary);
-				color: #fff;
-			}
+		.hero-button {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0.9rem 2rem;
+			border-radius: 999px;
+			font-weight: 600;
+			font-size: 1rem;
+			text-decoration: none;
+			transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+			border: none;
+			cursor: pointer;
+			box-shadow: 0 16px 40px rgba(14, 165, 233, 0.18);
+		}
 
-			.hero-button.secondary {
-				background: #fff;
-				color: var(--text-primary);
-				border: 1px solid var(--border);
-				box-shadow: none;
-			}
+		.hero-button.primary {
+			background: var(--primary);
+			color: #fff;
+		}
 
-			.hero-button.primary:hover {
-				background: var(--primary-dark);
-				transform: translateY(-2px);
-				box-shadow: 0 20px 45px rgba(2, 132, 199, 0.25);
-			}
+		.hero-button.secondary {
+			background: #fff;
+			color: var(--text-primary);
+			border: 1px solid var(--border);
+			box-shadow: none;
+		}
 
-			.hero-button.secondary:hover {
-				color: var(--primary-dark);
-				border-color: rgba(2, 132, 199, 0.35);
-				transform: translateY(-1px);
-				box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-			}
+		.hero-button.primary:hover {
+			background: var(--primary-dark);
+			transform: translateY(-2px);
+			box-shadow: 0 20px 45px rgba(2, 132, 199, 0.25);
+		}
 
-			.hero-note {
-				margin-top: 1.5rem;
-				font-size: 0.85rem;
-				color: rgba(71, 85, 105, 0.9);
-			}
+		.hero-button.secondary:hover {
+			color: var(--primary-dark);
+			border-color: rgba(2, 132, 199, 0.35);
+			transform: translateY(-1px);
+			box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+		}
 
-			.hero-visual {
-				position: relative;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
+		.hero-note {
+			margin-top: 1.5rem;
+			font-size: 0.85rem;
+			color: rgba(71, 85, 105, 0.9);
+		}
 
+		.hero-visual {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.hero-video-frame {
+			position: relative;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			padding: 4px;
+			border-radius: var(--radius-large);
+			width: min(100%, 520px);
+			background: linear-gradient(135deg, rgba(14, 165, 233, 0.8), rgba(99, 102, 241, 0.8));
+			box-shadow: 0 25px 60px rgba(15, 23, 42, 0.22);
+		}
+
+		.hero-video {
+			display: block;
+			width: 100%;
+			height: auto;
+			border-radius: calc(var(--radius-large) - 6px);
+			object-fit: cover;
+			filter: saturate(108%);
+		}
+
+		.hero-video-badge {
+			position: absolute;
+			top: 18px;
+			left: 22px;
+			padding: 0.35rem 0.85rem;
+			font-size: 0.75rem;
+			font-weight: 600;
+			letter-spacing: 0.04em;
+			text-transform: uppercase;
+			color: #fff;
+			background: rgba(15, 23, 42, 0.72);
+			border-radius: 999px;
+			backdrop-filter: blur(6px);
+		}
+
+		@media (max-width: 768px) {
 			.hero-video-frame {
-				position: relative;
-				display: inline-flex;
-				justify-content: center;
-				align-items: center;
-				padding: 4px;
-				border-radius: var(--radius-large);
-				width: min(100%, 520px);
-				background: linear-gradient(135deg, rgba(14, 165, 233, 0.8), rgba(99, 102, 241, 0.8));
-				box-shadow: 0 25px 60px rgba(15, 23, 42, 0.22);
-			}
-
-			.hero-video {
-				display: block;
-				width: 100%;
-				height: auto;
-				border-radius: calc(var(--radius-large) - 6px);
-				object-fit: cover;
-				filter: saturate(108%);
+				width: min(100%, 360px);
 			}
 
 			.hero-video-badge {
-				position: absolute;
-				top: 18px;
-				left: 22px;
-				padding: 0.35rem 0.85rem;
-				font-size: 0.75rem;
-				font-weight: 600;
-				letter-spacing: 0.04em;
-				text-transform: uppercase;
-				color: #fff;
-				background: rgba(15, 23, 42, 0.72);
-				border-radius: 999px;
-				backdrop-filter: blur(6px);
+				top: 14px;
+				left: 18px;
+				font-size: 0.7rem;
 			}
+		}
 
-			@media (max-width: 768px) {
-				.hero-video-frame {
-					width: min(100%, 360px);
-				}
-				.hero-video-badge {
-					top: 14px;
-					left: 18px;
-					font-size: 0.7rem;
-				}
-			}
+		.scroll-indicator {
+			position: absolute;
+			bottom: 2rem;
+			left: 50%;
+			transform: translateX(-50%);
+			color: var(--text-secondary);
+			text-decoration: none;
+			font-size: 0.9rem;
+			transition: all 0.3s ease;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.5rem;
+		}
 
-			.scroll-indicator {
-				position: absolute;
-				bottom: 2rem;
-				left: 50%;
-				transform: translateX(-50%);
-				color: var(--text-secondary);
-				text-decoration: none;
-				font-size: 0.9rem;
-				transition: all 0.3s ease;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				gap: 0.5rem;
-			}
+		.scroll-indicator:hover {
+			color: var(--primary);
+			transform: translateX(-50%) translateY(-3px);
+		}
 
-			.scroll-indicator:hover {
-				color: var(--primary);
-				transform: translateX(-50%) translateY(-3px);
-			}
+		.scroll-indicator::after {
+			content: '↓';
+			font-size: 1.2rem;
+			animation: bounce 2s infinite;
+		}
 
-			.scroll-indicator::after {
-				content: '↓';
-				font-size: 1.2rem;
-				animation: bounce 2s infinite;
-			}
+		/* Section Styles */
+		.section {
+			padding: 6rem 5%;
+			max-width: 1400px;
+			margin: 0 auto;
+		}
 
-			/* Section Styles */
-			.section {
-				padding: 6rem 5%;
-				max-width: 1400px;
-				margin: 0 auto;
-			}
+		.section-header {
+			text-align: center;
+			margin-bottom: 4rem;
+			max-width: 700px;
+			margin-left: auto;
+			margin-right: auto;
+		}
 
-			.section-header {
-				text-align: center;
-				margin-bottom: 4rem;
-				max-width: 700px;
-				margin-left: auto;
-				margin-right: auto;
-			}
+		.section-title {
+			font-size: clamp(2rem, 4vw, 3rem);
+			font-weight: 700;
+			margin-bottom: 1rem;
+			color: var(--text-primary);
+			letter-spacing: -0.02em;
+			line-height: 1.2;
+		}
 
-			.section-title {
-				font-size: clamp(2rem, 4vw, 3rem);
-				font-weight: 700;
-				margin-bottom: 1rem;
-				color: var(--text-primary);
-				letter-spacing: -0.02em;
-				line-height: 1.2;
-			}
+		.section-subtitle {
+			font-size: 1.2rem;
+			color: var(--text-secondary);
+			line-height: 1.6;
+		}
 
-			.section-subtitle {
-				font-size: 1.2rem;
-				color: var(--text-secondary);
-				line-height: 1.6;
-			}
+		.section-alt {
+			background: var(--bg-secondary);
+		}
 
-			.section-alt {
-				background: var(--bg-secondary);
-			}
+		/* Services Grid */
+		.services-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 0;
+			margin-top: 4rem;
+		}
 
-			/* Services Grid */
-			.services-grid {
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: 0;
-				margin-top: 4rem;
-			}
+		.service-card {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			align-items: center;
+			gap: 4rem;
+			padding: 4rem 0;
+			border-bottom: 1px solid var(--border);
+		}
 
-			.service-card {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				align-items: center;
-				gap: 4rem;
-				padding: 4rem 0;
-				border-bottom: 1px solid var(--border);
-			}
+		.service-card:last-child {
+			border-bottom: none;
+		}
 
-			.service-card:last-child {
-				border-bottom: none;
-			}
+		.service-card:nth-child(even) {
+			direction: rtl;
+		}
 
-			.service-card:nth-child(even) {
-				direction: rtl;
-			}
+		.service-card:nth-child(even)>* {
+			direction: ltr;
+		}
 
-			.service-card:nth-child(even) > * {
-				direction: ltr;
-			}
+		.service-image {
+			position: relative;
+			border-radius: var(--radius-large);
+			overflow: hidden;
+			box-shadow: 0 20px 40px var(--shadow-medium);
+			transition: all 0.3s ease;
+		}
 
-			.service-image {
-				position: relative;
-				border-radius: var(--radius-large);
-				overflow: hidden;
-				box-shadow: 0 20px 40px var(--shadow-medium);
-				transition: all 0.3s ease;
-			}
+		.service-image:hover {
+			transform: translateY(-10px) scale(1.02);
+			box-shadow: 0 30px 60px var(--shadow-heavy);
+		}
 
-			.service-image:hover {
-				transform: translateY(-10px) scale(1.02);
-				box-shadow: 0 30px 60px var(--shadow-heavy);
-			}
+		.service-image img {
+			width: 100%;
+			height: 300px;
+			object-fit: cover;
+			transition: all 0.3s ease;
+		}
 
-			.service-image img {
-				width: 100%;
-				height: 300px;
-				object-fit: cover;
-				transition: all 0.3s ease;
-			}
+		.service-content h3 {
+			font-size: 2rem;
+			font-weight: 700;
+			margin-bottom: 1rem;
+			color: var(--text-primary);
+			letter-spacing: -0.01em;
+		}
 
-			.service-content h3 {
-				font-size: 2rem;
-				font-weight: 700;
-				margin-bottom: 1rem;
-				color: var(--text-primary);
-				letter-spacing: -0.01em;
-			}
+		.service-content p {
+			font-size: 1.1rem;
+			color: var(--text-secondary);
+			line-height: 1.7;
+		}
 
-			.service-content p {
-				font-size: 1.1rem;
-				color: var(--text-secondary);
-				line-height: 1.7;
-			}
+		/* Features Grid */
+		.features-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 2rem;
+			margin-top: 4rem;
+		}
 
-			/* Features Grid */
-			.features-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-				gap: 2rem;
-				margin-top: 4rem;
-			}
+		.feature-card {
+			background: var(--bg-primary);
+			padding: 3rem 2rem;
+			border-radius: var(--radius-large);
+			box-shadow: 0 4px 20px var(--shadow-light);
+			text-align: center;
+			transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+			border: 1px solid var(--border);
+			position: relative;
+			overflow: hidden;
+		}
 
-			.feature-card {
-				background: var(--bg-primary);
-				padding: 3rem 2rem;
-				border-radius: var(--radius-large);
-				box-shadow: 0 4px 20px var(--shadow-light);
-				text-align: center;
-				transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-				border: 1px solid var(--border);
-				position: relative;
-				overflow: hidden;
-			}
+		.feature-card::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 4px;
+			background: var(--gradient-primary);
+			transform: scaleX(0);
+			transition: transform 0.3s ease;
+		}
 
-			.feature-card::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				height: 4px;
-				background: var(--gradient-primary);
-				transform: scaleX(0);
-				transition: transform 0.3s ease;
-			}
+		.feature-card:hover {
+			transform: translateY(-8px);
+			box-shadow: 0 20px 40px var(--shadow-medium);
+		}
 
-			.feature-card:hover {
-				transform: translateY(-8px);
-				box-shadow: 0 20px 40px var(--shadow-medium);
-			}
+		.feature-card:hover::before {
+			transform: scaleX(1);
+		}
 
-			.feature-card:hover::before {
-				transform: scaleX(1);
-			}
+		.feature-icon {
+			width: 80px;
+			height: 80px;
+			background: var(--gradient-primary);
+			border-radius: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0 auto 2rem;
+			color: white;
+			font-size: 2rem;
+			box-shadow: 0 8px 25px rgba(0, 122, 255, 0.25);
+		}
 
-			.feature-icon {
-				width: 80px;
-				height: 80px;
-				background: var(--gradient-primary);
-				border-radius: 20px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				margin: 0 auto 2rem;
-				color: white;
-				font-size: 2rem;
-				box-shadow: 0 8px 25px rgba(0, 122, 255, 0.25);
-			}
+		.feature-card h3 {
+			font-size: 1.4rem;
+			font-weight: 600;
+			margin-bottom: 1rem;
+			color: var(--text-primary);
+		}
 
-			.feature-card h3 {
-				font-size: 1.4rem;
-				font-weight: 600;
-				margin-bottom: 1rem;
-				color: var(--text-primary);
-			}
+		.feature-card p {
+			color: var(--text-secondary);
+			line-height: 1.7;
+		}
 
-			.feature-card p {
-				color: var(--text-secondary);
-				line-height: 1.7;
-			}
+		/* FAQ */
+		.faq-list {
+			max-width: 960px;
+			margin: 0 auto;
+			display: grid;
+			gap: 1.25rem;
+		}
 
-			/* FAQ */
-			.faq-list {
-				max-width: 960px;
-				margin: 0 auto;
-				display: grid;
-				gap: 1.25rem;
-			}
+		.faq-item {
+			border: 1px solid color-mix(in oklab, var(--text-primary), transparent 82%);
+			background: color-mix(in oklab, var(--bg-primary), #ffffff 6%);
+			border-radius: var(--radius-medium);
+			padding: 1.1rem 1.4rem;
+			box-shadow: 0 12px 24px var(--shadow-light);
+		}
 
+		.faq-item summary {
+			cursor: pointer;
+			font-weight: 600;
+			font-size: 1.05rem;
+			color: var(--text-primary);
+			list-style: none;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 0.75rem;
+		}
+
+		.faq-item summary::-webkit-details-marker {
+			display: none;
+		}
+
+		.faq-item summary::after {
+			content: '+';
+			font-weight: 600;
+			color: var(--accent);
+			transition: transform 0.2s ease, color 0.2s ease;
+		}
+
+		.faq-item summary:hover::after {
+			color: var(--primary);
+		}
+
+		.faq-item[open] summary::after {
+			transform: rotate(45deg);
+		}
+
+		.faq-item p {
+			margin: 0.75rem 0 0;
+			color: var(--text-secondary);
+			line-height: 1.6;
+		}
+
+		@media (prefers-color-scheme: dark) {
 			.faq-item {
-				border: 1px solid color-mix(in oklab, var(--text-primary), transparent 82%);
-				background: color-mix(in oklab, var(--bg-primary), #ffffff 6%);
-				border-radius: var(--radius-medium);
-				padding: 1.1rem 1.4rem;
-				box-shadow: 0 12px 24px var(--shadow-light);
+				background: color-mix(in oklab, #11161f, #ffffff 4%);
+				border-color: color-mix(in oklab, #ffffff, transparent 75%);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
 			}
 
 			.faq-item summary {
-				cursor: pointer;
-				font-weight: 600;
-				font-size: 1.05rem;
-				color: var(--text-primary);
-				list-style: none;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				gap: 0.75rem;
-			}
-
-			.faq-item summary::-webkit-details-marker {
-				display: none;
-			}
-
-			.faq-item summary::after {
-				content: '+';
-				font-weight: 600;
-				color: var(--accent);
-				transition: transform 0.2s ease, color 0.2s ease;
-			}
-
-			.faq-item summary:hover::after {
-				color: var(--primary);
-			}
-
-			.faq-item[open] summary::after {
-				transform: rotate(45deg);
+				color: color-mix(in oklab, #ffffff, transparent 12%);
 			}
 
 			.faq-item p {
-				margin: 0.75rem 0 0;
-				color: var(--text-secondary);
-				line-height: 1.6;
+				color: color-mix(in oklab, #ffffff, transparent 32%);
 			}
+		}
 
-			@media (prefers-color-scheme: dark) {
-				.faq-item {
-					background: color-mix(in oklab, #11161f, #ffffff 4%);
-					border-color: color-mix(in oklab, #ffffff, transparent 75%);
-					box-shadow: 0 20px 40px rgba(0,0,0,.35);
-				}
-				.faq-item summary {
-					color: color-mix(in oklab, #ffffff, transparent 12%);
-				}
-				.faq-item p {
-					color: color-mix(in oklab, #ffffff, transparent 32%);
-				}
-			}
+		/* Contact Form */
+		.contact-section {
+			background: var(--bg-tertiary);
+			padding: 6rem 5%;
+		}
 
-			/* Contact Form */
-			.contact-section {
-				background: var(--bg-tertiary);
-				padding: 6rem 5%;
-			}
+		.form-container {
+			max-width: 600px;
+			margin: 0 auto;
+			background: var(--bg-primary);
+			padding: 3rem;
+			border-radius: var(--radius-large);
+			box-shadow: 0 20px 40px var(--shadow-light);
+			border: 1px solid var(--border);
+		}
 
-			.form-container {
-				max-width: 600px;
-				margin: 0 auto;
-				background: var(--bg-primary);
-				padding: 3rem;
-				border-radius: var(--radius-large);
-				box-shadow: 0 20px 40px var(--shadow-light);
-				border: 1px solid var(--border);
-			}
+		.form-group {
+			margin-bottom: 2rem;
+		}
 
-			.form-group {
-				margin-bottom: 2rem;
-			}
+		.form-group label {
+			display: block;
+			font-weight: 600;
+			margin-bottom: 0.5rem;
+			color: var(--text-primary);
+			font-size: 0.9rem;
+		}
 
-			.form-group label {
-				display: block;
-				font-weight: 600;
-				margin-bottom: 0.5rem;
-				color: var(--text-primary);
-				font-size: 0.9rem;
-			}
+		.form-input,
+		.form-textarea {
+			width: 100%;
+			padding: 1rem 1.5rem;
+			border: 2px solid var(--border);
+			border-radius: var(--radius-medium);
+			font-size: 1rem;
+			font-family: inherit;
+			transition: all 0.3s ease;
+			background: var(--bg-primary);
+			color: var(--text-primary);
+		}
 
-			.form-input,
-			.form-textarea {
-				width: 100%;
-				padding: 1rem 1.5rem;
-				border: 2px solid var(--border);
-				border-radius: var(--radius-medium);
-				font-size: 1rem;
-				font-family: inherit;
-				transition: all 0.3s ease;
-				background: var(--bg-primary);
-				color: var(--text-primary);
-			}
+		.form-input:focus,
+		.form-textarea:focus {
+			outline: none;
+			border-color: var(--primary);
+			box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+			transform: translateY(-2px);
+		}
 
-			.form-input:focus,
-			.form-textarea:focus {
-				outline: none;
-				border-color: var(--primary);
-				box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
-				transform: translateY(-2px);
-			}
+		.form-textarea {
+			resize: vertical;
+			min-height: 120px;
+		}
 
-			.form-textarea {
-				resize: vertical;
-				min-height: 120px;
-			}
+		.form-submit {
+			width: 100%;
+			background: var(--primary);
+			color: white;
+			padding: 1.25rem 2rem;
+			border: none;
+			border-radius: var(--radius-medium);
+			font-size: 1.1rem;
+			font-weight: 600;
+			cursor: pointer;
+			transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+			font-family: inherit;
+		}
 
-			.form-submit {
-				width: 100%;
-				background: var(--primary);
-				color: white;
-				padding: 1.25rem 2rem;
-				border: none;
-				border-radius: var(--radius-medium);
-				font-size: 1.1rem;
-				font-weight: 600;
-				cursor: pointer;
-				transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-				font-family: inherit;
-			}
+		.form-submit:hover {
+			background: var(--primary-dark);
+			transform: translateY(-2px);
+			box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
+		}
 
-			.form-submit:hover {
-				background: var(--primary-dark);
-				transform: translateY(-2px);
-				box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
-			}
+		/* Footer */
+		.footer {
+			background: var(--text-primary);
+			color: white;
+			text-align: center;
+			padding: 3rem 5%;
+		}
 
-			/* Footer */
-			.footer {
-				background: var(--text-primary);
-				color: white;
-				text-align: center;
-				padding: 3rem 5%;
-			}
+		.footer-links {
+			display: flex;
+			justify-content: center;
+			gap: 2rem;
+			margin-bottom: 2rem;
+		}
 
-			.footer-links {
-				display: flex;
-				justify-content: center;
-				gap: 2rem;
-				margin-bottom: 2rem;
-			}
+		.footer-links a {
+			color: rgba(255, 255, 255, 0.8);
+			text-decoration: none;
+			transition: all 0.3s ease;
+			font-size: 1.5rem;
+		}
 
-			.footer-links a {
-				color: rgba(255, 255, 255, 0.8);
-				text-decoration: none;
-				transition: all 0.3s ease;
-				font-size: 1.5rem;
-			}
+		.footer-links a:hover {
+			color: var(--primary);
+			transform: translateY(-2px);
+		}
 
-			.footer-links a:hover {
-				color: var(--primary);
-				transform: translateY(-2px);
-			}
+		.footer p {
+			color: rgba(255, 255, 255, 0.6);
+			margin: 0;
+		}
 
-			.footer p {
-				color: rgba(255, 255, 255, 0.6);
-				margin: 0;
-			}
-
-			/* Animations */
-			@keyframes fadeInUp {
-				from {
-					opacity: 0;
-					transform: translateY(40px);
-				}
-				to {
-					opacity: 1;
-					transform: translateY(0);
-				}
-			}
-
-			@keyframes bounce {
-				0%, 20%, 50%, 80%, 100% {
-					transform: translateY(0);
-				}
-				40% {
-					transform: translateY(-10px);
-				}
-				60% {
-					transform: translateY(-5px);
-				}
-			}
-
-			.animate-on-scroll {
+		/* Animations */
+		@keyframes fadeInUp {
+			from {
 				opacity: 0;
-				transform: translateY(30px);
-				transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+				transform: translateY(40px);
 			}
 
-			.animate-on-scroll.visible {
+			to {
 				opacity: 1;
 				transform: translateY(0);
 			}
+		}
 
-			/* Mobile Responsive */
-			@media (max-width: 768px) {
-				.nav {
-					padding: 1rem;
-				}
-				
-				.nav-menu {
-					display: none;
-					position: absolute;
-					top: 100%;
-					left: 1rem;
-					right: 1rem;
-					background: rgba(255, 255, 255, 0.97);
-					border-radius: var(--radius-medium);
-					padding: 1.25rem;
-					box-shadow: 0 18px 35px var(--shadow-medium);
-					border: 1px solid var(--border);
-					gap: 0;
-					z-index: 1001;
-				}
-				
-				.nav-menu.is-open {
-					display: flex;
-					flex-direction: column;
-					gap: 0.75rem;
-					align-items: stretch;
-				}
-				
-				.nav-menu.is-open li {
-					width: 100%;
-				}
-				
-				.nav-menu.is-open a {
-					display: block;
-					width: 100%;
-					padding: 0.75rem;
-					border-radius: var(--radius-small);
-					text-align: left;
-				}
-				
-				.nav-menu.is-open a:not(.cta-button):hover {
-					background: var(--bg-secondary);
-					color: var(--primary);
-				}
-				
+		@keyframes bounce {
+
+			0%,
+			20%,
+			50%,
+			80%,
+			100% {
+				transform: translateY(0);
+			}
+
+			40% {
+				transform: translateY(-10px);
+			}
+
+			60% {
+				transform: translateY(-5px);
+			}
+		}
+
+		.animate-on-scroll {
+			opacity: 0;
+			transform: translateY(30px);
+			transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		}
+
+		.animate-on-scroll.visible {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		/* Mobile Responsive */
+		@media (max-width: 768px) {
+			.nav {
+				padding: 1rem;
+			}
+
+			.nav-menu {
+				display: none;
+				position: absolute;
+				top: 100%;
+				left: 1rem;
+				right: 1rem;
+				background: rgba(255, 255, 255, 0.97);
+				border-radius: var(--radius-medium);
+				padding: 1.25rem;
+				box-shadow: 0 18px 35px var(--shadow-medium);
+				border: 1px solid var(--border);
+				gap: 0;
+				z-index: 1001;
+			}
+
+			.nav-menu.is-open {
+				display: flex;
+				flex-direction: column;
+				gap: 0.75rem;
+				align-items: stretch;
+			}
+
+			.nav-menu.is-open li {
+				width: 100%;
+			}
+
+			.nav-menu.is-open a {
+				display: block;
+				width: 100%;
+				padding: 0.75rem;
+				border-radius: var(--radius-small);
+				text-align: left;
+			}
+
+			.nav-menu.is-open a:not(.cta-button):hover {
+				background: var(--bg-secondary);
+				color: var(--primary);
+			}
+
 			.nav-menu.is-open .cta-button {
-					display: inline-flex;
-					justify-content: center;
-					align-items: center;
-					width: 100%;
-					background: var(--primary);
-					color: #fff;
-					padding: 0.85rem;
-					border-radius: var(--radius-small);
-					box-shadow: none;
-					font-weight: 600;
-				}
-				
-			.nav-menu.is-open .cta-button:hover {
-					background: var(--primary-dark);
-					color: #fff;
-					transform: none;
-					box-shadow: none;
-				}
-				
-				.nav-toggle {
-					display: block;
-				}
-				
-				.hero {
-					padding: 6.5rem 1.25rem 3rem;
-				}
-				
-				.hero-inner {
-					grid-template-columns: 1fr;
-					gap: 2.5rem;
-				}
-				
-				.hero-text {
-					margin: 0;
-				}
-				
-				.hero-badges {
-					align-items: center;
-				}
-				
-				.hero-actions {
-					justify-content: flex-start;
-				}
-				
-				.hero-card {
-					max-width: 100%;
-				}
-				
-				.section {
-					padding: 4rem 1rem;
-				}
-				
-				.service-card {
-					grid-template-columns: 1fr;
-					gap: 2rem;
-					padding: 3rem 0;
-					text-align: center;
-				}
-				
-				.service-card:nth-child(even) {
-					direction: ltr;
-				}
-				
-				.form-container {
-					padding: 2rem;
-					margin: 0 1rem;
-				}
-				
-				.hero {
-					padding: 6rem 1rem 4rem;
-				}
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+				background: var(--primary);
+				color: #fff;
+				padding: 0.85rem;
+				border-radius: var(--radius-small);
+				box-shadow: none;
+				font-weight: 600;
 			}
 
-			@media (max-width: 480px) {
-				.features-grid {
-					grid-template-columns: 1fr;
-				}
-				
-				.hero-actions {
-					flex-direction: column;
-				}
-				
-				.hero-button {
-					width: 100%;
-				}
+			.nav-menu.is-open .cta-button:hover {
+				background: var(--primary-dark);
+				color: #fff;
+				transform: none;
+				box-shadow: none;
 			}
-		</style>
-		<script type="application/ld+json">
+
+			.nav-toggle {
+				display: block;
+			}
+
+			.hero {
+				padding: 6.5rem 1.25rem 3rem;
+			}
+
+			.hero-inner {
+				grid-template-columns: 1fr;
+				gap: 2.5rem;
+			}
+
+			.hero-text {
+				margin: 0;
+			}
+
+			.hero-badges {
+				align-items: center;
+			}
+
+			.hero-actions {
+				justify-content: flex-start;
+			}
+
+			.hero-card {
+				max-width: 100%;
+			}
+
+			.section {
+				padding: 4rem 1rem;
+			}
+
+			.service-card {
+				grid-template-columns: 1fr;
+				gap: 2rem;
+				padding: 3rem 0;
+				text-align: center;
+			}
+
+			.service-card:nth-child(even) {
+				direction: ltr;
+			}
+
+			.form-container {
+				padding: 2rem;
+				margin: 0 1rem;
+			}
+
+			.hero {
+				padding: 6rem 1rem 4rem;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.features-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.hero-actions {
+				flex-direction: column;
+			}
+
+			.hero-button {
+				width: 100%;
+			}
+		}
+	</style>
+	<script type="application/ld+json">
 		{
 		  "@context": "https://schema.org",
 		  "@graph": [
@@ -997,267 +1013,288 @@
 		}
 		</script>
 
-	</head>
-	<body>
+</head>
 
-		<!-- Header -->
-		<header class="header" id="header">
-			<nav class="nav">
-				<a href="/" class="logo" aria-label="RAD AI home">
-					<img src="assets/rad-r-logo.svg" alt="RAD AI logo" class="logo-mark" />
-					<span class="logo-text">RAD AI</span>
-				</a>
-				<button class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation">☰</button>
-				<ul class="nav-menu" id="primary-navigation">
-					<li><a href="/">Home</a></li>
-					<li><a href="/demo">Live Demo</a></li>
-					<li><a href="#contact">Join Waitlist</a></li>
-					<li><a href="#contact" class="cta-button">Get Early Access</a></li>
-				</ul>
-			</nav>
-		</header>
+<body>
 
-		<!-- Hero Section -->
-		<section class="hero" id="top">
-			<div class="hero-inner">
-				<div class="hero-text">
-					<div class="hero-badges">
-						<div class="hero-badge">Providence → Silicon Valley • yconic Hackathon</div>
-						<a class="product-hunt-badge" href="https://www.producthunt.com/products/rad-ai-llm-council-router?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-rad&#0045;ai&#0045;llm&#0045;council&#0045;router" target="_blank" rel="noopener noreferrer">
-							<img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1019426&theme=light&t=1758675794012" alt="RAD&#0032;AI&#0032;—&#0032;LLM&#0032;Council&#0032;Router - Auto&#0045;route&#0032;to&#0032;the&#0032;best&#0032;LLM&#0032;for&#0032;speed&#0044;&#0032;depth&#0032;&#0038;&#0032;cost&#0046; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" />
-						</a>
-					</div>
-					<h1>AI Agents that <span>Save Time &amp; Drive Revenue</span></h1>
-					<p class="hero-subtitle">Try our hackathon build: an AI routing agent that sends each request to the best model for the job — faster answers, lower cost, happier customers.</p>
-					<div class="hero-actions">
-						<a href="/demo" class="hero-button primary">Try the Live Demo</a>
-						<a href="#contact" class="hero-button secondary">Join the Waitlist</a>
-					</div>
-					<p class="hero-note">We collect anonymized interaction data for validation. No spam — leave anytime.</p>
+	<!-- Header -->
+	<header class="header" id="header">
+		<nav class="nav">
+			<a href="/" class="logo" aria-label="RAD AI home">
+				<img src="assets/rad-r-logo.svg" alt="RAD AI logo" class="logo-mark" />
+				<span class="logo-text">RAD AI</span>
+			</a>
+			<button class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation"
+				aria-label="Toggle navigation">☰</button>
+			<ul class="nav-menu" id="primary-navigation">
+				<li><a href="/">Home</a></li>
+				<li><a href="/demo">Live Demo</a></li>
+				<li><a href="#contact">Join Waitlist</a></li>
+				<li><a href="#contact" class="cta-button">Get Early Access</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<!-- Hero Section -->
+	<section class="hero" id="top">
+		<div class="hero-inner">
+			<div class="hero-text">
+				<h1>Stop Wasting Time on Manual Work. <span>Automate Revenue.</span></h1>
+				<p class="hero-subtitle">RAD AI builds automation systems that replace manual data entry, prospecting,
+					and workflows — even when your tools don’t have APIs.</p>
+				<div class="hero-actions">
+					<a href="#contact" class="hero-button primary">Book a Strategy Call</a>
+					<a href="#services" class="hero-button secondary">See Automation Examples</a>
 				</div>
-				<div class="hero-visual">
-					<div class="hero-video-frame">
-						<span class="hero-video-badge">Live routing preview</span>
-						<video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/RADai4.jpeg" aria-label="RAD AI routing agent preview video">
-							<source src="images/GRokAiBrainVid.mp4" type="video/mp4" />
-							Your browser does not support the video tag.
-						</video>
-					</div>
-				</div>
-
+				<p class="hero-note">No buzzwords. Just systems that work.</p>
 			</div>
-			<a href="#about" class="scroll-indicator">Learn More</a>
-		</section>
-
-		<!-- About Section -->
-		<section id="about" class="section">
-			<div class="section-header animate-on-scroll">
-				<h2 class="section-title">AI Automation Made Simple</h2>
-				<p class="section-subtitle">At RAD AI, we design custom automation solutions that eliminate repetitive tasks, improve efficiency, and give you more time to focus on growth.</p>
-			</div>
-		</section>
-
-		<!-- Services Section -->
-		<section id="services" class="section section-alt">
-			<div class="services-grid">
-				<div class="service-card animate-on-scroll">
-					<div class="service-image">
-						<img src="images/google-deepmind-2ufXB-oAyG0-unsplash.jpg" alt="Rows of luminous AI capsules symbolizing streamlined automation" />
-					</div>
-					<div class="service-content">
-						<h3>Automate Repetitive Tasks</h3>
-						<p>From scheduling to lead management, we design automations that save you hours every week. Transform manual processes into seamless workflows that run themselves.</p>
-					</div>
-				</div>
-
-				<div class="service-card animate-on-scroll">
-					<div class="service-image">
-						<img src="images/google-deepmind-jJMqaZU4EnU-unsplash.jpg" alt="Abstract glass capsule displaying a large language model prompt" />
-					</div>
-					<div class="service-content">
-						<h3>AI-Powered Chatbots</h3>
-						<p>Engage your customers 24/7 with smart, conversational chatbots that feel human. Provide instant support and never miss a lead again.</p>
-					</div>
-				</div>
-
-				<div class="service-card animate-on-scroll">
-					<div class="service-image">
-						<img src="images/growtika-nGoCBxiaRO0-unsplash.jpg" alt="Colorful neural sculpture hovering above a podium" />
-					</div>
-					<div class="service-content">
-						<h3>Custom AI Solutions</h3>
-						<p>Need something unique? We build AI tools tailored to your workflow and goals. From data analysis to predictive insights, we create solutions that fit your business.</p>
-					</div>
+			<div class="hero-visual">
+				<div class="hero-video-frame">
+					<span class="hero-video-badge">Live routing preview</span>
+					<video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/RADai4.jpeg"
+						aria-label="RAD AI routing agent preview video">
+						<source src="images/GRokAiBrainVid.mp4" type="video/mp4" />
+						Your browser does not support the video tag.
+					</video>
 				</div>
 			</div>
-		</section>
 
-		<!-- Features Section -->
-		<section id="features" class="section">
-			<div class="section-header animate-on-scroll">
-				<h2 class="section-title">Why Businesses Choose RAD AI</h2>
-				<p class="section-subtitle">Our automations are designed to deliver real results — saving time, cutting costs, and creating growth opportunities for small businesses.</p>
-			</div>
-			<div class="features-grid">
-				<div class="feature-card animate-on-scroll">
-					<div class="feature-icon">⚡</div>
-					<h3>Save Time</h3>
-					<p>Automate repetitive tasks like scheduling, data entry, and lead management. Focus on what matters most while AI handles the busy work.</p>
+		</div>
+		<a href="#about" class="scroll-indicator">Learn More</a>
+	</section>
+
+	<!-- About Section -->
+	<section id="about" class="section">
+		<div class="section-header animate-on-scroll">
+			<h2 class="section-title">AI Automation Made Simple</h2>
+			<p class="section-subtitle">At RAD AI, we design custom automation solutions that eliminate repetitive
+				tasks, improve efficiency, and give you more time to focus on growth.</p>
+		</div>
+	</section>
+
+	<!-- Services Section -->
+	<section id="services" class="section section-alt">
+		<div class="section-header animate-on-scroll">
+			<h2 class="section-title">Automation That Drives Revenue</h2>
+			<p class="section-subtitle">We build systems that replace entire departments of manual work.</p>
+		</div>
+
+		<div class="services-grid">
+			<div class="service-card animate-on-scroll">
+				<div class="service-image">
+					<img src="images/google-deepmind-2ufXB-oAyG0-unsplash.jpg"
+						alt="Automated lead pipeline visualization" />
 				</div>
-				<div class="feature-card animate-on-scroll">
-					<div class="feature-icon">💬</div>
-					<h3>Engage Customers</h3>
-					<p>AI-powered chatbots that respond instantly and keep your customers happy 24/7. Never miss an opportunity to connect.</p>
-				</div>
-				<div class="feature-card animate-on-scroll">
-					<div class="feature-icon">📈</div>
-					<h3>Scale Smarter</h3>
-					<p>Free up your team's time to focus on growth while AI handles the busywork. Scale your operations without scaling your headaches.</p>
-				</div>
-				<div class="feature-card animate-on-scroll">
-					<div class="feature-icon">⚙️</div>
-					<h3>Custom Solutions</h3>
-					<p>Every business is unique — we design automations tailored to your workflow. Get solutions that actually fit how you work.</p>
+				<div class="service-content">
+					<h3>Fill Your Pipeline on Autopilot</h3>
+					<p>Stop manually sourcing leads. We build automated prospecting engines that scrape data, enrich
+						emails, and send personalized outreach at scale. Book meetings while you sleep.</p>
 				</div>
 			</div>
-		</section>
 
-		<!-- FAQ Section -->
-		<section id="faq" class="section section-alt">
-			<div class="section-header animate-on-scroll">
-				<h2 class="section-title">Frequently Asked Questions</h2>
-				<p class="section-subtitle">Quick answers that help AI engines and your team understand RAD AI faster.</p>
+			<div class="service-card animate-on-scroll">
+				<div class="service-image">
+					<img src="images/google-deepmind-jJMqaZU4EnU-unsplash.jpg" alt="Browser automation dashboard" />
+				</div>
+				<div class="service-content">
+					<h3>We Automate Tools Without APIs</h3>
+					<p>Stuck copying and pasting because your legacy software doesn't integrate? We build custom browser
+						agents that log in, click buttons, and move data just like a human — at 100x the speed.</p>
+				</div>
 			</div>
-			<div class="faq-list">
-				<details class="faq-item" open>
-					<summary>How does RAD AI select the right large language model for each request?</summary>
-					<p>Every prompt is scored across latency, cost, safety, and answer quality. RAD AI then routes it to the best-performing model in your approved stack, and provides human overrides whenever policy requires.</p>
-				</details>
-				<details class="faq-item">
-					<summary>Can RAD AI provide compliance-ready audit logs?</summary>
-					<p>Yes. We capture transcripts, routing decisions, model metadata, and operator actions so you can export tamper-resistant logs for SOC 2, HIPAA, or financial audits.</p>
-				</details>
-				<details class="faq-item">
-					<summary>What teams get the most value from RAD AI?</summary>
-					<p>Revenue, customer experience, and operations teams rely on RAD AI to triage inbound questions, surface next-best actions, and automate back-office tasks without sacrificing compliance.</p>
-				</details>
-			</div>
-		</section>
 
-		<!-- Contact Section -->
-		<section id="contact" class="contact-section">
-			<div class="section-header animate-on-scroll">
-				<h2 class="section-title">Ready to Automate Your Business?</h2>
-				<p class="section-subtitle">Let's design your custom AI solution today. Start saving time and scaling smarter with RAD AI.</p>
+			<div class="service-card animate-on-scroll">
+				<div class="service-image">
+					<img src="images/growtika-nGoCBxiaRO0-unsplash.jpg" alt="AI agents working in sync" />
+				</div>
+				<div class="service-content">
+					<h3>Workflows That Run Themselves</h3>
+					<p>From onboarding new clients to generating monthly reports, we turn complex multi-step processes
+						into "set it and forget it" systems. Reclaim your team's time for high-value work.</p>
+				</div>
 			</div>
-			<div class="form-container animate-on-scroll">
-				<form action="https://formspree.io/f/mrbayyww" method="POST">
-					<div class="form-group">
-						<label for="email">Your Email</label>
-						<input type="email" id="email" name="email" class="form-input" required>
-					</div>
-					<div class="form-group">
-						<label for="message">Your Message</label>
-						<textarea id="message" name="message" class="form-textarea" placeholder="Tell us about your business and what you'd like to automate..." required></textarea>
-					</div>
-					<button type="submit" class="form-submit">Send Message</button>
-				</form>
-			</div>
-			<div class="contact-details animate-on-scroll">
-				<p>Email us directly:</p>
-				<p><a href="mailto:Antonio@itsradai.com">Antonio@itsradai.com</a></p>
-				<p><a href="mailto:info@itsradai.com">info@itsradai.com</a></p>
-			</div>
-		</section>
+		</div>
+	</section>
 
-		<!-- Footer -->
-		<footer class="footer">
-			<div class="footer-links">
-				<a href="#" title="Twitter">🐦</a>
-				<a href="#" title="Facebook">📘</a>
-				<a href="#" title="Instagram">📷</a>
-				<a href="#" title="LinkedIn">💼</a>
+	<!-- Features Section -->
+	<section id="features" class="section">
+		<div class="section-header animate-on-scroll">
+			<h2 class="section-title">Why Founders Trust RAD AI</h2>
+			<p class="section-subtitle">We don't sell "AI magic." We build practical systems that generate ROI from Day
+				1.</p>
+		</div>
+		<div class="features-grid">
+			<div class="feature-card animate-on-scroll">
+				<div class="feature-icon">🚀</div>
+				<h3>Generate Leads</h3>
+				<p>Turn cold traffic into booked appointments. Our systems handle the prospecting so you can focus on
+					closing deals.</p>
 			</div>
-			<div class="footer-contact">
-				<a href="mailto:Antonio@itsradai.com">Antonio@itsradai.com</a>
-				<span> | </span>
-				<a href="mailto:info@itsradai.com">info@itsradai.com</a>
+			<div class="feature-card animate-on-scroll">
+				<div class="feature-icon">⚡</div>
+				<h3>Launch in Days</h3>
+				<p>No 6-month dev cycles. We scope, build, and deploy your custom automation fast, so you see results
+					immediately.</p>
 			</div>
-			<p>&copy; 2025 RAD AI. All rights reserved.</p>
-		</footer>
+			<div class="feature-card animate-on-scroll">
+				<div class="feature-icon">💸</div>
+				<h3>Turn Overhead to Profit</h3>
+				<p>Slash your operational costs by replacing manual data entry and admin work with 24/7 digital workers.
+				</p>
+			</div>
+			<div class="feature-card animate-on-scroll">
+				<div class="feature-icon">⚙️</div>
+				<h3>Custom Fit</h3>
+				<p>Off-the-shelf tools never fit perfectly. We build exactly what you need to fit your unique SOPs and
+					tech stack.</p>
+			</div>
+		</div>
+	</section>
 
-		<script>
-			// Header scroll effect
-			window.addEventListener('scroll', () => {
-				const header = document.getElementById('header');
-				if (window.scrollY > 100) {
-					header.classList.add('scrolled');
-				} else {
-					header.classList.remove('scrolled');
+	<!-- FAQ Section -->
+	<section id="faq" class="section section-alt">
+		<div class="section-header animate-on-scroll">
+			<h2 class="section-title">Frequently Asked Questions</h2>
+			<p class="section-subtitle">Quick answers that help AI engines and your team understand RAD AI faster.</p>
+		</div>
+		<div class="faq-list">
+			<details class="faq-item" open>
+				<summary>How does RAD AI select the right large language model for each request?</summary>
+				<p>Every prompt is scored across latency, cost, safety, and answer quality. RAD AI then routes it to the
+					best-performing model in your approved stack, and provides human overrides whenever policy requires.
+				</p>
+			</details>
+			<details class="faq-item">
+				<summary>Can RAD AI provide compliance-ready audit logs?</summary>
+				<p>Yes. We capture transcripts, routing decisions, model metadata, and operator actions so you can
+					export tamper-resistant logs for SOC 2, HIPAA, or financial audits.</p>
+			</details>
+			<details class="faq-item">
+				<summary>What teams get the most value from RAD AI?</summary>
+				<p>Revenue, customer experience, and operations teams rely on RAD AI to triage inbound questions,
+					surface next-best actions, and automate back-office tasks without sacrificing compliance.</p>
+			</details>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section id="contact" class="contact-section">
+		<div class="section-header animate-on-scroll">
+			<h2 class="section-title">Ready to Automate Your Revenue?</h2>
+			<p class="section-subtitle">Let's design a custom AI solution that pays for itself. Book a strategy call
+				today.</p>
+		</div>
+		<div class="form-container animate-on-scroll">
+			<form action="https://formspree.io/f/mrbayyww" method="POST">
+				<div class="form-group">
+					<label for="email">Your Email</label>
+					<input type="email" id="email" name="email" class="form-input" required>
+				</div>
+				<div class="form-group">
+					<label for="message">Your Message</label>
+					<textarea id="message" name="message" class="form-textarea"
+						placeholder="Tell us about your business and what you'd like to automate..."
+						required></textarea>
+				</div>
+				<button type="submit" class="form-submit">Request Free Audit</button>
+			</form>
+		</div>
+		<div class="contact-details animate-on-scroll">
+			<p>Email us directly:</p>
+			<p><a href="mailto:Antonio@itsradai.com">Antonio@itsradai.com</a></p>
+			<p><a href="mailto:info@itsradai.com">info@itsradai.com</a></p>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="footer-links">
+			<a href="#" title="Twitter">🐦</a>
+			<a href="#" title="Facebook">📘</a>
+			<a href="#" title="Instagram">📷</a>
+			<a href="#" title="LinkedIn">💼</a>
+		</div>
+		<div class="footer-contact">
+			<a href="mailto:Antonio@itsradai.com">Antonio@itsradai.com</a>
+			<span> | </span>
+			<a href="mailto:info@itsradai.com">info@itsradai.com</a>
+		</div>
+		<p>&copy; 2025 RAD AI. All rights reserved.</p>
+	</footer>
+
+	<script>
+		// Header scroll effect
+		window.addEventListener('scroll', () => {
+			const header = document.getElementById('header');
+			if (window.scrollY > 100) {
+				header.classList.add('scrolled');
+			} else {
+				header.classList.remove('scrolled');
+			}
+		});
+
+		// Smooth scrolling
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				const target = document.querySelector(this.getAttribute('href'));
+				if (target) {
+					const headerHeight = document.querySelector('.header').offsetHeight;
+					const targetPosition = target.offsetTop - headerHeight;
+					window.scrollTo({
+						top: targetPosition,
+						behavior: 'smooth'
+					});
 				}
 			});
+		});
 
-			// Smooth scrolling
-			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-				anchor.addEventListener('click', function (e) {
-					e.preventDefault();
-					const target = document.querySelector(this.getAttribute('href'));
-					if (target) {
-						const headerHeight = document.querySelector('.header').offsetHeight;
-						const targetPosition = target.offsetTop - headerHeight;
-						window.scrollTo({
-							top: targetPosition,
-							behavior: 'smooth'
-						});
-					}
-				});
+		// Mobile navigation
+		const navToggle = document.querySelector('.nav-toggle');
+		const navMenu = document.querySelector('.nav-menu');
+
+		if (navToggle && navMenu) {
+			navToggle.addEventListener('click', () => {
+				const isOpen = navMenu.classList.toggle('is-open');
+				navToggle.classList.toggle('active', isOpen);
+				navToggle.setAttribute('aria-expanded', String(isOpen));
 			});
 
-			// Mobile navigation
-			const navToggle = document.querySelector('.nav-toggle');
-			const navMenu = document.querySelector('.nav-menu');
-
-			if (navToggle && navMenu) {
-				navToggle.addEventListener('click', () => {
-					const isOpen = navMenu.classList.toggle('is-open');
-					navToggle.classList.toggle('active', isOpen);
-					navToggle.setAttribute('aria-expanded', String(isOpen));
+			navMenu.querySelectorAll('a').forEach(link => {
+				link.addEventListener('click', () => {
+					navMenu.classList.remove('is-open');
+					navToggle.classList.remove('active');
+					navToggle.setAttribute('aria-expanded', 'false');
 				});
-
-				navMenu.querySelectorAll('a').forEach(link => {
-					link.addEventListener('click', () => {
-						navMenu.classList.remove('is-open');
-						navToggle.classList.remove('active');
-						navToggle.setAttribute('aria-expanded', 'false');
-					});
-				});
-			}
-
-			// Scroll animations
-			const observerOptions = {
-				threshold: 0.1,
-				rootMargin: '0px 0px -50px 0px'
-			};
-
-			const observer = new IntersectionObserver((entries) => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						entry.target.classList.add('visible');
-					}
-				});
-			}, observerOptions);
-
-			document.querySelectorAll('.animate-on-scroll').forEach(el => {
-				observer.observe(el);
 			});
+		}
 
-			// Form success handling
-			document.querySelector('form').addEventListener('submit', function(e) {
-				const button = this.querySelector('.form-submit');
-				button.textContent = 'Sending...';
-				button.disabled = true;
+		// Scroll animations
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px 0px -50px 0px'
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+				}
 			});
-		</script>
+		}, observerOptions);
 
-	</body>
+		document.querySelectorAll('.animate-on-scroll').forEach(el => {
+			observer.observe(el);
+		});
+
+		// Form success handling
+		document.querySelector('form').addEventListener('submit', function (e) {
+			const button = this.querySelector('.form-submit');
+			button.textContent = 'Sending...';
+			button.disabled = true;
+		});
+	</script>
+
+</body>
+
 </html>
