@@ -962,6 +962,17 @@
 				width: 100%;
 			}
 		}
+
+		/* Force 3 columns for Value Prop on desktop */
+		#value-prop .features-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@media (max-width: 900px) {
+			#value-prop .features-grid {
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			}
+		}
 	</style>
 	<script type="application/ld+json">
 		{
@@ -1132,28 +1143,25 @@
 
 	<!-- Core Value Prop Section -->
 	<section id="value-prop" class="section">
-		<div class="section-header animate-on-scroll" style="margin-bottom: 2rem;">
-			<div class="features-grid"
-				style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: left;">
-				<div class="feature-card"
-					style="padding: 2rem; border: 1px solid var(--border); box-shadow: var(--shadow-small);">
-					<h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--primary);">Eliminate Manual Flows
-					</h3>
-					<p style="font-size: 0.95rem; color: var(--text-secondary);">Replace repetitive data entry,
-						copy-pasting, and admin work with 24/7 digital workers.</p>
-				</div>
-				<div class="feature-card"
-					style="padding: 2rem; border: 1px solid var(--border); box-shadow: var(--shadow-small);">
-					<h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--primary);">Connect Any Tool</h3>
-					<p style="font-size: 0.95rem; color: var(--text-secondary);">We build bridges between legacy
-						software and modern apps, even without native integrations.</p>
-				</div>
-				<div class="feature-card"
-					style="padding: 2rem; border: 1px solid var(--border); box-shadow: var(--shadow-small);">
-					<h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--primary);">Scale Operations</h3>
-					<p style="font-size: 0.95rem; color: var(--text-secondary);">Handle 10x the volume without adding
-						headcount. Build durable leverage for your team.</p>
-				</div>
+		<div class="features-grid" style="gap: 2rem; text-align: left;">
+			<div class="feature-card animate-on-scroll"
+				style="padding: 2rem; border: 1px solid var(--border); box-shadow: var(--shadow-small);">
+				<h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--primary);">Eliminate Manual Flows
+				</h3>
+				<p style="font-size: 0.95rem; color: var(--text-secondary);">Replace repetitive data entry,
+					copy-pasting, and admin work with 24/7 digital workers.</p>
+			</div>
+			<div class="feature-card animate-on-scroll"
+				style="padding: 2rem; border: 1px solid var(--border); box-shadow: var(--shadow-small);">
+				<h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--primary);">Connect Any Tool</h3>
+				<p style="font-size: 0.95rem; color: var(--text-secondary);">We build bridges between legacy
+					software and modern apps, even without native integrations.</p>
+			</div>
+			<div class="feature-card animate-on-scroll"
+				style="padding: 2rem; border: 1px solid var(--border); box-shadow: var(--shadow-small);">
+				<h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--primary);">Scale Operations</h3>
+				<p style="font-size: 0.95rem; color: var(--text-secondary);">Handle 10x the volume without adding
+					headcount. Build durable leverage for your team.</p>
 			</div>
 		</div>
 	</section>
