@@ -103,24 +103,7 @@
 		}
 
 		.preloader-video {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			min-width: 100%;
-			min-height: 100%;
-			width: auto;
-			height: auto;
-			transform: translate(-50%, -50%);
-			object-fit: cover;
-			opacity: 0.5;
-			filter: saturate(1.2);
-		}
-
-		/* Hide preloader video on mobile for performance */
-		@media (max-width: 768px) {
-			.preloader-video {
-				display: none;
-			}
+			display: none;
 		}
 
 		.preloader-overlay {
@@ -357,7 +340,7 @@
 			height: auto;
 			transform: translate(-50%, -50%);
 			object-fit: cover;
-			filter: saturate(0.8) brightness(0.45) contrast(1.05);
+			filter: saturate(0.7) brightness(0.35) contrast(1.0);
 		}
 
 		/* Elegant gradient overlay with vignette */
@@ -368,8 +351,8 @@
 			width: 100%;
 			height: 100%;
 			background:
-				radial-gradient(circle at center, rgba(10, 10, 15, 0.55) 0%, rgba(10, 10, 15, 0.9) 70%),
-				linear-gradient(135deg, rgba(10, 10, 15, 0.85) 0%, rgba(10, 10, 15, 0.75) 55%, rgba(0, 240, 255, 0.08) 100%);
+				radial-gradient(circle at center, rgba(10, 10, 15, 0.6) 0%, rgba(10, 10, 15, 0.95) 80%),
+				linear-gradient(135deg, rgba(10, 10, 15, 0.9) 0%, rgba(10, 10, 15, 0.8) 55%, rgba(0, 240, 255, 0.05) 100%);
 			backdrop-filter: blur(2px);
 			z-index: 1;
 		}
@@ -1138,9 +1121,6 @@
 
 	<!-- Preloader -->
 	<div class="preloader" id="preloader">
-		<video class="preloader-video" autoplay muted loop playsinline>
-			<source src="images/3141210-uhd_3840_2160_25fps.mp4" type="video/mp4" />
-		</video>
 		<div class="preloader-overlay"></div>
 		<div class="preloader-content">
 			<img src="assets/rad-r-logo.svg" alt="RAD AI logo" class="preloader-logo" />
@@ -1158,8 +1138,6 @@
 			<button class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation"
 				aria-label="Toggle navigation">☰</button>
 			<ul class="nav-menu" id="primary-navigation">
-				<li><a href="#value-prop">Systems</a></li>
-				<li><a href="#differentiation">How It Works</a></li>
 				<li><a href="#contact" class="cta-button">Book a Call</a></li>
 			</ul>
 		</nav>
@@ -1523,19 +1501,11 @@
 	</footer>
 
 	<script>
-		// Smart preloader fade out - waits for video or uses fallback
+		// Clean preloader fade out - simple logo fade
 		window.addEventListener('load', () => {
 			const preloader = document.getElementById('preloader');
-			const v = preloader?.querySelector('video');
-
 			const kill = () => preloader?.classList.add('fade-out');
-
-			if (v) {
-				v.addEventListener('canplaythrough', () => setTimeout(kill, 400), { once: true });
-				setTimeout(kill, 1200); // fallback
-			} else {
-				setTimeout(kill, 800);
-			}
+			setTimeout(kill, 1000); // Wait 1s for the logo to be seen
 		});
 
 		// Header scroll effect
