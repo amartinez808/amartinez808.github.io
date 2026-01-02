@@ -116,6 +116,13 @@
 			filter: saturate(1.2);
 		}
 
+		/* Hide preloader video on mobile for performance */
+		@media (max-width: 768px) {
+			.preloader-video {
+				display: none;
+			}
+		}
+
 		.preloader-overlay {
 			position: absolute;
 			top: 0;
@@ -350,7 +357,7 @@
 			height: auto;
 			transform: translate(-50%, -50%);
 			object-fit: cover;
-			filter: saturate(0.8) brightness(0.6) contrast(1.05);
+			filter: saturate(0.8) brightness(0.45) contrast(1.05);
 		}
 
 		/* Elegant gradient overlay with vignette */
@@ -361,8 +368,8 @@
 			width: 100%;
 			height: 100%;
 			background:
-				radial-gradient(circle at center, rgba(10, 10, 15, 0.4) 0%, rgba(10, 10, 15, 0.85) 70%),
-				linear-gradient(135deg, rgba(10, 10, 15, 0.75) 0%, rgba(10, 10, 15, 0.65) 55%, rgba(0, 240, 255, 0.1) 100%);
+				radial-gradient(circle at center, rgba(10, 10, 15, 0.55) 0%, rgba(10, 10, 15, 0.9) 70%),
+				linear-gradient(135deg, rgba(10, 10, 15, 0.85) 0%, rgba(10, 10, 15, 0.75) 55%, rgba(0, 240, 255, 0.08) 100%);
 			backdrop-filter: blur(2px);
 			z-index: 1;
 		}
@@ -1162,7 +1169,7 @@
 	<section class="hero">
 		<!-- Full-screen video background -->
 		<div class="hero-video-background">
-			<video autoplay muted loop playsinline preload="metadata" poster="images/RADaicool1.jpeg">
+			<video autoplay muted loop playsinline preload="none" poster="images/RADaicool1.jpeg">
 				<source src="images/3141210-uhd_3840_2160_25fps.mp4" type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
