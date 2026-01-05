@@ -8,12 +8,11 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-S3VM5S0T6M');
     </script>
-    <title>Never Miss Another Emergency HVAC Call | RAD AI</title>
+    <title>Stop Losing $5,000+ Emergency HVAC Jobs to Missed Calls | RAD AI</title>
     <meta name="description"
-        content="Automated missed-call recovery and instant follow-up systems for HVAC companies in New England. Respond to emergency calls instantly with RAD AI." />
+        content="Automated missed-call recovery and instant follow-up systems built specifically for New England HVAC companies. Stop losing emergency jobs to voicemail." />
     <meta name="robots" content="index,follow" />
     <meta name="language" content="en" />
     <meta name="author" content="RAD AI" />
@@ -22,14 +21,14 @@
     <meta name="color-scheme" content="dark" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="canonical" href="https://itsradai.com/hvac" />
-    <link rel="icon" type="image/svg+xml" href="../assets/img/logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg" />
     <meta name="theme-color" content="#0b0d12" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Never Miss Another Emergency HVAC Call This Winter | RAD AI" />
+    <meta property="og:title" content="Stop Losing $5,000+ Emergency HVAC Jobs to Missed Calls | RAD AI" />
     <meta property="og:description"
-        content="Automated missed-call recovery and instant follow-up systems for HVAC companies in New England." />
+        content="Automated missed-call recovery and instant follow-up systems built specifically for New England HVAC companies." />
     <meta property="og:url" content="https://itsradai.com/hvac" />
     <meta property="og:site_name" content="RAD AI" />
     <meta property="og:image" content="https://itsradai.com/images/hvac-hero.png" />
@@ -42,55 +41,36 @@
                 url('/images/hvac-hero.png') center/cover no-repeat;
             padding-top: 10rem;
             padding-bottom: 6rem;
+            min-height: 90vh;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .hero-content h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
             font-weight: 800;
-            line-height: 1.1;
+            line-height: 1.15;
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
         }
 
-        .hero-content h1 span {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
         .hero-subtitle {
-            font-size: 1.3rem;
-            line-height: 1.6;
+            font-size: 1.25rem;
+            line-height: 1.7;
             color: var(--text-secondary);
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
         }
 
-        .hero-bullets {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            margin-bottom: 3rem;
-            text-align: left;
-        }
-
-        .hero-bullet {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
+        .hero-supporting {
             font-size: 1.1rem;
-            color: var(--text-primary);
-        }
-
-        .hero-bullet svg {
-            flex-shrink: 0;
-            margin-top: 0.2rem;
-            color: var(--primary);
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
         }
 
         .cta-primary {
@@ -104,229 +84,136 @@
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 0 40px rgba(0, 240, 255, 0.4);
-            border: none;
-            cursor: pointer;
         }
 
         .cta-primary:hover {
             background: #fff;
             transform: translateY(-2px);
-            box-shadow: 0 0 60px rgba(0, 240, 255, 0.6), 0 0 100px rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 60px rgba(0, 240, 255, 0.6);
         }
 
-        .form-container {
-            margin: 4rem auto 0;
-            padding: 3rem;
-        }
-
-        .form-group {
-            text-align: left;
-            margin-bottom: 1.75rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .form-input,
-        .form-textarea {
-            display: block;
-            width: 100%;
-        }
-
-        .who-for-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .who-for-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1.15rem;
-            color: var(--text-primary);
-            padding: 1.25rem;
-            background: var(--bg-secondary);
-            border-radius: var(--radius-medium);
-            border: 1px solid var(--border);
-        }
-
-        .who-for-item svg {
-            flex-shrink: 0;
-        }
-
-        .trust-section {
-            background: var(--bg-secondary);
-            padding: 3rem 5%;
+        .trust-strip {
+            background: var(--bg-tertiary);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
+            padding: 2rem 5%;
         }
 
-        .trust-badges {
+        .trust-items {
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 3rem;
             justify-content: center;
             align-items: center;
-            margin-top: 2rem;
-        }
-
-        .trust-badge {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .trust-badge-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .trust-badge-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            text-align: center;
-        }
-
-        .testimonial {
-            background: var(--bg-tertiary);
-            padding: 2rem;
-            border-radius: var(--radius-medium);
-            border-left: 4px solid var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .testimonial-quote {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-author {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .form-success {
-            display: none;
-            background: rgba(0, 255, 136, 0.1);
-            border: 1px solid var(--success);
-            padding: 1.5rem;
-            border-radius: var(--radius-medium);
-            text-align: center;
-            color: var(--success);
-        }
-
-        .form-helper {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 5rem 5%;
-            max-width: 1400px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .section-alt {
-            background: var(--bg-secondary);
-        }
-
-        .section-header {
+        .trust-item {
             text-align: center;
-            margin-bottom: 3rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        .section-title {
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Grid and Card Styles */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .card {
-            background: var(--bg-primary);
-            padding: 2.5rem 2rem;
-            border-radius: var(--radius-medium);
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary);
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
-        }
-
-        .step-number {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 700;
+        .trust-number {
+            font-size: 2rem;
+            font-weight: 800;
             color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-            padding: 0.5rem 1rem;
-            background: rgba(0, 240, 255, 0.1);
-            border-radius: var(--radius-small);
+            display: block;
+            margin-bottom: 0.25rem;
         }
 
-        .card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+        .trust-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .problem-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin: 2rem 0;
+        }
+
+        .problem-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
             color: var(--text-primary);
         }
 
-        .card p {
-            font-size: 1rem;
-            line-height: 1.7;
+        .problem-list li::before {
+            content: "→";
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .outcome-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .outcome-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-medium);
+            border-left: 3px solid var(--primary);
+        }
+
+        .outcome-list svg {
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .roi-box {
+            background: var(--bg-tertiary);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-large);
+            padding: 2.5rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .roi-math {
+            font-size: 1.2rem;
             color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .roi-math strong {
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .roi-result {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 1rem;
         }
 
         @media (max-width: 768px) {
             .hero {
                 padding-top: 8rem;
                 padding-bottom: 4rem;
+                min-height: auto;
             }
 
-            .hero-bullets {
-                text-align: left;
+            .trust-items {
+                gap: 2rem;
             }
 
             .cta-primary {
                 width: 100%;
                 max-width: 400px;
-                text-align: center;
             }
         }
     </style>
@@ -348,137 +235,186 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Never Miss Another <span>Emergency HVAC Call</span> This Winter</h1>
-            <p class="hero-subtitle">Automated missed-call recovery and instant follow-up systems for HVAC companies in
-                New England.</p>
-
-            <div class="hero-bullets">
-                <div class="hero-bullet">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <span>Instantly follows up on missed emergency calls via SMS</span>
-                </div>
-                <div class="hero-bullet">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <span>Qualifies homeowners and routes urgent jobs automatically</span>
-                </div>
-                <div class="hero-bullet">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <span>Works with your existing phone system and scheduling tools</span>
-                </div>
-            </div>
-
+            <h1>Stop Losing $5,000+ Emergency HVAC Jobs to Missed Calls This Winter</h1>
+            <p class="hero-subtitle">Automated missed-call recovery and instant follow-up systems built specifically for New England HVAC companies.</p>
+            <p class="hero-supporting">When your team is busy or after hours, we make sure emergency leads are captured, qualified, and routed — not lost to the next company on Google.</p>
             <a href="#contact" class="cta-primary">Book a 15-Minute Call</a>
         </div>
     </section>
 
-    <!-- Trust Section -->
-    <section class="trust-section">
-        <div class="section-header" style="margin-bottom: 2rem;">
-            <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 1rem;">Serving HVAC Teams Across New England</h3>
-            <p style="font-size: 1rem; color: var(--text-secondary);">Massachusetts • Connecticut • Rhode Island • New Hampshire • Vermont • Maine</p>
-        </div>
-        <div class="trust-badges">
-            <div class="trust-badge">
-                <div class="trust-badge-number">24/7</div>
-                <div class="trust-badge-label">Emergency<br>Coverage</div>
+    <!-- Trust / Proof Strip -->
+    <section class="trust-strip">
+        <div class="trust-items">
+            <div class="trust-item">
+                <span class="trust-number">95%+</span>
+                <span class="trust-label">missed-call recovery</span>
             </div>
-            <div class="trust-badge">
-                <div class="trust-badge-number">&lt;60s</div>
-                <div class="trust-badge-label">Average<br>Response Time</div>
+            <div class="trust-item">
+                <span class="trust-number">&lt;60s</span>
+                <span class="trust-label">homeowner response</span>
             </div>
-            <div class="trust-badge">
-                <div class="trust-badge-number">95%+</div>
-                <div class="trust-badge-label">Call Recovery<br>Rate</div>
+            <div class="trust-item">
+                <span class="trust-label">Designed for small HVAC teams<br>under winter pressure</span>
             </div>
         </div>
     </section>
 
-    <!-- How It Works Section -->
+    <!-- The Problem -->
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">The Problem</h2>
+        </div>
+        <div style="max-width: 700px; margin: 0 auto;">
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-primary);">During winter, HVAC calls aren't "leads" — they're <strong>emergencies</strong>.</p>
+
+            <ul class="problem-list">
+                <li>Phones ring nonstop</li>
+                <li>Techs are already booked</li>
+                <li>Calls go to voicemail</li>
+                <li>Homeowners call the next company</li>
+            </ul>
+
+            <p style="font-size: 1.15rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);"><strong>Every missed call can mean:</strong></p>
+            <ul class="problem-list">
+                <li>Lost emergency jobs</li>
+                <li>Lost long-term customers</li>
+                <li>Lost referrals</li>
+            </ul>
+
+            <p style="font-size: 1.1rem; margin-top: 2.5rem; color: var(--text-secondary); font-style: italic;">Most HVAC companies don't realize how much revenue is leaking — until it's fixed.</p>
+        </div>
+    </section>
+
+    <!-- What We Do -->
     <section class="section section-alt">
         <div class="section-header">
+            <h2 class="section-title">What We Do</h2>
+            <p class="section-subtitle">We install a Missed Emergency Call Recovery System that works automatically when your team can't answer.</p>
+        </div>
+        <div style="max-width: 700px; margin: 0 auto;">
+            <p style="font-size: 1.15rem; margin-bottom: 1.5rem; color: var(--text-primary);"><strong>What changes immediately:</strong></p>
+
+            <ul class="outcome-list">
+                <li>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Every missed call gets instant SMS follow-up</span>
+                </li>
+                <li>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Homeowners are asked key questions automatically</span>
+                </li>
+                <li>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Urgent jobs are flagged and routed right away</span>
+                </li>
+                <li>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>You stay in control — no new hires required</span>
+                </li>
+            </ul>
+
+            <p style="font-size: 1.2rem; margin-top: 2.5rem; text-align: center; color: var(--text-primary);"><strong>You don't need to chase leads.<br>The system handles them for you.</strong></p>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section">
+        <div class="section-header">
             <h2 class="section-title">How It Works</h2>
-            <p class="section-subtitle">Three simple steps. Works with RingCentral, Nextiva, Vonage, and most VoIP systems.</p>
+            <p class="section-subtitle">Simple. 3 steps.</p>
         </div>
         <div class="grid-3">
             <div class="card">
                 <span class="step-number">Step 01</span>
-                <h3>Missed Call Capture</h3>
-                <p>Your phone system syncs with RAD AI via webhook or call forwarding. When a call is missed after-hours or when lines are busy, our system triggers instantly.</p>
+                <h3>A call is missed</h3>
+                <p>Busy office. After hours. Emergency situation.</p>
             </div>
             <div class="card">
                 <span class="step-number">Step 02</span>
-                <h3>Instant SMS Recovery</h3>
-                <p>The caller receives an immediate text message asking for the emergency details. No more losing jobs to the next company on Google.</p>
+                <h3>Instant follow-up kicks in</h3>
+                <p>The homeowner receives an automatic text within seconds.</p>
             </div>
             <div class="card">
                 <span class="step-number">Step 03</span>
-                <h3>Auto-Dispatch</h3>
-                <p>High-priority emergencies are identified and routed to your on-call technician or booking system (ServiceTitan, Housecall Pro, etc.) automatically.</p>
+                <h3>Jobs get captured, not lost</h3>
+                <p>Urgent calls are qualified and routed so you can act fast.</p>
             </div>
         </div>
+        <p style="text-align: center; font-size: 1.1rem; margin-top: 3rem; color: var(--text-secondary);">That's it. No complex dashboards. No AI buzzwords.</p>
     </section>
 
     <!-- Who This Is For -->
-    <section class="section">
+    <section class="section section-alt">
         <div class="section-header">
             <h2 class="section-title">Who This Is For</h2>
         </div>
-        <div class="who-for-list">
-            <div class="who-for-item">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
-                <span>HVAC Owners & Operators</span>
+        <div style="max-width: 700px; margin: 0 auto;">
+            <p style="font-size: 1.15rem; margin-bottom: 1.5rem; color: var(--text-primary);">This is built for HVAC companies that:</p>
+
+            <div class="who-for-list">
+                <div class="who-for-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span>Handle emergency or after-hours calls</span>
+                </div>
+                <div class="who-for-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span>Run small, busy teams (2–20 employees)</span>
+                </div>
+                <div class="who-for-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span>Spend money on leads they don't want to waste</span>
+                </div>
+                <div class="who-for-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span>Want more booked jobs without hiring staff</span>
+                </div>
             </div>
-            <div class="who-for-item">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
-                <span>Small Service Teams (2-15 technicians)</span>
-            </div>
-            <div class="who-for-item">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
-                <span>After-Hours Emergency Dispatch</span>
-            </div>
+
+            <p style="text-align: center; font-size: 1.2rem; margin-top: 2.5rem; color: var(--text-primary);"><strong>If missing even one emergency job a month hurts — this is for you.</strong></p>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="section section-alt">
+    <!-- Simple ROI Frame -->
+    <section class="section">
         <div class="section-header">
-            <h2 class="section-title">What HVAC Teams Are Saying</h2>
+            <h2 class="section-title">Simple ROI</h2>
         </div>
-        <div style="max-width: 800px; margin: 0 auto;">
-            <div class="testimonial">
-                <p class="testimonial-quote">"We were losing 3-4 emergency calls every week to voicemail. RAD AI catches them instantly and texts back before the homeowner even tries the next company. It's already paid for itself twice over."</p>
-                <p class="testimonial-author"><strong>Mike Chen</strong> — Owner, Precision Heating & Cooling, Worcester MA</p>
-            </div>
-            <div class="testimonial">
-                <p class="testimonial-quote">"The setup was painless. We just forwarded missed calls and it started working the same day. Now our on-call guy only gets pinged for real emergencies, not every spam call."</p>
-                <p class="testimonial-author"><strong>Sarah Thompson</strong> — Operations Manager, Northeast Climate Control, Hartford CT</p>
+        <div style="max-width: 700px; margin: 0 auto;">
+            <div class="roi-box">
+                <div class="roi-math">
+                    If you lose:<br>
+                    <strong>1–2 emergency calls per week</strong><br>
+                    At <strong>$2,000–$5,000 per job</strong>
+                </div>
+                <div class="roi-result">$8,000–$40,000 per month</div>
+                <p style="font-size: 1.1rem; color: var(--text-secondary);">slipping through the cracks.</p>
+                <p style="font-size: 1.2rem; margin-top: 1.5rem; color: var(--text-primary);"><strong>This system exists to stop that.</strong></p>
             </div>
         </div>
     </section>
 
-    <!-- Contact / Booking Section (Repeated CTA) -->
+    <!-- Final CTA -->
     <section id="contact" class="section section-alt" style="text-align: center;">
         <div class="section-header">
-            <h2 class="section-title">Book Your 15-Minute Strategy Call</h2>
-            <p class="section-subtitle">Let's solve missed calls and recover your emergency revenue this winter.</p>
+            <h2 class="section-title">See If You're Losing Emergency HVAC Jobs</h2>
+            <p class="section-subtitle">We'll take 15 minutes to understand how calls come in, identify where leads are being missed, and see if this system makes sense for your setup.</p>
+            <p style="font-size: 1rem; color: var(--text-secondary); margin-top: 1rem;">No pressure. No fluff.</p>
         </div>
 
         <div class="form-container">
@@ -490,38 +426,18 @@
                 <div class="form-group">
                     <label for="name">Company Name</label>
                     <input type="text" id="name" name="company" class="form-input" placeholder="Your HVAC Company" required>
-                    <p class="form-helper">The name of your HVAC business</p>
                 </div>
                 <div class="form-group">
                     <label for="email">Work Email</label>
                     <input type="email" id="email" name="email" class="form-input" placeholder="you@yourcompany.com" required>
-                    <p class="form-helper">We'll send call details and calendar invite here</p>
                 </div>
                 <div class="form-group">
-                    <label for="urgent">Main Challenge</label>
+                    <label for="urgent">Biggest Challenge Right Now</label>
                     <textarea id="urgent" name="message" class="form-textarea"
-                        placeholder="e.g., We're missing 5-10 emergency calls per week during after-hours..." required></textarea>
-                    <p class="form-helper">What's your biggest pain point with missed calls?</p>
+                        placeholder="e.g., Missing 5+ emergency calls per week during after-hours..." required></textarea>
                 </div>
                 <button type="submit" class="form-submit">Book a 15-Minute Call</button>
-                <p class="form-helper" style="text-align: center; margin-top: 1rem;">No commitment required. We'll discuss your setup and show you exactly how RAD AI works.</p>
             </form>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section" style="background: var(--bg-primary); border-top: 1px solid var(--border);">
-        <div style="max-width: 700px; margin: 0 auto; text-align: center;">
-            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary);">About RAD AI</h3>
-            <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
-                RAD AI is a Boston-based automation company specializing in revenue operations systems for service businesses.
-                We build custom missed-call recovery, lead qualification, and dispatch automation for HVAC, plumbing, and
-                electrical contractors across New England.
-            </p>
-            <p style="font-size: 0.95rem; color: var(--text-secondary);">
-                <strong>Founded by Antonio Martinez</strong> — systems engineer with 8+ years building enterprise automation
-                for high-growth teams. We understand service business operations because we work exclusively with them.
-            </p>
         </div>
     </section>
 
@@ -530,12 +446,6 @@
             <a href="mailto:Antonio@itsradai.com" style="color: var(--primary); text-decoration: none; font-weight: 500;">Antonio@itsradai.com</a>
             <span style="color: var(--text-secondary);"> | </span>
             <a href="tel:+1-857-312-4891" style="color: var(--primary); text-decoration: none; font-weight: 500;">(857) 312-4891</a>
-        </div>
-        <div style="margin-bottom: 1rem;">
-            <a href="/" style="color: var(--text-secondary); text-decoration: none; margin: 0 1rem; font-size: 0.9rem;">Home</a>
-            <a href="mailto:Antonio@itsradai.com?subject=Privacy Policy Request" style="color: var(--text-secondary); text-decoration: none; margin: 0 1rem; font-size: 0.9rem;">Privacy</a>
-            <a href="mailto:Antonio@itsradai.com?subject=Terms of Service Request" style="color: var(--text-secondary); text-decoration: none; margin: 0 1rem; font-size: 0.9rem;">Terms</a>
-            <a href="mailto:Antonio@itsradai.com" style="color: var(--text-secondary); text-decoration: none; margin: 0 1rem; font-size: 0.9rem;">Contact</a>
         </div>
         <p>&copy; 2025 RAD AI. All rights reserved.</p>
     </footer>
@@ -577,11 +487,8 @@
                 });
 
                 if (response.ok) {
-                    // Show success message
                     form.style.display = 'none';
                     formSuccess.style.display = 'block';
-
-                    // Reset form
                     form.reset();
                 } else {
                     throw new Error('Form submission failed');
