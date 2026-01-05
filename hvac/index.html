@@ -232,6 +232,87 @@
             margin-top: 0.5rem;
         }
 
+        /* Section Styles */
+        .section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-alt {
+            background: var(--bg-secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Grid and Card Styles */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--bg-primary);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius-medium);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+        }
+
+        .step-number {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 240, 255, 0.1);
+            border-radius: var(--radius-small);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
         @media (max-width: 768px) {
             .hero {
                 padding-top: 8rem;
