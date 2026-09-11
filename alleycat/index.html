@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ZigZag — Alleycat Router</title>
+<meta name="theme-color" content="#0e0e0e">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <header id="topbar">
+    <div class="brand">
+      <span class="brand-mark">⚡</span>
+      <span class="brand-name">ZigZag</span>
+      <span class="brand-sub">alleycat router</span>
+    </div>
+    <div class="topbar-actions">
+      <span id="networkStatus" class="network-status" aria-live="polite">Online</span>
+      <button id="toggleSidebar" class="icon-btn" aria-label="Toggle control panel" aria-expanded="true">☰</button>
+    </div>
+  </header>
+
+  <div id="layout">
+
+    <aside id="sidebar" class="open">
+
+      <section class="panel">
+        <h2>Scan your manifest</h2>
+        <p class="hint">Take a photo, review the stops, then find an efficient route. Addresses and landmarks are searched near your location.</p>
+
+        <button id="openImportBtn" class="btn camera-btn" type="button">📷 Scan or paste a manifest</button>
+
+        <p id="locationStatus" class="hint" role="status">Finding your race area…</p>
+        <details><summary>Change race area</summary><div class="add-row"><input id="cityInput" class="race-input" aria-label="Race city" placeholder="City, region, country"><button id="setCityBtn" class="btn ghost" type="button">Set city</button></div><button id="detectCityBtn" class="text-btn" type="button">Use current location</button></details>
+        <div class="add-row">
+          <input id="addressInput" type="text" placeholder="Address or landmark" autocomplete="off">
+          <button id="addBtn" class="btn primary">Add</button>
+        </div>
+        <div class="add-row secondary-row">
+          <button id="pinModeBtn" class="btn ghost">📍 Drop pin on map</button>
+          <button id="myLocationBtn" class="btn ghost">◎ Start here</button>
+          <span id="pinModeStatus" class="pin-status"></span>
+        </div>
+
+        <ol id="checkpointList" class="checkpoint-list"></ol>
+        <p id="emptyHint" class="hint muted">Tap Start here at the race start, then scan your manifest. The first stop stays fixed as your start.</p>
+        <div id="manifestActions" class="manifest-actions hidden">
+          <span id="savedStatus" class="saved-status">Saved on this device</span>
+          <button id="clearManifestBtn" class="text-btn" type="button">Clear manifest</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Race rules</h2>
+
+        <div class="option-row">
+          <span class="option-label">Checkpoint order</span>
+          <div class="segmented" id="orderModeSeg">
+            <button class="seg-btn active" data-value="fixed">Fixed (manifest)</button>
+            <button class="seg-btn" data-value="optimize">Optimize distance</button>
+          </div>
+        </div>
+
+        <div class="option-row">
+          <span class="option-label">Finish</span>
+          <div class="segmented" id="loopModeSeg">
+            <button class="seg-btn active" data-value="point">End at last checkpoint</button>
+            <button class="seg-btn" data-value="loop">Loop back to start</button>
+          </div>
+        </div>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="ignoreOneWays" checked disabled>
+          <span>Ignore one-way direction <em>(always on — it's an alleycat)</em></span>
+        </label>
+        <p class="safety-note">Motorways, stairs, private access, construction, and bicycle-prohibited ways are still blocked.</p>
+      </section>
+
+      <section class="panel">
+        <button id="buildBtn" class="btn primary big" disabled>Build route</button>
+        <div id="log" class="log" aria-live="polite"></div>
+      </section>
+
+      <section id="resultsPanel" class="panel results hidden">
+        <h2>Route</h2>
+        <div id="resultStats" class="stats"></div>
+        <div id="routeWarnings" class="route-warnings hidden"></div>
+        <div id="googleMapsBatches" class="maps-batches"></div>
+        <p class="hint">Open each batch in order. Google Maps keeps the stops but chooses its own cycling roads. Check that all stops appear before starting.</p>
+        <button id="cueSheetBtn" class="btn ghost small">Show cue sheet</button>
+        <button id="downloadGpxBtn" class="btn ghost small">Download GPX</button>
+        <div id="cueSheet" class="cue-sheet hidden"></div>
+      </section>
+
+      <p class="osm-credit">Search and routing data © OpenStreetMap contributors. Verify the route before riding.</p>
+
+    </aside>
+
+    <main id="mapWrap">
+      <div id="map"></div>
+      <div id="offlineMapNotice" class="map-notice hidden">Offline map tiles may be blank. Your saved route and cue sheet still work.</div>
+    </main>
+
+  </div>
+</div>
+
+<dialog id="importDialog" class="import-dialog">
+  <form method="dialog" class="dialog-card" id="importForm">
+    <div class="dialog-head">
+      <div>
+        <h2>Import race manifest</h2>
+        <p>Photograph the sheet or paste a list. Review one checkpoint per line before importing.</p>
+      </div>
+      <button class="icon-btn dialog-close" value="cancel" aria-label="Close manifest importer">✕</button>
+    </div>
+
+    <div class="import-source-row">
+      <label for="manifestImageInput" class="btn primary file-label">📷 Take or choose photo</label>
+      <input id="manifestImageInput" class="visually-hidden" type="file" accept="image/*" capture="environment">
+      <span class="privacy-copy">OCR stays on this device.</span>
+    </div>
+
+    <img id="manifestPreview" class="manifest-preview hidden" alt="Selected race manifest">
+    <div id="ocrStatus" class="ocr-status" aria-live="polite"></div>
+    <progress id="ocrProgress" class="ocr-progress hidden" max="1" value="0"></progress>
+    <div id="detectedManifestPicker" class="detected-manifest-picker hidden">
+      <span>Choose the manifest you were issued</span>
+      <div id="detectedManifestButtons" class="detected-manifest-buttons"></div>
+    </div>
+
+    <label for="manifestText" class="field-label">Checkpoints, one per line</label>
+    <textarea id="manifestText" rows="10" placeholder="1. Address or landmark&#10;2. Park entrance or intersection"></textarea>
+    <p id="importCount" class="hint">0 checkpoints ready</p>
+
+    <div class="dialog-actions">
+      <button class="btn ghost" value="cancel" type="submit">Cancel</button>
+      <button id="importManifestBtn" class="btn primary" value="default" type="button" disabled>Add checkpoints</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="vendor/tesseract/tesseract.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/geo.js"></script>
+<script src="js/geocode.js"></script>
+<script src="js/overpass.js"></script>
+<script src="js/graph.js"></script>
+<script src="js/tsp.js"></script>
+<script src="js/cuesheet.js"></script>
+<script src="js/manifest.js"></script>
+<script src="js/race-config.js"></script>
+<script src="js/google-maps.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
