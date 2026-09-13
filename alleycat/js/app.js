@@ -133,17 +133,23 @@
   window.addEventListener("offline", updateNetworkState);
   updateNetworkState();
 
+  const AREA_STORAGE_KEY = "zigzag-race-area-v1";
   let raceArea = null;
+  try {
+    const savedArea = JSON.parse(localStorage.getItem(AREA_STORAGE_KEY) || "null");
+    if (savedArea && Number.isFinite(savedArea.lat) && Math.abs(savedArea.lat) <= 90 &&
+        Number.isFinite(savedArea.lon) && Math.abs(savedArea.lon) <= 180 && typeof savedArea.label === "string") raceArea = savedArea;
+  } catch (_) { /* Ignore unavailable or invalid saved location. */ }
   let areaVersion = 0;
   const locationStatus = $("#locationStatus");
-  function applyArea(area) {
-    raceArea = area;
+  function applyArea(area, source = "gps") {
+    raceArea = {...area, source};
+    try { localStorage.setItem(AREA_STORAGE_KEY, JSON.stringify(raceArea)); } catch (_) { /* Location still works for this visit. */ }
     locationStatus.textContent = `Searching near ${area.label}. Review every pin.`;
     map.setView([area.lat, area.lon], 13);
   }
   async function detectArea() {
     const version = ++areaVersion;
-    raceArea = null;
     locationStatus.textContent = "Finding your race area…";
     try {
       if (!navigator.geolocation) throw new Error("Location unavailable");
@@ -154,10 +160,13 @@
       try { area = await identifyRaceArea(lat, lon); } catch (_) { /* GPS still scopes searches without a city name. */ }
       if (version === areaVersion) applyArea(area);
     } catch (_) {
-      if (version === areaVersion) locationStatus.textContent = "Location unavailable. Open Change race area and enter a city, or drop pins on the map.";
+      if (version === areaVersion) locationStatus.textContent = raceArea
+        ? `Location unavailable. Using saved area: ${raceArea.label}. Change race area if you are elsewhere.`
+        : "Location unavailable. Open Change race area and enter a city, or drop pins on the map.";
     }
   }
-  let areaReady = detectArea();
+  if (raceArea) applyArea(raceArea, raceArea.source || "gps");
+  let areaReady = raceArea && raceArea.source === "manual" ? Promise.resolve() : detectArea();
   $("#detectCityBtn").addEventListener("click", () => { areaReady = detectArea(); });
   $("#setCityBtn").addEventListener("click", () => {
     const city = $("#cityInput").value.trim();
@@ -168,7 +177,7 @@
     areaReady = (async () => {
       try {
         const area = await geocodeAddress(city);
-        if (version === areaVersion) applyArea(area);
+        if (version === areaVersion) applyArea(area, "manual");
       } catch (_) {
         if (version === areaVersion) locationStatus.textContent = "City not found. Include the region and country, then try again.";
       }
@@ -396,8 +405,8 @@
     const cp = state.checkpoints.find((item) => item.id === id);
     if (!cp || !text) return;
     state.editingId = null;
-    if (cp.address === text) { renderCheckpointList(); return; }
-    cp.address = text; cp.query = text; cp.lat = null; cp.lon = null; cp.status = "pending";
+    if (cp.address === text && cp.status === "ok") { renderCheckpointList(); return; }
+    cp.address = text; cp.query = text; cp.lat = null; cp.lon = null; cp.status = "pending"; cp.errorMsg = null;
     invalidateRoute();
     renderCheckpointList();
     await geocodeCheckpoint(cp);

@@ -3,7 +3,7 @@
 // requests — routing a race genuinely needs a live connection, so those are
 // always fetched fresh (and will just fail normally if you're offline).
 
-const CACHE_NAME = "zigzag-alleycat-shell-v7";
+const CACHE_NAME = "zigzag-alleycat-shell-v8";
 const SHELL_FILES = [
   "./",
   "./index.html",
