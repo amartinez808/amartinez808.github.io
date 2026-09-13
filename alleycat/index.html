@@ -127,7 +127,16 @@
       <span class="privacy-copy">OCR stays on this device.</span>
     </div>
 
-    <img id="manifestPreview" class="manifest-preview hidden" alt="Selected race manifest">
+    <div id="cropFrame" style="position:relative;display:inline-block;max-width:100%">
+      <img id="manifestPreview" class="manifest-preview hidden" alt="Selected race manifest. Drag over the checkpoint rows to crop." draggable="false">
+      <div id="cropOutline" hidden style="position:absolute;border:2px solid #ffcc00;background:#ffcc0022;pointer-events:none"></div>
+    </div>
+    <div id="ocrRetryControls" class="hidden">
+      <p class="hint">Bad scan? Drag a box over the checkpoint list in the photo, then retry. Keep the start and finish if printed. Exclude pavement and race instructions.</p>
+      <label for="ocrRotation">Straighten tilted text: <output id="ocrRotationValue">0°</output></label>
+      <input id="ocrRotation" type="range" min="-10" max="10" step="0.5" value="0">
+      <div class="add-row"><button id="retryOcrBtn" class="btn primary" type="button">Read selected area</button><button id="resetCropBtn" class="btn ghost" type="button">Use full photo</button></div>
+    </div>
     <div id="ocrStatus" class="ocr-status" aria-live="polite"></div>
     <progress id="ocrProgress" class="ocr-progress hidden" max="1" value="0"></progress>
     <div id="detectedManifestPicker" class="detected-manifest-picker hidden">

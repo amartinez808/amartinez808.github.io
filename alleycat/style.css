@@ -353,3 +353,5 @@ textarea.race-input{min-height:66px;resize:vertical;line-height:1.4;}
 .maps-batches{margin:16px 0;}
 .maps-batch{display:flex;align-items:center;justify-content:center;min-height:60px;text-align:center;text-decoration:none;white-space:normal;padding:12px;box-sizing:border-box;}
 .maps-batches .hint{overflow-wrap:anywhere;margin:8px 0 18px;}
+
+#cropFrame .manifest-preview{display:block;margin:0;max-height:360px;width:auto;max-width:100%;} #cropFrame .manifest-preview.hidden{display:none;} #ocrRotation{width:100%;min-height:44px;}

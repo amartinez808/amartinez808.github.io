@@ -520,9 +520,37 @@
     if (!settingOcrText) selectedOcrChoice = null;
     updateImportCount();
   });
-  manifestImageInput.addEventListener("change", async () => {
+  let ocrCrop = null;
+  let cropStart = null;
+  const cropOutline = $("#cropOutline");
+  function photoPoint(event) {
+    const r = manifestPreview.getBoundingClientRect();
+    return { x: Math.max(0,Math.min(1,(event.clientX-r.left)/r.width)), y: Math.max(0,Math.min(1,(event.clientY-r.top)/r.height)) };
+  }
+  manifestPreview.style.touchAction = "none";
+  manifestPreview.addEventListener("pointerdown", event => {
+    if (state.importBusy) return;
+    event.preventDefault(); cropStart = photoPoint(event); manifestPreview.setPointerCapture(event.pointerId);
+  });
+  manifestPreview.addEventListener("pointermove", event => {
+    if (!cropStart) return;
+    const end = photoPoint(event);
+    ocrCrop = {x:Math.min(cropStart.x,end.x),y:Math.min(cropStart.y,end.y),w:Math.abs(end.x-cropStart.x),h:Math.abs(end.y-cropStart.y)};
+    cropOutline.hidden = false;
+    Object.assign(cropOutline.style,{left:`${ocrCrop.x*100}%`,top:`${ocrCrop.y*100}%`,width:`${ocrCrop.w*100}%`,height:`${ocrCrop.h*100}%`});
+  });
+  function finishCrop() { cropStart = null; if (ocrCrop && (ocrCrop.w < .03 || ocrCrop.h < .03)) { ocrCrop = null; cropOutline.hidden = true; } }
+  manifestPreview.addEventListener("pointerup", finishCrop);
+  manifestPreview.addEventListener("pointercancel", finishCrop);
+  $("#ocrRotation").addEventListener("input", () => { $("#ocrRotationValue").textContent = `${$("#ocrRotation").value}°`; });
+  $("#resetCropBtn").addEventListener("click", () => { ocrCrop = null; cropOutline.hidden = true; $("#ocrRotation").value = "0"; $("#ocrRotationValue").textContent = "0°"; });
+  $("#retryOcrBtn").addEventListener("click", () => { if (!state.importBusy) runPhotoOcr(false); });
+  manifestImageInput.addEventListener("change", () => runPhotoOcr(true));
+  async function runPhotoOcr(isNew) {
     const file = manifestImageInput.files && manifestImageInput.files[0];
     if (!file) return;
+    if (isNew) { ocrCrop = null; cropOutline.hidden = true; $("#ocrRotation").value = "0"; $("#ocrRotationValue").textContent = "0°"; }
+    $("#ocrRetryControls").classList.remove("hidden");
     const previousUrl = manifestPreview.dataset.objectUrl;
     if (previousUrl) URL.revokeObjectURL(previousUrl);
     const objectUrl = URL.createObjectURL(file);
@@ -530,6 +558,7 @@
     manifestPreview.dataset.objectUrl = objectUrl;
     manifestPreview.classList.remove("hidden");
     state.importBusy = true;
+    $("#retryOcrBtn").disabled = true;
     ocrProgress.classList.remove("hidden");
     ocrProgress.value = 0;
     ocrStatus.classList.remove("err");
@@ -539,9 +568,11 @@
       const result = await recognizeManifestImage(file, (message) => {
         ocrStatus.textContent = ocrProgressLabel(message);
         if (Number.isFinite(message.progress)) ocrProgress.value = message.progress;
-      });
+      }, {crop:ocrCrop, rotation:Number($("#ocrRotation").value)});
       showDetectedManifests(result.choices || [{ label: "Scanned manifest", text: result.text || String(result) }]);
-      ocrStatus.textContent = result.choices && result.choices.length > 1
+      ocrStatus.textContent = result.choices && result.choices[0] && result.choices[0].loop
+        ? "Same start and finish detected: route will loop back. Review every address and number before importing."
+        : result.choices && result.choices.length > 1
         ? "Both manifest pages found. Choose the one you were issued, then review it."
         : "Text extracted. Correct any mistakes before adding checkpoints.";
     } catch (err) {
@@ -549,10 +580,11 @@
       ocrStatus.classList.add("err");
     } finally {
       state.importBusy = false;
+      $("#retryOcrBtn").disabled = false;
       ocrProgress.classList.add("hidden");
       updateImportCount();
     }
-  });
+  }
 
   importManifestBtn.addEventListener("click", async () => {
     const room = MAX_MANIFEST_CHECKPOINTS - state.checkpoints.length;
@@ -581,6 +613,16 @@
       return;
     }
 
+    if (selectedOcrChoice && selectedOcrChoice.text.trim() === manifestText.value.trim()) {
+      if (selectedOcrChoice.loop) {
+        state.loop = true;
+        loopModeSeg.querySelectorAll(".seg-btn").forEach(btn => btn.classList.toggle("active", btn.dataset.value === "loop"));
+      }
+      if (selectedOcrChoice.orderMode === "optimize") {
+        state.orderMode = "optimize";
+        orderModeSeg.querySelectorAll(".seg-btn").forEach(btn => btn.classList.toggle("active", btn.dataset.value === "optimize"));
+      }
+    }
     importDialog.close();
     manifestText.value = "";
     manifestImageInput.value = "";

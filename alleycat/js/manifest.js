@@ -171,8 +171,39 @@ function _structuredManifestLines(rawText) {
 }
 
 function cleanOcrManifestText(text) {
+  const addressRows = String(text || "").split(/\n/).map(line => line.trim()).filter(line =>
+    /\b\d+[a-z]?(?:[-–]\d+)?\s+.*\b(?:street|st|road|rd|avenue|ave|boulevard|blvd|blyd|lane|ln|drive|dr|way|court|ct)\b/i.test(line) ||
+    /\b(?:street|st|road|rd|avenue|ave)\s*[\/&]\s*.+\b(?:street|st|road|rd|avenue|ave)\b/i.test(line) ||
+    /[-–]\s*.+\b(?:street|st|road|rd|avenue|ave|blvd|boulevard|walk)\b/i.test(line) ||
+    /^(?:start|end|finish)\s*[-:@]/i.test(line));
+  if (addressRows.length >= 3) {
+    const all = String(text || "").split(/\n/).map(line => line.trim()).filter(Boolean);
+    const begin = all.findIndex(line => /^start\s*[-:@]/i.test(line));
+    const end = all.findIndex((line,index) => index > begin && /^(?:end|finish)\s*[-:@]/i.test(line));
+    const rows = all.slice(begin >= 0 ? begin : 0, end >= 0 ? end + 1 : undefined);
+    // Keep landmark-only rows too; do not silently discard stops without numbers.
+    return rows.filter(line => !/ALLEYCAT|CHECKPOINTS?\s+in|PHOTO\s+OF|SELFIES|SCRATCH\s+TICKET|MUST\s+STOP/i.test(line))
+      .map(line => line.replace(/\bBlyd\b/g, "Blvd")).join("\n");
+  }
   const structured = _structuredManifestLines(text);
   return (structured.length >= 2 ? structured : manifestLines(text)).join("\n");
+}
+
+function reviewOcrText(raw) {
+  const lines = cleanOcrManifestText(raw).split("\n");
+  const startIndex = lines.findIndex(line => /^start\s*[-:@]/i.test(line));
+  const endIndex = lines.findIndex(line => /^(?:end|finish)\s*[-:@]/i.test(line));
+  let loop = false;
+  if (startIndex >= 0 && endIndex >= 0) {
+    const start = lines[startIndex].replace(/^start\s*[-:@]\s*/i, "").trim();
+    const finish = lines[endIndex].replace(/^(?:end|finish)\s*[-:@]\s*/i, "").trim();
+    if (_normalizeOcrSearchText(finish.replace(/\s*[-–]\s+.*$/, "")) === _normalizeOcrSearchText(start) && start.length > 3) {
+      lines[startIndex] = start;
+      lines.splice(endIndex, 1);
+      loop = true;
+    }
+  }
+  return {text: lines.join("\n"), loop, orderMode: /\bANY\s+order\b/i.test(raw) ? "optimize" : undefined};
 }
 
 function _canvasToBlob(canvas) {
@@ -213,10 +244,10 @@ function _isolateInk(canvas) {
   ctx.putImageData(image, 0, 0);
 }
 
-async function prepareOcrImages(file) {
+async function prepareOcrImages(file, options = {}) {
   if (typeof createImageBitmap !== "function") return [{ image: file, page: 1, total: 1 }];
   const bitmap = await createImageBitmap(file);
-  const isSpread = bitmap.width / bitmap.height >= 1.35;
+  const isSpread = false; // A landscape photo is not necessarily two pages.
   const total = isSpread ? 2 : 1;
   const pages = [];
 
@@ -226,7 +257,7 @@ async function prepareOcrImages(file) {
       ? Math.round((bitmap.width * (page + 1)) / 2) - sx
       : bitmap.width;
     const sh = bitmap.height;
-    const scale = Math.min(2.2, 2200 / Math.max(sw, sh));
+    const scale = Math.min(2.2, 2800 / Math.max(sw, sh));
     const canvas = document.createElement("canvas");
     canvas.width = Math.max(1, Math.round(sw * scale));
     canvas.height = Math.max(1, Math.round(sh * scale));
@@ -234,8 +265,29 @@ async function prepareOcrImages(file) {
     ctx.fillStyle = "#fff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(bitmap, sx, 0, sw, sh, 0, 0, canvas.width, canvas.height);
-    _isolateInk(canvas);
-    const blob = await _canvasToBlob(canvas);
+    // Preserve shaded/colored paper instead of thresholding away fine type.
+    let output = canvas;
+    if (options.crop) {
+      const c = options.crop;
+      const selected = document.createElement("canvas");
+      selected.width = Math.max(1, Math.round(canvas.width * c.w));
+      selected.height = Math.max(1, Math.round(canvas.height * c.h));
+      selected.getContext("2d").drawImage(canvas, canvas.width*c.x, canvas.height*c.y,
+        selected.width, selected.height, 0, 0, selected.width, selected.height);
+      output = selected;
+    }
+    if (options.rotation) {
+      const rotated = document.createElement("canvas");
+      const radians = options.rotation * Math.PI / 180;
+      rotated.width = Math.ceil(output.width*Math.abs(Math.cos(radians)) + output.height*Math.abs(Math.sin(radians)));
+      rotated.height = Math.ceil(output.height*Math.abs(Math.cos(radians)) + output.width*Math.abs(Math.sin(radians)));
+      const rc = rotated.getContext("2d");
+      rc.fillStyle = "white"; rc.fillRect(0,0,rotated.width,rotated.height);
+      rc.translate(rotated.width/2,rotated.height/2); rc.rotate(radians);
+      rc.drawImage(output,-output.width/2,-output.height/2);
+      output = rotated;
+    }
+    const blob = await _canvasToBlob(output);
     pages.push({ image: blob || file, page: page + 1, total });
   }
   bitmap.close();
@@ -270,12 +322,12 @@ function getOcrWorker() {
   return _ocrWorkerPromise;
 }
 
-async function recognizeManifestImage(file, onProgress) {
+async function recognizeManifestImage(file, onProgress, options = {}) {
   if (!file || !String(file.type || "").startsWith("image/")) {
     throw new Error("Choose a photo or image file.");
   }
 
-  const pages = await prepareOcrImages(file).catch(() => [{ image: file, page: 1, total: 1 }]);
+  const pages = await prepareOcrImages(file, options).catch(() => [{ image: file, page: 1, total: 1 }]);
   let activePage = 0;
   _ocrProgressListener = (message) => {
     if (typeof onProgress !== "function") return;
@@ -289,6 +341,7 @@ async function recognizeManifestImage(file, onProgress) {
 
   try {
     const worker = await getOcrWorker();
+    await worker.setParameters({ tessedit_pageseg_mode: options.crop ? "6" : "3" });
     const rawPages = [];
     for (let index = 0; index < pages.length; index++) {
       activePage = index;
@@ -306,7 +359,7 @@ async function recognizeManifestImage(file, onProgress) {
       ? uniqueExact
       : rawPages.map((raw, index) => ({
           label: rawPages.length > 1 ? `Page ${index + 1}` : "Scanned manifest",
-          text: cleanOcrManifestText(raw),
+          ...reviewOcrText(raw),
           exactPins: false,
         })).filter((choice) => manifestLines(choice.text).length > 0);
 
